@@ -1,0 +1,16 @@
+id = "dabstep"
+name = "DABStep"
+description = "Adyen and Hugging Face benchmark of multi-step data-analysis questions over payments data (transactions, fees, merchant metadata) supplied as CSV, JSON and Markdown files."
+created = "2024-12-21"
+created_source = "Hugging Face dataset creation date (no paper found)"
+updated = "2026-01-18"
+updated_source = "Hugging Face dataset lastModified"
+repo_url = ""
+paper_url = ""
+website_url = "https://huggingface.co/spaces/adyen/DABstep"
+dataset_url = "https://huggingface.co/datasets/adyen/DABstep"
+last_verified = "2026-10-23"
+notes = "No GitHub repository; the dataset and leaderboard are hosted on Hugging Face. Agents may use any tooling to answer."
+
+[support]
+evidence_url = "https://huggingface.co/datasets/adyen/DABstep"

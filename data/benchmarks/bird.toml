@@ -1,0 +1,19 @@
+id = "bird"
+name = "BIRD"
+description = "Large-scale database-grounded text-to-SQL benchmark with real-world databases and external-knowledge evidence; the Mini-Dev subset ships SQLite, MySQL and PostgreSQL variants."
+created = "2023-05-04"
+created_source = "arXiv 2305.03111 v1 submission"
+updated = "2026-09-05"
+updated_source = "Latest commit on bird-bench/mini_dev main (abd11b6)"
+repo_url = "https://github.com/bird-bench/mini_dev"
+paper_url = "https://arxiv.org/abs/2305.03111"
+website_url = "https://bird-bench.github.io/"
+dataset_url = "https://huggingface.co/datasets/birdsql/bird_mini_dev"
+last_verified = "2026-10-23"
+notes = "Original BIRD code lives in AlibabaResearch/DAMO-ConvAI (bird/); the repository URL here points at the maintained Mini-Dev release."
+
+[support]
+engine = ["SQLite", "MySQL", "PostgreSQL"]
+language = ["SQL"]
+evidence_url = "https://huggingface.co/datasets/birdsql/bird_mini_dev"
+notes = "Mini-Dev splits: mini_dev_sqlite, mini_dev_mysql, mini_dev_pg."

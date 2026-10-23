@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Data Benchmark Matrix</title>
+  <meta name="description" content="Maps data-related AI agent benchmarks to their engines, clients, catalogues and storage formats, using task-level metadata.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="vendor/tabulator/tabulator_simple.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <h1>Agent Data Benchmark Matrix</h1>
+      <p class="tagline">Which data technologies do agent benchmarks actually exercise? Values are aggregated from task-level metadata; click a cell to see the tasks and their evidence.</p>
+    </div>
+    <p class="stats" id="stats" aria-live="polite">Loading…</p>
+  </header>
+
+  <section class="toolbar" aria-label="Controls">
+    <label class="control">
+      <span>View</span>
+      <select id="view-select">
+        <option value="engine">A · Benchmark × Engine</option>
+        <option value="client">B · Benchmark × Client</option>
+        <option value="table_format">C · Benchmark × Table format</option>
+        <option value="tasks">D · Task explorer</option>
+      </select>
+    </label>
+    <label class="control grow">
+      <span>Search</span>
+      <input id="search" type="search" placeholder="e.g. snowflake dbt, bq011, sqlite">
+    </label>
+    <details class="control dropdown" id="benchmark-filter">
+      <summary>Benchmarks <span class="count"></span></summary>
+      <div class="dropdown-body"></div>
+    </details>
+    <details class="control dropdown" id="column-filter">
+      <summary><span class="label">Engines</span> <span class="count"></span></summary>
+      <div class="dropdown-body"></div>
+    </details>
+    <details class="control dropdown" id="status-filter">
+      <summary>Status <span class="count"></span></summary>
+      <div class="dropdown-body"></div>
+    </details>
+    <button type="button" id="download-csv">Download CSV</button>
+  </section>
+
+  <p class="view-help" id="view-help"></p>
+
+  <main class="layout">
+    <div id="table" class="table-wrap"></div>
+    <aside id="detail" class="detail" hidden aria-label="Details">
+      <div class="detail-head">
+        <h2 id="detail-title"></h2>
+        <button type="button" id="detail-close" aria-label="Close details">×</button>
+      </div>
+      <div id="detail-body"></div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <span class="badge verified">verified</span> checked against the task's own files ·
+      <span class="badge inferred">inferred</span> derived from benchmark-level docs ·
+      <span class="badge illustrative">illustrative</span> example only, excluded by default ·
+      <span class="badge unknown">unknown</span> not yet checked.
+      <span class="support-mark">◦</span> = technology claimed at benchmark level without task-level records.
+    </p>
+    <p>Source metadata lives in TOML in <a href="https://github.com/tfayyaz/agent-data-bench-matrix">tfayyaz/agent-data-bench-matrix</a>. Corrections welcome.</p>
+  </footer>
+
+  <script src="vendor/tabulator/tabulator.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/matrix.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

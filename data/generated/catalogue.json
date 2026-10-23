@@ -1,0 +1,1707 @@
+{
+ "schema_version": 1,
+ "fields": {
+  "technology": [
+   "client_application",
+   "interaction_method",
+   "language",
+   "engine",
+   "managed_service",
+   "table_format",
+   "source_formats",
+   "output_formats",
+   "storage_format",
+   "catalogue"
+  ],
+  "verification": [
+   "verified",
+   "inferred",
+   "illustrative",
+   "unknown"
+  ],
+  "interaction_method": [
+   "CLI",
+   "MCP",
+   "API",
+   "browser GUI",
+   "desktop GUI",
+   "notebook",
+   "SQL driver",
+   "unknown"
+  ]
+ },
+ "stats": {
+  "benchmarks": 10,
+  "tasks": 16,
+  "configurations": 20,
+  "by_verification": {
+   "verified": 14,
+   "inferred": 2,
+   "illustrative": 0,
+   "unknown": 0
+  }
+ },
+ "benchmarks": [
+  {
+   "id": "ade-bench",
+   "name": "ADE-bench",
+   "description": "dbt Labs benchmark for AI agents on analytics and data engineering tasks in sandboxed dbt projects, with task variants for DuckDB and Snowflake.",
+   "created_source": "GitHub repository creation date (no paper found)",
+   "updated_source": "Latest commit on main (c305600)",
+   "notes": "Harbor ships an adapter (harbor-framework/harbor adapters/adebench) that converts ADE-bench tasks to Harbor task.toml.",
+   "created": "2025-05-30",
+   "updated": "2026-09-30",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/dbt-labs/ade-bench",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "DuckDB",
+     "Snowflake"
+    ],
+    "client_application": [
+     "dbt CLI"
+    ],
+    "table_format": [],
+    "language": [
+     "SQL"
+    ],
+    "evidence_url": "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/README.md",
+    "notes": null
+   },
+   "source_file": "data/benchmarks/ade-bench.toml"
+  },
+  {
+   "id": "bird",
+   "name": "BIRD",
+   "description": "Large-scale database-grounded text-to-SQL benchmark with real-world databases and external-knowledge evidence; the Mini-Dev subset ships SQLite, MySQL and PostgreSQL variants.",
+   "created_source": "arXiv 2305.03111 v1 submission",
+   "updated_source": "Latest commit on bird-bench/mini_dev main (abd11b6)",
+   "notes": "Original BIRD code lives in AlibabaResearch/DAMO-ConvAI (bird/); the repository URL here points at the maintained Mini-Dev release.",
+   "created": "2023-05-04",
+   "updated": "2026-09-05",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/bird-bench/mini_dev",
+   "paper_url": "https://arxiv.org/abs/2305.03111",
+   "website_url": "https://bird-bench.github.io/",
+   "dataset_url": "https://huggingface.co/datasets/birdsql/bird_mini_dev",
+   "support": {
+    "engine": [
+     "SQLite",
+     "MySQL",
+     "PostgreSQL"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "SQL"
+    ],
+    "evidence_url": "https://huggingface.co/datasets/birdsql/bird_mini_dev",
+    "notes": "Mini-Dev splits: mini_dev_sqlite, mini_dev_mysql, mini_dev_pg."
+   },
+   "source_file": "data/benchmarks/bird.toml"
+  },
+  {
+   "id": "bird-interact",
+   "name": "BIRD-Interact",
+   "description": "Interactive text-to-SQL benchmark where agents resolve ambiguous requests through dialogue with a user simulator, in conversational (c-Interact) and agentic (a-Interact) modes on PostgreSQL.",
+   "created_source": "arXiv 2510.05318 v1 submission",
+   "updated_source": "Latest commit on main (451fe2c)",
+   "notes": "A larger variant is published as https://huggingface.co/datasets/birdsql/bird-interact-full.",
+   "created": "2025-10-06",
+   "updated": "2026-03-29",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/bird-bench/BIRD-Interact",
+   "paper_url": "https://arxiv.org/abs/2510.05318",
+   "website_url": "https://bird-interact.github.io/",
+   "dataset_url": "https://huggingface.co/datasets/birdsql/bird-interact-lite",
+   "support": {
+    "engine": [
+     "PostgreSQL"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "SQL"
+    ],
+    "evidence_url": "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/README.md",
+    "notes": null
+   },
+   "source_file": "data/benchmarks/bird-interact.toml"
+  },
+  {
+   "id": "dabstep",
+   "name": "DABStep",
+   "description": "Adyen and Hugging Face benchmark of multi-step data-analysis questions over payments data (transactions, fees, merchant metadata) supplied as CSV, JSON and Markdown files.",
+   "created_source": "Hugging Face dataset creation date (no paper found)",
+   "updated_source": "Hugging Face dataset lastModified",
+   "notes": "No GitHub repository; the dataset and leaderboard are hosted on Hugging Face. Agents may use any tooling to answer.",
+   "created": "2024-12-21",
+   "updated": "2026-01-18",
+   "last_verified": "2026-10-23",
+   "repo_url": null,
+   "paper_url": null,
+   "website_url": "https://huggingface.co/spaces/adyen/DABstep",
+   "dataset_url": "https://huggingface.co/datasets/adyen/DABstep",
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "evidence_url": "https://huggingface.co/datasets/adyen/DABstep",
+    "notes": null
+   },
+   "source_file": "data/benchmarks/dabstep.toml"
+  },
+  {
+   "id": "data-eng-bench",
+   "name": "data-eng-bench",
+   "description": "Snowflake Labs data-engineering benchmark for coding agents: 103 dbt tasks on a retail warehouse, each runnable on DuckDB or Snowflake, packaged as Harbor tasks.",
+   "created_source": "GitHub repository creation date (no paper found)",
+   "updated_source": "Latest commit on master (a3278ad)",
+   "notes": null,
+   "created": "2026-07-29",
+   "updated": "2026-09-02",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/Snowflake-Labs/data-eng-bench",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": "https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench",
+   "support": {
+    "engine": [
+     "DuckDB",
+     "Snowflake"
+    ],
+    "client_application": [
+     "dbt CLI"
+    ],
+    "table_format": [],
+    "language": [
+     "SQL",
+     "Python"
+    ],
+    "evidence_url": "https://github.com/Snowflake-Labs/data-eng-bench/blob/a3278ad102829a6084dde086244a0ef665a8011c/README.md",
+    "notes": "Backend chosen per run with DB_TYPE=duckdb|snowflake."
+   },
+   "source_file": "data/benchmarks/data-eng-bench.toml"
+  },
+  {
+   "id": "dsagentbench",
+   "name": "DSAgentBench",
+   "description": "275 end-to-end data-science tasks performed by computer-use agents in a real Ubuntu desktop (VS Code, Jupyter), built on OSWorld and scored by task-specific evaluators.",
+   "created_source": "arXiv 2608.10366 v1 submission",
+   "updated_source": "Latest commit on main (6e7b471)",
+   "notes": "Identified as the vis-nlp/DSAgentBench repository linked from arXiv 2608.10366; no other benchmark with this name was found.",
+   "created": "2026-08-11",
+   "updated": "2026-09-27",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/vis-nlp/DSAgentBench",
+   "paper_url": "https://arxiv.org/abs/2608.10366",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [
+     "VS Code",
+     "Jupyter"
+    ],
+    "table_format": [],
+    "language": [
+     "Python"
+    ],
+    "evidence_url": "https://github.com/vis-nlp/DSAgentBench/blob/6e7b47195db8297671fa2c5827bfb9603c721dc8/README.md",
+    "notes": null
+   },
+   "source_file": "data/benchmarks/dsagentbench.toml"
+  },
+  {
+   "id": "dsbench",
+   "name": "DSBench",
+   "description": "Data science agent benchmark (ICLR 2025) with data analysis questions from ModelOff/Eloquens and data modeling tasks from Kaggle competitions.",
+   "created_source": "arXiv 2409.07703 v1 submission",
+   "updated_source": "Latest commit on main (ba78609)",
+   "notes": "Task files are distributed as a separate data archive; per-task file formats were not verified.",
+   "created": "2024-09-12",
+   "updated": "2025-08-17",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/LiqiangJing/DSBench",
+   "paper_url": "https://arxiv.org/abs/2409.07703",
+   "website_url": "https://liqiangjing.github.io/dsbench.github.io/",
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "Python"
+    ],
+    "evidence_url": "https://github.com/LiqiangJing/DSBench/blob/ba786096137a5108af11c016ad3f09cdb97beefd/README.md",
+    "notes": null
+   },
+   "source_file": "data/benchmarks/dsbench.toml"
+  },
+  {
+   "id": "elt-bench-plus-plus",
+   "name": "ELT-Bench++",
+   "description": "End-to-end ELT pipeline benchmark: agents configure Airbyte extraction/loading from heterogeneous sources and build transformation models in a cloud warehouse. ELT-Bench++ is the current default branch of the ELT-Bench repository.",
+   "created_source": "arXiv 2504.04808 v1 submission (original ELT-Bench paper; no separate ELT-Bench++ paper found)",
+   "updated_source": "Latest commit on the elt_bench++ branch (fcf3129)",
+   "notes": null,
+   "created": "2025-04-07",
+   "updated": "2026-08-04",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/uiuc-kang-lab/ELT-Bench",
+   "paper_url": "https://arxiv.org/abs/2504.04808",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Snowflake",
+     "Databricks",
+     "Amazon Redshift"
+    ],
+    "client_application": [
+     "Airbyte"
+    ],
+    "table_format": [],
+    "language": [],
+    "evidence_url": "https://github.com/uiuc-kang-lab/ELT-Bench/blob/elt_bench%2B%2B/README.md",
+    "notes": "README lists Snowflake, Databricks and Redshift versions."
+   },
+   "source_file": "data/benchmarks/elt-bench-plus-plus.toml"
+  },
+  {
+   "id": "spider2",
+   "name": "Spider 2.0",
+   "description": "Enterprise text-to-SQL and data workflow tasks over BigQuery, Snowflake, SQLite and DuckDB/dbt projects (sub-sets: Spider 2.0-Lite, Spider 2.0-Snow, Spider 2.0-DBT).",
+   "created_source": "arXiv 2411.07763 v1 submission",
+   "updated_source": "Latest commit on main (cafb867)",
+   "notes": "README (2026-08-12) reports the shared Snowflake evaluation account is temporarily suspended.",
+   "created": "2024-11-12",
+   "updated": "2026-08-12",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/xlang-ai/Spider2",
+   "paper_url": "https://arxiv.org/abs/2411.07763",
+   "website_url": "https://spider2-sql.github.io",
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "BigQuery",
+     "Snowflake",
+     "SQLite",
+     "DuckDB"
+    ],
+    "client_application": [
+     "dbt CLI"
+    ],
+    "table_format": [],
+    "language": [
+     "SQL",
+     "Python"
+    ],
+    "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/README.md",
+    "notes": "Lite mixes BigQuery, Snowflake and local SQLite databases; Snow is Snowflake-only; DBT uses local DuckDB files."
+   },
+   "source_file": "data/benchmarks/spider2.toml"
+  },
+  {
+   "id": "spider2-v",
+   "name": "Spider2-V",
+   "description": "Multimodal agent benchmark of data science and engineering workflows executed through GUIs and terminals in an Ubuntu VM (BigQuery, Snowflake, dbt, Airflow, Airbyte, Jupyter, Superset and more).",
+   "created_source": "arXiv 2407.10956 v1 submission",
+   "updated_source": "Latest commit on main (c2a3a6c)",
+   "notes": "Dataset URL is the VM image; task JSON files live in the repository under evaluation_examples/examples/<app>/.",
+   "created": "2024-07-15",
+   "updated": "2024-08-26",
+   "last_verified": "2026-10-23",
+   "repo_url": "https://github.com/xlang-ai/Spider2-V",
+   "paper_url": "https://arxiv.org/abs/2407.10956",
+   "website_url": "https://spider2-v.github.io",
+   "dataset_url": "https://huggingface.co/datasets/xlangai/ubuntu_spider2v",
+   "support": {
+    "engine": [
+     "BigQuery",
+     "Snowflake",
+     "Apache Airflow"
+    ],
+    "client_application": [
+     "BigQuery Console",
+     "Snowflake Snowsight",
+     "Airflow web UI",
+     "Jupyter",
+     "dbt CLI",
+     "Airbyte web UI",
+     "Superset",
+     "Metabase",
+     "Dagster web UI",
+     "Excel"
+    ],
+    "table_format": [],
+    "language": [],
+    "evidence_url": "https://github.com/xlang-ai/Spider2-V/tree/c2a3a6c2f5d7604464f162c6550b60db3eee04e8/evaluation_examples/examples",
+    "notes": "App folders in the repository: airbyte, airflow, bigquery, dagster, dbt, excel, jupyter, metabase, servicenow, snowflake, superset. Client names are mapped from those folders."
+   },
+   "source_file": "data/benchmarks/spider2-v.toml"
+  }
+ ],
+ "tasks": [
+  {
+   "benchmark_id": "ade-bench",
+   "origin": "standalone",
+   "source_file": "data/tasks/ade-bench.toml",
+   "task_id": "airbnb001",
+   "name": "Fix outdated dbt_utils.surrogate_key compile error across models",
+   "source_url": "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/tasks/airbnb001/task.yaml",
+   "evidence_url": "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/tasks/airbnb001/task.yaml",
+   "verification": "verified",
+   "notes": "Agent works in a terminal (tmux) inside a Docker sandbox. task.yaml declares four variants; solution_seeds compare dim_listings_hosts and the *_agg_reviews tables.",
+   "client_application": [],
+   "interaction_method": [
+    "CLI"
+   ],
+   "language": [
+    "SQL",
+    "Jinja",
+    "YAML"
+   ],
+   "engine": [],
+   "managed_service": [],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [
+    "dbt model tables"
+   ],
+   "storage_format": [],
+   "catalogue": [],
+   "inferred_fields": [],
+   "configurations": [
+    {
+     "label": "DuckDB · dbt Core",
+     "notes": "variant: db_type duckdb, project_type dbt. Shared .duckdb databases are published as GitHub release assets (README).",
+     "client_application": [
+      "dbt CLI"
+     ],
+     "interaction_method": [
+      "CLI"
+     ],
+     "language": [
+      "SQL",
+      "Jinja",
+      "YAML"
+     ],
+     "engine": [
+      "DuckDB"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "dbt model tables"
+     ],
+     "storage_format": [
+      "DuckDB database file"
+     ],
+     "catalogue": [
+      "DuckDB native"
+     ],
+     "inferred_fields": [
+      "storage_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/tasks/airbnb001/task.yaml"
+    },
+    {
+     "label": "DuckDB · dbt Fusion",
+     "notes": "variant: db_type duckdb, project_type dbt-fusion.",
+     "client_application": [
+      "dbt Fusion CLI"
+     ],
+     "interaction_method": [
+      "CLI"
+     ],
+     "language": [
+      "SQL",
+      "Jinja",
+      "YAML"
+     ],
+     "engine": [
+      "DuckDB"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "dbt model tables"
+     ],
+     "storage_format": [
+      "DuckDB database file"
+     ],
+     "catalogue": [
+      "DuckDB native"
+     ],
+     "inferred_fields": [
+      "storage_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/tasks/airbnb001/task.yaml"
+    },
+    {
+     "label": "Snowflake · dbt Core",
+     "notes": "variant: db_type snowflake, project_type dbt, migration_directory airbnb__duckdb_to_snowflake. Connection via SNOWFLAKE_ACCOUNT/USER/PASSWORD environment variables.",
+     "client_application": [
+      "dbt CLI"
+     ],
+     "interaction_method": [
+      "CLI"
+     ],
+     "language": [
+      "SQL",
+      "Jinja",
+      "YAML"
+     ],
+     "engine": [
+      "Snowflake"
+     ],
+     "managed_service": [
+      "Snowflake"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "dbt model tables"
+     ],
+     "storage_format": [],
+     "catalogue": [
+      "Snowflake native"
+     ],
+     "inferred_fields": [
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/ade_bench/setup/snowflake_setup.py"
+    },
+    {
+     "label": "Snowflake · dbt Fusion",
+     "notes": "variant: db_type snowflake, project_type dbt-fusion, migration_directory airbnb__duckdb_to_snowflake_dbtf.",
+     "client_application": [
+      "dbt Fusion CLI"
+     ],
+     "interaction_method": [
+      "CLI"
+     ],
+     "language": [
+      "SQL",
+      "Jinja",
+      "YAML"
+     ],
+     "engine": [
+      "Snowflake"
+     ],
+     "managed_service": [
+      "Snowflake"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "dbt model tables"
+     ],
+     "storage_format": [],
+     "catalogue": [
+      "Snowflake native"
+     ],
+     "inferred_fields": [
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/tasks/airbnb001/task.yaml"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "bird",
+   "origin": "standalone",
+   "source_file": "data/tasks/bird.toml",
+   "task_id": "mini_dev_sqlite-1471",
+   "name": "Ratio of customers paying in EUR vs CZK (debit_card_specializing)",
+   "source_url": "https://huggingface.co/datasets/birdsql/bird_mini_dev/viewer/default/mini_dev_sqlite",
+   "evidence_url": "https://github.com/bird-bench/mini_dev/blob/abd11b6db92a1c9f809b32f7564c7c71b34d67f0/README.md",
+   "verification": "verified",
+   "notes": "question_id 1471, db_id debit_card_specializing, difficulty simple, split mini_dev_sqlite. Gold answer is a SQLite query (uses IIF). Databases ship as .sqlite files under mini_dev_data/dev_databases per the README. Client and interaction depend on the system under test, so they are left unknown.",
+   "client_application": [],
+   "interaction_method": [],
+   "language": [
+    "SQL"
+   ],
+   "engine": [
+    "SQLite"
+   ],
+   "managed_service": [
+    "none"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [
+    "SQL"
+   ],
+   "storage_format": [
+    "SQLite database file"
+   ],
+   "catalogue": [
+    "SQLite native"
+   ],
+   "inferred_fields": [
+    "storage_format",
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "SQLite"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "SQL"
+     ],
+     "storage_format": [
+      "SQLite database file"
+     ],
+     "catalogue": [
+      "SQLite native"
+     ],
+     "inferred_fields": [
+      "storage_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/bird-bench/mini_dev/blob/abd11b6db92a1c9f809b32f7564c7c71b34d67f0/README.md"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "bird-interact",
+   "origin": "standalone",
+   "source_file": "data/tasks/bird-interact.toml",
+   "task_id": "alien_1",
+   "name": "Atmospheric Observability Index by weather condition (a-Interact)",
+   "source_url": "https://huggingface.co/datasets/birdsql/bird-interact-lite",
+   "evidence_url": "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/BIRD-Interact-ADK/examples/a_interact_samples.json",
+   "verification": "verified",
+   "notes": "selected_database 'alien', category Query. Sample file uses mode a-interact: the agent calls tools, including asking a user simulator to clarify the ambiguous query. PostgreSQL is stated at benchmark level (README, Docker services).",
+   "client_application": [],
+   "interaction_method": [
+    "API"
+   ],
+   "language": [
+    "SQL"
+   ],
+   "engine": [
+    "PostgreSQL"
+   ],
+   "managed_service": [
+    "none"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [
+    "SQL"
+   ],
+   "storage_format": [
+    "PostgreSQL database"
+   ],
+   "catalogue": [
+    "PostgreSQL native"
+   ],
+   "inferred_fields": [
+    "interaction_method",
+    "storage_format",
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [
+      "API"
+     ],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "PostgreSQL"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "SQL"
+     ],
+     "storage_format": [
+      "PostgreSQL database"
+     ],
+     "catalogue": [
+      "PostgreSQL native"
+     ],
+     "inferred_fields": [
+      "interaction_method",
+      "storage_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/BIRD-Interact-ADK/examples/a_interact_samples.json"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "bird-interact",
+   "origin": "standalone",
+   "source_file": "data/tasks/bird-interact.toml",
+   "task_id": "alien_3",
+   "name": "Alien database query in conversational mode (c-Interact)",
+   "source_url": "https://huggingface.co/datasets/birdsql/bird-interact-lite",
+   "evidence_url": "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/BIRD-Interact-ADK/examples/c_interact_samples.json",
+   "verification": "verified",
+   "notes": "Sample file uses mode c-interact (trajectory includes an ask_user tool call).",
+   "client_application": [],
+   "interaction_method": [
+    "API"
+   ],
+   "language": [
+    "SQL"
+   ],
+   "engine": [
+    "PostgreSQL"
+   ],
+   "managed_service": [
+    "none"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [
+    "SQL"
+   ],
+   "storage_format": [
+    "PostgreSQL database"
+   ],
+   "catalogue": [
+    "PostgreSQL native"
+   ],
+   "inferred_fields": [
+    "interaction_method",
+    "storage_format",
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [
+      "API"
+     ],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "PostgreSQL"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "SQL"
+     ],
+     "storage_format": [
+      "PostgreSQL database"
+     ],
+     "catalogue": [
+      "PostgreSQL native"
+     ],
+     "inferred_fields": [
+      "interaction_method",
+      "storage_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/BIRD-Interact-ADK/examples/c_interact_samples.json"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "dabstep",
+   "origin": "standalone",
+   "source_file": "data/tasks/dabstep.toml",
+   "task_id": "1712",
+   "name": "Total fees owed by Belles_cookbook_store on day 12 of 2023",
+   "source_url": "https://huggingface.co/datasets/adyen/DABstep/viewer/tasks",
+   "evidence_url": "https://huggingface.co/datasets/adyen/DABstep/tree/main/data/context",
+   "verification": "verified",
+   "notes": "Level hard; answer must be a number rounded to 2 decimals. Shared context files include payments.csv, fees.json, merchant_data.json and manual.md; which ones this task needs is inferred. The benchmark does not prescribe a language or engine, so those stay unknown.",
+   "client_application": [],
+   "interaction_method": [],
+   "language": [],
+   "engine": [],
+   "managed_service": [
+    "none"
+   ],
+   "table_format": [
+    "none"
+   ],
+   "source_formats": [
+    "CSV",
+    "JSON",
+    "Markdown"
+   ],
+   "output_formats": [
+    "Text answer"
+   ],
+   "storage_format": [
+    "Local CSV file",
+    "Local JSON file"
+   ],
+   "catalogue": [
+    "none"
+   ],
+   "inferred_fields": [
+    "source_formats",
+    "storage_format"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [],
+     "language": [],
+     "engine": [],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "none"
+     ],
+     "source_formats": [
+      "CSV",
+      "JSON",
+      "Markdown"
+     ],
+     "output_formats": [
+      "Text answer"
+     ],
+     "storage_format": [
+      "Local CSV file",
+      "Local JSON file"
+     ],
+     "catalogue": [
+      "none"
+     ],
+     "inferred_fields": [
+      "source_formats",
+      "storage_format"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://huggingface.co/datasets/adyen/DABstep/tree/main/data/context"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "data-eng-bench",
+   "origin": "harbor",
+   "source_file": "data/harbor/data-eng-bench/cohort-retention-matrix/task.toml",
+   "task_id": "cohort-retention-matrix",
+   "name": "Build a cohort retention matrix dbt model for marketing channels",
+   "source_url": "https://github.com/Snowflake-Labs/data-eng-bench/tree/a3278ad102829a6084dde086244a0ef665a8011c/tasks/cohort-retention-matrix",
+   "evidence_url": "https://github.com/Snowflake-Labs/data-eng-bench/blob/a3278ad102829a6084dde086244a0ef665a8011c/tasks/cohort-retention-matrix/instruction.md",
+   "verification": "verified",
+   "notes": "instruction.md: the live $DB_TYPE selects DuckDB or Snowflake; create models/marts/marketing/cohort_retention_matrix.sql in schema marketing_analytics. Verified by pytest against the materialised table.",
+   "client_application": [
+    "dbt CLI"
+   ],
+   "interaction_method": [
+    "CLI"
+   ],
+   "language": [
+    "SQL"
+   ],
+   "engine": [],
+   "managed_service": [],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [
+    "dbt model tables"
+   ],
+   "storage_format": [],
+   "catalogue": [],
+   "inferred_fields": [],
+   "configurations": [
+    {
+     "label": "DuckDB",
+     "notes": "DB_TYPE=duckdb; database at $DUCKDB_PATH (default /app/database/retail.duckdb).",
+     "client_application": [
+      "dbt CLI"
+     ],
+     "interaction_method": [
+      "CLI"
+     ],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "DuckDB"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "dbt model tables"
+     ],
+     "storage_format": [
+      "DuckDB database file"
+     ],
+     "catalogue": [
+      "DuckDB native"
+     ],
+     "inferred_fields": [
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/Snowflake-Labs/data-eng-bench/blob/a3278ad102829a6084dde086244a0ef665a8011c/tasks/cohort-retention-matrix/instruction.md"
+    },
+    {
+     "label": "Snowflake",
+     "notes": "DB_TYPE=snowflake; the entrypoint creates a per-task clone database and sets SNOWFLAKE_DATABASE.",
+     "client_application": [
+      "dbt CLI"
+     ],
+     "interaction_method": [
+      "CLI"
+     ],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "Snowflake"
+     ],
+     "managed_service": [
+      "Snowflake"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "dbt model tables"
+     ],
+     "storage_format": [],
+     "catalogue": [
+      "Snowflake native"
+     ],
+     "inferred_fields": [
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/Snowflake-Labs/data-eng-bench/blob/a3278ad102829a6084dde086244a0ef665a8011c/tasks/cohort-retention-matrix/instruction.md"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "dsagentbench",
+   "origin": "standalone",
+   "source_file": "data/tasks/dsagentbench.toml",
+   "task_id": "ds001",
+   "name": "Find third-highest correlated wine feature with pandas in VS Code",
+   "source_url": "https://github.com/vis-nlp/DSAgentBench/blob/6e7b47195db8297671fa2c5827bfb9603c721dc8/evaluation_examples/examples/data_science/ds001.json",
+   "evidence_url": null,
+   "verification": "verified",
+   "notes": "Instruction: 'Using Visual Studio Code, create a new Python script ... Load it using pandas ...' Setup downloads winequality-red.csv and launches 'code'; result.txt holds the answer.",
+   "client_application": [
+    "VS Code"
+   ],
+   "interaction_method": [
+    "desktop GUI"
+   ],
+   "language": [
+    "Python"
+   ],
+   "engine": [
+    "Pandas"
+   ],
+   "managed_service": [
+    "none"
+   ],
+   "table_format": [
+    "none"
+   ],
+   "source_formats": [
+    "CSV"
+   ],
+   "output_formats": [
+    "Python script",
+    "TXT"
+   ],
+   "storage_format": [
+    "Local CSV file"
+   ],
+   "catalogue": [
+    "none"
+   ],
+   "inferred_fields": [],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "VS Code"
+     ],
+     "interaction_method": [
+      "desktop GUI"
+     ],
+     "language": [
+      "Python"
+     ],
+     "engine": [
+      "Pandas"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "none"
+     ],
+     "source_formats": [
+      "CSV"
+     ],
+     "output_formats": [
+      "Python script",
+      "TXT"
+     ],
+     "storage_format": [
+      "Local CSV file"
+     ],
+     "catalogue": [
+      "none"
+     ],
+     "inferred_fields": [],
+     "verification": "verified",
+     "evidence_url": null
+    }
+   ]
+  },
+  {
+   "benchmark_id": "dsbench",
+   "origin": "standalone",
+   "source_file": "data/tasks/dsbench.toml",
+   "task_id": "data_analysis-00000001",
+   "name": "ModelOff 2016 round 1 section 2: 'Chip off the old block'",
+   "source_url": "https://github.com/LiqiangJing/DSBench/blob/ba786096137a5108af11c016ad3f09cdb97beefd/data_analysis/data.json",
+   "evidence_url": null,
+   "verification": "inferred",
+   "notes": "Data analysis task with questions 6-18 (multiple choice and numeric answers). Language inferred from the evaluation notebooks; engine and file formats not verified.",
+   "client_application": [],
+   "interaction_method": [],
+   "language": [
+    "Python"
+   ],
+   "engine": [],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [],
+   "output_formats": [],
+   "storage_format": [],
+   "catalogue": [],
+   "inferred_fields": [
+    "language"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [],
+     "language": [
+      "Python"
+     ],
+     "engine": [],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [],
+     "output_formats": [],
+     "storage_format": [],
+     "catalogue": [],
+     "inferred_fields": [
+      "language"
+     ],
+     "verification": "inferred",
+     "evidence_url": null
+    }
+   ]
+  },
+  {
+   "benchmark_id": "dsbench",
+   "origin": "standalone",
+   "source_file": "data/tasks/dsbench.toml",
+   "task_id": "data_modeling-titanic",
+   "name": "Kaggle Titanic survival prediction",
+   "source_url": "https://github.com/LiqiangJing/DSBench/blob/ba786096137a5108af11c016ad3f09cdb97beefd/data_modeling/data.json",
+   "evidence_url": null,
+   "verification": "inferred",
+   "notes": "Data modeling task linked to https://www.kaggle.com/competitions/titanic (2012). Competition file formats not verified from the repository.",
+   "client_application": [],
+   "interaction_method": [],
+   "language": [
+    "Python"
+   ],
+   "engine": [],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [],
+   "output_formats": [],
+   "storage_format": [],
+   "catalogue": [],
+   "inferred_fields": [
+    "language"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [],
+     "language": [
+      "Python"
+     ],
+     "engine": [],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [],
+     "output_formats": [],
+     "storage_format": [],
+     "catalogue": [],
+     "inferred_fields": [
+      "language"
+     ],
+     "verification": "inferred",
+     "evidence_url": null
+    }
+   ]
+  },
+  {
+   "benchmark_id": "elt-bench-plus-plus",
+   "origin": "standalone",
+   "source_file": "data/tasks/elt-bench-plus-plus.toml",
+   "task_id": "snowflake/address",
+   "name": "Build the 'address' ELT pipeline into Snowflake (states model)",
+   "source_url": "https://github.com/uiuc-kang-lab/ELT-Bench/tree/fcf3129df49ce5ce63ff46b2bbbbba1eaf9ec055/elt-bench/snowflake/address",
+   "evidence_url": "https://github.com/uiuc-kang-lab/ELT-Bench/blob/fcf3129df49ce5ce63ff46b2bbbbba1eaf9ec055/elt-bench/snowflake/address/config.yaml",
+   "verification": "verified",
+   "notes": "config.yaml: Airbyte public API server, sources aws_s3 (CBSA.jsonl via LocalStack), flat_files (CSV from Google Drive), postgres, mongodb and custom_api; destination Snowflake. data_model.yaml defines target model 'states'. Transformation language not verified.",
+   "client_application": [
+    "Airbyte"
+   ],
+   "interaction_method": [
+    "API"
+   ],
+   "language": [],
+   "engine": [
+    "Snowflake"
+   ],
+   "managed_service": [
+    "Snowflake"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [
+    "JSONL",
+    "CSV",
+    "PostgreSQL tables",
+    "MongoDB collections",
+    "REST API"
+   ],
+   "output_formats": [
+    "Snowflake tables"
+   ],
+   "storage_format": [],
+   "catalogue": [
+    "Snowflake native"
+   ],
+   "inferred_fields": [
+    "table_format",
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "Airbyte"
+     ],
+     "interaction_method": [
+      "API"
+     ],
+     "language": [],
+     "engine": [
+      "Snowflake"
+     ],
+     "managed_service": [
+      "Snowflake"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [
+      "JSONL",
+      "CSV",
+      "PostgreSQL tables",
+      "MongoDB collections",
+      "REST API"
+     ],
+     "output_formats": [
+      "Snowflake tables"
+     ],
+     "storage_format": [],
+     "catalogue": [
+      "Snowflake native"
+     ],
+     "inferred_fields": [
+      "table_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/uiuc-kang-lab/ELT-Bench/blob/fcf3129df49ce5ce63ff46b2bbbbba1eaf9ec055/elt-bench/snowflake/address/config.yaml"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "spider2",
+   "origin": "standalone",
+   "source_file": "data/tasks/spider2.toml",
+   "task_id": "bq011",
+   "name": "GA4: distinct pseudo users with engagement in 7-day but not 2-day window",
+   "source_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/spider2-lite.jsonl",
+   "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/bigquery.py",
+   "verification": "verified",
+   "notes": "Spider 2.0-Lite record with db 'ga4'; the database is listed under spider2-lite/resource/databases/bigquery/. Client and interaction come from the benchmark's BigQuery interface (bigquery.Client()), not from the task record. Output format and physical storage are not stated.",
+   "client_application": [
+    "BigQuery Python client"
+   ],
+   "interaction_method": [
+    "API"
+   ],
+   "language": [
+    "SQL"
+   ],
+   "engine": [
+    "BigQuery"
+   ],
+   "managed_service": [
+    "Google BigQuery"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [],
+   "storage_format": [],
+   "catalogue": [
+    "BigQuery native"
+   ],
+   "inferred_fields": [
+    "client_application",
+    "interaction_method",
+    "table_format",
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "BigQuery Python client"
+     ],
+     "interaction_method": [
+      "API"
+     ],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "BigQuery"
+     ],
+     "managed_service": [
+      "Google BigQuery"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [],
+     "storage_format": [],
+     "catalogue": [
+      "BigQuery native"
+     ],
+     "inferred_fields": [
+      "client_application",
+      "interaction_method",
+      "table_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/bigquery.py"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "spider2",
+   "origin": "standalone",
+   "source_file": "data/tasks/spider2.toml",
+   "task_id": "local002",
+   "name": "E-commerce: 5-day symmetric moving average of predicted toy sales",
+   "source_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/spider2-lite.jsonl",
+   "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/sqlite.py",
+   "verification": "verified",
+   "notes": "Spider 2.0-Lite record with db 'E_commerce' (schema JSON and DDL.csv under resource/databases/sqlite/E_commerce/). The .sqlite files are downloaded separately per the README.",
+   "client_application": [
+    "Python sqlite3"
+   ],
+   "interaction_method": [
+    "SQL driver"
+   ],
+   "language": [
+    "SQL"
+   ],
+   "engine": [
+    "SQLite"
+   ],
+   "managed_service": [
+    "none"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [],
+   "storage_format": [
+    "SQLite database file"
+   ],
+   "catalogue": [
+    "SQLite native"
+   ],
+   "inferred_fields": [
+    "client_application",
+    "interaction_method",
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "Python sqlite3"
+     ],
+     "interaction_method": [
+      "SQL driver"
+     ],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "SQLite"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [],
+     "storage_format": [
+      "SQLite database file"
+     ],
+     "catalogue": [
+      "SQLite native"
+     ],
+     "inferred_fields": [
+      "client_application",
+      "interaction_method",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/sqlite.py"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "spider2",
+   "origin": "standalone",
+   "source_file": "data/tasks/spider2.toml",
+   "task_id": "playbook001",
+   "name": "Complete dbt project for traffic-source attribution metrics",
+   "source_url": "https://github.com/xlang-ai/Spider2/tree/cafb867313aab4e674652054198f383cf4018943/spider2-dbt/examples/playbook001",
+   "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-dbt/examples/playbook001/profiles.yml",
+   "verification": "verified",
+   "notes": "profiles.yml declares 'type: duckdb, path: ./playbook.duckdb'; evaluation (gold/spider2_eval.jsonl) uses duckdb_match against playbook.duckdb on table attribution_touches. The .duckdb file itself is downloaded separately.",
+   "client_application": [
+    "dbt CLI"
+   ],
+   "interaction_method": [
+    "CLI"
+   ],
+   "language": [
+    "SQL"
+   ],
+   "engine": [
+    "DuckDB"
+   ],
+   "managed_service": [
+    "none"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [
+    "dbt model tables"
+   ],
+   "storage_format": [
+    "DuckDB database file"
+   ],
+   "catalogue": [
+    "DuckDB native"
+   ],
+   "inferred_fields": [
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "dbt CLI"
+     ],
+     "interaction_method": [
+      "CLI"
+     ],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "DuckDB"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "dbt model tables"
+     ],
+     "storage_format": [
+      "DuckDB database file"
+     ],
+     "catalogue": [
+      "DuckDB native"
+     ],
+     "inferred_fields": [
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-dbt/examples/playbook001/profiles.yml"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "spider2",
+   "origin": "standalone",
+   "source_file": "data/tasks/spider2.toml",
+   "task_id": "sf_bq011",
+   "name": "GA4 engagement question, Snowflake edition",
+   "source_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-snow/spider2-snow.jsonl",
+   "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/snowflake.py",
+   "verification": "verified",
+   "notes": "Spider 2.0-Snow record (db_id 'GA4'); the Snow subset is Snowflake-only. Access via snowflake.connector.connect() with a credential file is the benchmark's reference interface; Snowsight GUI access is also documented.",
+   "client_application": [
+    "Snowflake Python connector"
+   ],
+   "interaction_method": [
+    "SQL driver"
+   ],
+   "language": [
+    "SQL"
+   ],
+   "engine": [
+    "Snowflake"
+   ],
+   "managed_service": [
+    "Snowflake"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [],
+   "output_formats": [],
+   "storage_format": [],
+   "catalogue": [
+    "Snowflake native"
+   ],
+   "inferred_fields": [
+    "client_application",
+    "interaction_method",
+    "table_format",
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "Snowflake Python connector"
+     ],
+     "interaction_method": [
+      "SQL driver"
+     ],
+     "language": [
+      "SQL"
+     ],
+     "engine": [
+      "Snowflake"
+     ],
+     "managed_service": [
+      "Snowflake"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [],
+     "output_formats": [],
+     "storage_format": [],
+     "catalogue": [
+      "Snowflake native"
+     ],
+     "inferred_fields": [
+      "client_application",
+      "interaction_method",
+      "table_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/snowflake.py"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "spider2-v",
+   "origin": "standalone",
+   "source_file": "data/tasks/spider2-v.toml",
+   "task_id": "06f5c71a-55b5-4bd7-97bc-1df04fa4463f",
+   "name": "Load JSONL from Google Drive into a BigQuery table via the web UI",
+   "source_url": "https://github.com/xlang-ai/Spider2-V/blob/c2a3a6c2f5d7604464f162c6550b60db3eee04e8/evaluation_examples/examples/bigquery/06f5c71a-55b5-4bd7-97bc-1df04fa4463f/06f5c71a-55b5-4bd7-97bc-1df04fa4463f.json",
+   "evidence_url": null,
+   "verification": "verified",
+   "notes": "related_apps: bigquery, chromium; setup launches Google Chrome and logs into BigQuery and Google Drive. Source is data.jsonl plus schema.txt in Drive; the evaluator exports information.data1 to CSV and compares with gold.csv (CSV is an evaluation artifact, not BigQuery's storage).",
+   "client_application": [
+    "BigQuery Console",
+    "Google Drive web UI"
+   ],
+   "interaction_method": [
+    "browser GUI"
+   ],
+   "language": [
+    "none"
+   ],
+   "engine": [
+    "BigQuery"
+   ],
+   "managed_service": [
+    "Google BigQuery",
+    "Google Drive"
+   ],
+   "table_format": [
+    "Engine-native"
+   ],
+   "source_formats": [
+    "JSONL"
+   ],
+   "output_formats": [
+    "BigQuery table"
+   ],
+   "storage_format": [],
+   "catalogue": [
+    "BigQuery native"
+   ],
+   "inferred_fields": [
+    "table_format",
+    "catalogue"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "BigQuery Console",
+      "Google Drive web UI"
+     ],
+     "interaction_method": [
+      "browser GUI"
+     ],
+     "language": [
+      "none"
+     ],
+     "engine": [
+      "BigQuery"
+     ],
+     "managed_service": [
+      "Google BigQuery",
+      "Google Drive"
+     ],
+     "table_format": [
+      "Engine-native"
+     ],
+     "source_formats": [
+      "JSONL"
+     ],
+     "output_formats": [
+      "BigQuery table"
+     ],
+     "storage_format": [],
+     "catalogue": [
+      "BigQuery native"
+     ],
+     "inferred_fields": [
+      "table_format",
+      "catalogue"
+     ],
+     "verification": "verified",
+     "evidence_url": null
+    }
+   ]
+  },
+  {
+   "benchmark_id": "spider2-v",
+   "origin": "standalone",
+   "source_file": "data/tasks/spider2-v.toml",
+   "task_id": "0d3ffd3a-2034-47fb-b33f-1a849b641484",
+   "name": "Filter Airflow DAGs by owner in the Astronomer web UI",
+   "source_url": "https://github.com/xlang-ai/Spider2-V/blob/c2a3a6c2f5d7604464f162c6550b60db3eee04e8/evaluation_examples/examples/airflow/0d3ffd3a-2034-47fb-b33f-1a849b641484/0d3ffd3a-2034-47fb-b33f-1a849b641484.json",
+   "evidence_url": null,
+   "verification": "verified",
+   "notes": "related_apps: airflow, chromium; Airflow deployed locally with Astronomer (astro) at localhost:8080. Orchestration task with no table data.",
+   "client_application": [
+    "Airflow web UI"
+   ],
+   "interaction_method": [
+    "browser GUI"
+   ],
+   "language": [
+    "none"
+   ],
+   "engine": [
+    "Apache Airflow"
+   ],
+   "managed_service": [
+    "none"
+   ],
+   "table_format": [
+    "none"
+   ],
+   "source_formats": [],
+   "output_formats": [
+    "URL"
+   ],
+   "storage_format": [],
+   "catalogue": [
+    "none"
+   ],
+   "inferred_fields": [],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "Airflow web UI"
+     ],
+     "interaction_method": [
+      "browser GUI"
+     ],
+     "language": [
+      "none"
+     ],
+     "engine": [
+      "Apache Airflow"
+     ],
+     "managed_service": [
+      "none"
+     ],
+     "table_format": [
+      "none"
+     ],
+     "source_formats": [],
+     "output_formats": [
+      "URL"
+     ],
+     "storage_format": [],
+     "catalogue": [
+      "none"
+     ],
+     "inferred_fields": [],
+     "verification": "verified",
+     "evidence_url": null
+    }
+   ]
+  }
+ ]
+}

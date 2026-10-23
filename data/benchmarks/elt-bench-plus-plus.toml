@@ -1,0 +1,18 @@
+id = "elt-bench-plus-plus"
+name = "ELT-Bench++"
+description = "End-to-end ELT pipeline benchmark: agents configure Airbyte extraction/loading from heterogeneous sources and build transformation models in a cloud warehouse. ELT-Bench++ is the current default branch of the ELT-Bench repository."
+created = "2025-04-07"
+created_source = "arXiv 2504.04808 v1 submission (original ELT-Bench paper; no separate ELT-Bench++ paper found)"
+updated = "2026-08-04"
+updated_source = "Latest commit on the elt_bench++ branch (fcf3129)"
+repo_url = "https://github.com/uiuc-kang-lab/ELT-Bench"
+paper_url = "https://arxiv.org/abs/2504.04808"
+website_url = ""
+dataset_url = ""
+last_verified = "2026-10-23"
+
+[support]
+engine = ["Snowflake", "Databricks", "Amazon Redshift"]
+client_application = ["Airbyte"]
+evidence_url = "https://github.com/uiuc-kang-lab/ELT-Bench/blob/elt_bench%2B%2B/README.md"
+notes = "README lists Snowflake, Databricks and Redshift versions."

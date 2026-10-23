@@ -1,0 +1,19 @@
+# Task-level annotations for ELT-Bench++ (elt_bench++ branch, commit fcf3129).
+benchmark_id = "elt-bench-plus-plus"
+
+[[tasks]]
+task_id = "snowflake/address"
+name = "Build the 'address' ELT pipeline into Snowflake (states model)"
+source_url = "https://github.com/uiuc-kang-lab/ELT-Bench/tree/fcf3129df49ce5ce63ff46b2bbbbba1eaf9ec055/elt-bench/snowflake/address"
+evidence_url = "https://github.com/uiuc-kang-lab/ELT-Bench/blob/fcf3129df49ce5ce63ff46b2bbbbba1eaf9ec055/elt-bench/snowflake/address/config.yaml"
+verification = "verified"
+client_application = ["Airbyte"]
+interaction_method = ["API"]
+engine = ["Snowflake"]
+managed_service = ["Snowflake"]
+table_format = ["Engine-native"]
+source_formats = ["JSONL", "CSV", "PostgreSQL tables", "MongoDB collections", "REST API"]
+output_formats = ["Snowflake tables"]
+catalogue = ["Snowflake native"]
+inferred_fields = ["table_format", "catalogue"]
+notes = "config.yaml: Airbyte public API server, sources aws_s3 (CBSA.jsonl via LocalStack), flat_files (CSV from Google Drive), postgres, mongodb and custom_api; destination Snowflake. data_model.yaml defines target model 'states'. Transformation language not verified."

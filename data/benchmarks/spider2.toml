@@ -1,0 +1,20 @@
+id = "spider2"
+name = "Spider 2.0"
+description = "Enterprise text-to-SQL and data workflow tasks over BigQuery, Snowflake, SQLite and DuckDB/dbt projects (sub-sets: Spider 2.0-Lite, Spider 2.0-Snow, Spider 2.0-DBT)."
+created = "2024-11-12"
+created_source = "arXiv 2411.07763 v1 submission"
+updated = "2026-08-12"
+updated_source = "Latest commit on main (cafb867)"
+repo_url = "https://github.com/xlang-ai/Spider2"
+paper_url = "https://arxiv.org/abs/2411.07763"
+website_url = "https://spider2-sql.github.io"
+dataset_url = ""
+last_verified = "2026-10-23"
+notes = "README (2026-08-12) reports the shared Snowflake evaluation account is temporarily suspended."
+
+[support]
+engine = ["BigQuery", "Snowflake", "SQLite", "DuckDB"]
+client_application = ["dbt CLI"]
+language = ["SQL", "Python"]
+evidence_url = "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/README.md"
+notes = "Lite mixes BigQuery, Snowflake and local SQLite databases; Snow is Snowflake-only; DBT uses local DuckDB files."

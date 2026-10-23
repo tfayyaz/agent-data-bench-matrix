@@ -1,0 +1,19 @@
+id = "data-eng-bench"
+name = "data-eng-bench"
+description = "Snowflake Labs data-engineering benchmark for coding agents: 103 dbt tasks on a retail warehouse, each runnable on DuckDB or Snowflake, packaged as Harbor tasks."
+created = "2026-07-29"
+created_source = "GitHub repository creation date (no paper found)"
+updated = "2026-09-02"
+updated_source = "Latest commit on master (a3278ad)"
+repo_url = "https://github.com/Snowflake-Labs/data-eng-bench"
+paper_url = ""
+website_url = ""
+dataset_url = "https://hub.harborframework.com/datasets/snowflake-labs/data-eng-bench"
+last_verified = "2026-10-23"
+
+[support]
+engine = ["DuckDB", "Snowflake"]
+client_application = ["dbt CLI"]
+language = ["SQL", "Python"]
+evidence_url = "https://github.com/Snowflake-Labs/data-eng-bench/blob/a3278ad102829a6084dde086244a0ef665a8011c/README.md"
+notes = "Backend chosen per run with DB_TYPE=duckdb|snowflake."

@@ -1,0 +1,69 @@
+# Task-level annotations for Spider 2.0. Permalinks pin commit cafb867.
+benchmark_id = "spider2"
+
+[[tasks]]
+task_id = "bq011"
+name = "GA4: distinct pseudo users with engagement in 7-day but not 2-day window"
+source_url = "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/spider2-lite.jsonl"
+evidence_url = "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/bigquery.py"
+verification = "verified"
+client_application = ["BigQuery Python client"]
+interaction_method = ["API"]
+language = ["SQL"]
+engine = ["BigQuery"]
+managed_service = ["Google BigQuery"]
+table_format = ["Engine-native"]
+catalogue = ["BigQuery native"]
+inferred_fields = ["client_application", "interaction_method", "table_format", "catalogue"]
+notes = "Spider 2.0-Lite record with db 'ga4'; the database is listed under spider2-lite/resource/databases/bigquery/. Client and interaction come from the benchmark's BigQuery interface (bigquery.Client()), not from the task record. Output format and physical storage are not stated."
+
+[[tasks]]
+task_id = "sf_bq011"
+name = "GA4 engagement question, Snowflake edition"
+source_url = "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-snow/spider2-snow.jsonl"
+evidence_url = "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/snowflake.py"
+verification = "verified"
+client_application = ["Snowflake Python connector"]
+interaction_method = ["SQL driver"]
+language = ["SQL"]
+engine = ["Snowflake"]
+managed_service = ["Snowflake"]
+table_format = ["Engine-native"]
+catalogue = ["Snowflake native"]
+inferred_fields = ["client_application", "interaction_method", "table_format", "catalogue"]
+notes = "Spider 2.0-Snow record (db_id 'GA4'); the Snow subset is Snowflake-only. Access via snowflake.connector.connect() with a credential file is the benchmark's reference interface; Snowsight GUI access is also documented."
+
+[[tasks]]
+task_id = "local002"
+name = "E-commerce: 5-day symmetric moving average of predicted toy sales"
+source_url = "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/spider2-lite.jsonl"
+evidence_url = "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-lite/resource/interface/sqlite.py"
+verification = "verified"
+client_application = ["Python sqlite3"]
+interaction_method = ["SQL driver"]
+language = ["SQL"]
+engine = ["SQLite"]
+managed_service = ["none"]
+table_format = ["Engine-native"]
+storage_format = ["SQLite database file"]
+catalogue = ["SQLite native"]
+inferred_fields = ["client_application", "interaction_method", "catalogue"]
+notes = "Spider 2.0-Lite record with db 'E_commerce' (schema JSON and DDL.csv under resource/databases/sqlite/E_commerce/). The .sqlite files are downloaded separately per the README."
+
+[[tasks]]
+task_id = "playbook001"
+name = "Complete dbt project for traffic-source attribution metrics"
+source_url = "https://github.com/xlang-ai/Spider2/tree/cafb867313aab4e674652054198f383cf4018943/spider2-dbt/examples/playbook001"
+evidence_url = "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/spider2-dbt/examples/playbook001/profiles.yml"
+verification = "verified"
+client_application = ["dbt CLI"]
+interaction_method = ["CLI"]
+language = ["SQL"]
+engine = ["DuckDB"]
+managed_service = ["none"]
+table_format = ["Engine-native"]
+output_formats = ["dbt model tables"]
+storage_format = ["DuckDB database file"]
+catalogue = ["DuckDB native"]
+inferred_fields = ["catalogue"]
+notes = "profiles.yml declares 'type: duckdb, path: ./playbook.duckdb'; evaluation (gold/spider2_eval.jsonl) uses duckdb_match against playbook.duckdb on table attribution_touches. The .duckdb file itself is downloaded separately."

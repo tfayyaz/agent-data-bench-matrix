@@ -1,0 +1,19 @@
+# Task-level annotations for DSAgentBench. Permalinks pin commit 6e7b471.
+benchmark_id = "dsagentbench"
+
+[[tasks]]
+task_id = "ds001"
+name = "Find third-highest correlated wine feature with pandas in VS Code"
+source_url = "https://github.com/vis-nlp/DSAgentBench/blob/6e7b47195db8297671fa2c5827bfb9603c721dc8/evaluation_examples/examples/data_science/ds001.json"
+verification = "verified"
+client_application = ["VS Code"]
+interaction_method = ["desktop GUI"]
+language = ["Python"]
+engine = ["Pandas"]
+managed_service = ["none"]
+table_format = ["none"]
+source_formats = ["CSV"]
+output_formats = ["Python script", "TXT"]
+storage_format = ["Local CSV file"]
+catalogue = ["none"]
+notes = "Instruction: 'Using Visual Studio Code, create a new Python script ... Load it using pandas ...' Setup downloads winequality-red.csv and launches 'code'; result.txt holds the answer."

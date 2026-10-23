@@ -1,0 +1,19 @@
+id = "spider2-v"
+name = "Spider2-V"
+description = "Multimodal agent benchmark of data science and engineering workflows executed through GUIs and terminals in an Ubuntu VM (BigQuery, Snowflake, dbt, Airflow, Airbyte, Jupyter, Superset and more)."
+created = "2024-07-15"
+created_source = "arXiv 2407.10956 v1 submission"
+updated = "2024-08-26"
+updated_source = "Latest commit on main (c2a3a6c)"
+repo_url = "https://github.com/xlang-ai/Spider2-V"
+paper_url = "https://arxiv.org/abs/2407.10956"
+website_url = "https://spider2-v.github.io"
+dataset_url = "https://huggingface.co/datasets/xlangai/ubuntu_spider2v"
+last_verified = "2026-10-23"
+notes = "Dataset URL is the VM image; task JSON files live in the repository under evaluation_examples/examples/<app>/."
+
+[support]
+engine = ["BigQuery", "Snowflake", "Apache Airflow"]
+client_application = ["BigQuery Console", "Snowflake Snowsight", "Airflow web UI", "Jupyter", "dbt CLI", "Airbyte web UI", "Superset", "Metabase", "Dagster web UI", "Excel"]
+evidence_url = "https://github.com/xlang-ai/Spider2-V/tree/c2a3a6c2f5d7604464f162c6550b60db3eee04e8/evaluation_examples/examples"
+notes = "App folders in the repository: airbyte, airflow, bigquery, dagster, dbt, excel, jupyter, metabase, servicenow, snowflake, superset. Client names are mapped from those folders."

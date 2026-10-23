@@ -1,0 +1,34 @@
+# Task-level annotations for Spider2-V. Permalinks pin commit c2a3a6c.
+benchmark_id = "spider2-v"
+
+[[tasks]]
+task_id = "06f5c71a-55b5-4bd7-97bc-1df04fa4463f"
+name = "Load JSONL from Google Drive into a BigQuery table via the web UI"
+source_url = "https://github.com/xlang-ai/Spider2-V/blob/c2a3a6c2f5d7604464f162c6550b60db3eee04e8/evaluation_examples/examples/bigquery/06f5c71a-55b5-4bd7-97bc-1df04fa4463f/06f5c71a-55b5-4bd7-97bc-1df04fa4463f.json"
+verification = "verified"
+client_application = ["BigQuery Console", "Google Drive web UI"]
+interaction_method = ["browser GUI"]
+language = ["none"]
+engine = ["BigQuery"]
+managed_service = ["Google BigQuery", "Google Drive"]
+table_format = ["Engine-native"]
+source_formats = ["JSONL"]
+output_formats = ["BigQuery table"]
+catalogue = ["BigQuery native"]
+inferred_fields = ["table_format", "catalogue"]
+notes = "related_apps: bigquery, chromium; setup launches Google Chrome and logs into BigQuery and Google Drive. Source is data.jsonl plus schema.txt in Drive; the evaluator exports information.data1 to CSV and compares with gold.csv (CSV is an evaluation artifact, not BigQuery's storage)."
+
+[[tasks]]
+task_id = "0d3ffd3a-2034-47fb-b33f-1a849b641484"
+name = "Filter Airflow DAGs by owner in the Astronomer web UI"
+source_url = "https://github.com/xlang-ai/Spider2-V/blob/c2a3a6c2f5d7604464f162c6550b60db3eee04e8/evaluation_examples/examples/airflow/0d3ffd3a-2034-47fb-b33f-1a849b641484/0d3ffd3a-2034-47fb-b33f-1a849b641484.json"
+verification = "verified"
+client_application = ["Airflow web UI"]
+interaction_method = ["browser GUI"]
+language = ["none"]
+engine = ["Apache Airflow"]
+managed_service = ["none"]
+table_format = ["none"]
+output_formats = ["URL"]
+catalogue = ["none"]
+notes = "related_apps: airflow, chromium; Airflow deployed locally with Astronomer (astro) at localhost:8080. Orchestration task with no table data."

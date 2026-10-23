@@ -1,0 +1,53 @@
+# Task-level annotations for ADE-bench. Permalinks pin commit c305600.
+benchmark_id = "ade-bench"
+
+[[tasks]]
+task_id = "airbnb001"
+name = "Fix outdated dbt_utils.surrogate_key compile error across models"
+source_url = "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/tasks/airbnb001/task.yaml"
+evidence_url = "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/tasks/airbnb001/task.yaml"
+verification = "verified"
+interaction_method = ["CLI"]
+language = ["SQL", "Jinja", "YAML"]
+table_format = ["Engine-native"]
+output_formats = ["dbt model tables"]
+notes = "Agent works in a terminal (tmux) inside a Docker sandbox. task.yaml declares four variants; solution_seeds compare dim_listings_hosts and the *_agg_reviews tables."
+
+[[tasks.configurations]]
+label = "DuckDB · dbt Core"
+client_application = ["dbt CLI"]
+engine = ["DuckDB"]
+managed_service = ["none"]
+storage_format = ["DuckDB database file"]
+catalogue = ["DuckDB native"]
+inferred_fields = ["storage_format", "catalogue"]
+notes = "variant: db_type duckdb, project_type dbt. Shared .duckdb databases are published as GitHub release assets (README)."
+
+[[tasks.configurations]]
+label = "DuckDB · dbt Fusion"
+client_application = ["dbt Fusion CLI"]
+engine = ["DuckDB"]
+managed_service = ["none"]
+storage_format = ["DuckDB database file"]
+catalogue = ["DuckDB native"]
+inferred_fields = ["storage_format", "catalogue"]
+notes = "variant: db_type duckdb, project_type dbt-fusion."
+
+[[tasks.configurations]]
+label = "Snowflake · dbt Core"
+client_application = ["dbt CLI"]
+engine = ["Snowflake"]
+managed_service = ["Snowflake"]
+catalogue = ["Snowflake native"]
+inferred_fields = ["catalogue"]
+evidence_url = "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/ade_bench/setup/snowflake_setup.py"
+notes = "variant: db_type snowflake, project_type dbt, migration_directory airbnb__duckdb_to_snowflake. Connection via SNOWFLAKE_ACCOUNT/USER/PASSWORD environment variables."
+
+[[tasks.configurations]]
+label = "Snowflake · dbt Fusion"
+client_application = ["dbt Fusion CLI"]
+engine = ["Snowflake"]
+managed_service = ["Snowflake"]
+catalogue = ["Snowflake native"]
+inferred_fields = ["catalogue"]
+notes = "variant: db_type snowflake, project_type dbt-fusion, migration_directory airbnb__duckdb_to_snowflake_dbtf."

@@ -1,0 +1,21 @@
+# Task-level annotations for DSBench. Technology fields are mostly unknown: the
+# task files are in a separate data archive that was not inspected.
+benchmark_id = "dsbench"
+
+[[tasks]]
+task_id = "data_analysis-00000001"
+name = "ModelOff 2016 round 1 section 2: 'Chip off the old block'"
+source_url = "https://github.com/LiqiangJing/DSBench/blob/ba786096137a5108af11c016ad3f09cdb97beefd/data_analysis/data.json"
+verification = "inferred"
+language = ["Python"]
+inferred_fields = ["language"]
+notes = "Data analysis task with questions 6-18 (multiple choice and numeric answers). Language inferred from the evaluation notebooks; engine and file formats not verified."
+
+[[tasks]]
+task_id = "data_modeling-titanic"
+name = "Kaggle Titanic survival prediction"
+source_url = "https://github.com/LiqiangJing/DSBench/blob/ba786096137a5108af11c016ad3f09cdb97beefd/data_modeling/data.json"
+verification = "inferred"
+language = ["Python"]
+inferred_fields = ["language"]
+notes = "Data modeling task linked to https://www.kaggle.com/competitions/titanic (2012). Competition file formats not verified from the repository."

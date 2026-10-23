@@ -1,0 +1,17 @@
+id = "dsbench"
+name = "DSBench"
+description = "Data science agent benchmark (ICLR 2025) with data analysis questions from ModelOff/Eloquens and data modeling tasks from Kaggle competitions."
+created = "2024-09-12"
+created_source = "arXiv 2409.07703 v1 submission"
+updated = "2025-08-17"
+updated_source = "Latest commit on main (ba78609)"
+repo_url = "https://github.com/LiqiangJing/DSBench"
+paper_url = "https://arxiv.org/abs/2409.07703"
+website_url = "https://liqiangjing.github.io/dsbench.github.io/"
+dataset_url = ""
+last_verified = "2026-10-23"
+notes = "Task files are distributed as a separate data archive; per-task file formats were not verified."
+
+[support]
+language = ["Python"]
+evidence_url = "https://github.com/LiqiangJing/DSBench/blob/ba786096137a5108af11c016ad3f09cdb97beefd/README.md"

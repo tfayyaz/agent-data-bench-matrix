@@ -1,0 +1,18 @@
+# Task-level annotations for BIRD (Mini-Dev release).
+benchmark_id = "bird"
+
+[[tasks]]
+task_id = "mini_dev_sqlite-1471"
+name = "Ratio of customers paying in EUR vs CZK (debit_card_specializing)"
+source_url = "https://huggingface.co/datasets/birdsql/bird_mini_dev/viewer/default/mini_dev_sqlite"
+evidence_url = "https://github.com/bird-bench/mini_dev/blob/abd11b6db92a1c9f809b32f7564c7c71b34d67f0/README.md"
+verification = "verified"
+language = ["SQL"]
+engine = ["SQLite"]
+managed_service = ["none"]
+table_format = ["Engine-native"]
+output_formats = ["SQL"]
+storage_format = ["SQLite database file"]
+catalogue = ["SQLite native"]
+inferred_fields = ["storage_format", "catalogue"]
+notes = "question_id 1471, db_id debit_card_specializing, difficulty simple, split mini_dev_sqlite. Gold answer is a SQLite query (uses IIF). Databases ship as .sqlite files under mini_dev_data/dev_databases per the README. Client and interaction depend on the system under test, so they are left unknown."

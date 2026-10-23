@@ -1,0 +1,18 @@
+id = "bird-interact"
+name = "BIRD-Interact"
+description = "Interactive text-to-SQL benchmark where agents resolve ambiguous requests through dialogue with a user simulator, in conversational (c-Interact) and agentic (a-Interact) modes on PostgreSQL."
+created = "2025-10-06"
+created_source = "arXiv 2510.05318 v1 submission"
+updated = "2026-03-29"
+updated_source = "Latest commit on main (451fe2c)"
+repo_url = "https://github.com/bird-bench/BIRD-Interact"
+paper_url = "https://arxiv.org/abs/2510.05318"
+website_url = "https://bird-interact.github.io/"
+dataset_url = "https://huggingface.co/datasets/birdsql/bird-interact-lite"
+last_verified = "2026-10-23"
+notes = "A larger variant is published as https://huggingface.co/datasets/birdsql/bird-interact-full."
+
+[support]
+engine = ["PostgreSQL"]
+language = ["SQL"]
+evidence_url = "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/README.md"

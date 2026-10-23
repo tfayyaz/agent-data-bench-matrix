@@ -1,0 +1,19 @@
+id = "ade-bench"
+name = "ADE-bench"
+description = "dbt Labs benchmark for AI agents on analytics and data engineering tasks in sandboxed dbt projects, with task variants for DuckDB and Snowflake."
+created = "2025-05-30"
+created_source = "GitHub repository creation date (no paper found)"
+updated = "2026-09-30"
+updated_source = "Latest commit on main (c305600)"
+repo_url = "https://github.com/dbt-labs/ade-bench"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = "2026-10-23"
+notes = "Harbor ships an adapter (harbor-framework/harbor adapters/adebench) that converts ADE-bench tasks to Harbor task.toml."
+
+[support]
+engine = ["DuckDB", "Snowflake"]
+client_application = ["dbt CLI"]
+language = ["SQL"]
+evidence_url = "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/README.md"

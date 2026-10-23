@@ -1,0 +1,18 @@
+id = "dsagentbench"
+name = "DSAgentBench"
+description = "275 end-to-end data-science tasks performed by computer-use agents in a real Ubuntu desktop (VS Code, Jupyter), built on OSWorld and scored by task-specific evaluators."
+created = "2026-08-11"
+created_source = "arXiv 2608.10366 v1 submission"
+updated = "2026-09-27"
+updated_source = "Latest commit on main (6e7b471)"
+repo_url = "https://github.com/vis-nlp/DSAgentBench"
+paper_url = "https://arxiv.org/abs/2608.10366"
+website_url = ""
+dataset_url = ""
+last_verified = "2026-10-23"
+notes = "Identified as the vis-nlp/DSAgentBench repository linked from arXiv 2608.10366; no other benchmark with this name was found."
+
+[support]
+client_application = ["VS Code", "Jupyter"]
+language = ["Python"]
+evidence_url = "https://github.com/vis-nlp/DSAgentBench/blob/6e7b47195db8297671fa2c5827bfb9603c721dc8/README.md"

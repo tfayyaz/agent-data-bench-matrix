@@ -1,0 +1,17 @@
+# Task-level annotations for DABStep (Hugging Face dataset adyen/DABstep).
+benchmark_id = "dabstep"
+
+[[tasks]]
+task_id = "1712"
+name = "Total fees owed by Belles_cookbook_store on day 12 of 2023"
+source_url = "https://huggingface.co/datasets/adyen/DABstep/viewer/tasks"
+evidence_url = "https://huggingface.co/datasets/adyen/DABstep/tree/main/data/context"
+verification = "verified"
+managed_service = ["none"]
+table_format = ["none"]
+source_formats = ["CSV", "JSON", "Markdown"]
+output_formats = ["Text answer"]
+storage_format = ["Local CSV file", "Local JSON file"]
+catalogue = ["none"]
+inferred_fields = ["source_formats", "storage_format"]
+notes = "Level hard; answer must be a number rounded to 2 decimals. Shared context files include payments.csv, fees.json, merchant_data.json and manual.md; which ones this task needs is inferred. The benchmark does not prescribe a language or engine, so those stay unknown."

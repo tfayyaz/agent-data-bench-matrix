@@ -1,0 +1,36 @@
+# Task-level annotations for BIRD-Interact. Permalinks pin commit 451fe2c.
+benchmark_id = "bird-interact"
+
+[[tasks]]
+task_id = "alien_1"
+name = "Atmospheric Observability Index by weather condition (a-Interact)"
+source_url = "https://huggingface.co/datasets/birdsql/bird-interact-lite"
+evidence_url = "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/BIRD-Interact-ADK/examples/a_interact_samples.json"
+verification = "verified"
+interaction_method = ["API"]
+language = ["SQL"]
+engine = ["PostgreSQL"]
+managed_service = ["none"]
+table_format = ["Engine-native"]
+output_formats = ["SQL"]
+storage_format = ["PostgreSQL database"]
+catalogue = ["PostgreSQL native"]
+inferred_fields = ["interaction_method", "storage_format", "catalogue"]
+notes = "selected_database 'alien', category Query. Sample file uses mode a-interact: the agent calls tools, including asking a user simulator to clarify the ambiguous query. PostgreSQL is stated at benchmark level (README, Docker services)."
+
+[[tasks]]
+task_id = "alien_3"
+name = "Alien database query in conversational mode (c-Interact)"
+source_url = "https://huggingface.co/datasets/birdsql/bird-interact-lite"
+evidence_url = "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/BIRD-Interact-ADK/examples/c_interact_samples.json"
+verification = "verified"
+interaction_method = ["API"]
+language = ["SQL"]
+engine = ["PostgreSQL"]
+managed_service = ["none"]
+table_format = ["Engine-native"]
+output_formats = ["SQL"]
+storage_format = ["PostgreSQL database"]
+catalogue = ["PostgreSQL native"]
+inferred_fields = ["interaction_method", "storage_format", "catalogue"]
+notes = "Sample file uses mode c-interact (trajectory includes an ask_user tool call)."
