@@ -45,7 +45,7 @@ BENCHMARK_STR_FIELDS = (
     "updated_source",
     "notes",
 )
-SUPPORT_FIELDS = ("engine", "client_application", "table_format", "language")
+SUPPORT_FIELDS = ("engine", "client_application", "table_format", "language", "tools")
 
 # Multi-valued technology fields. Every one is normalized to a list of strings.
 TECH_LIST_FIELDS = (
@@ -59,6 +59,7 @@ TECH_LIST_FIELDS = (
     "output_formats",
     "storage_format",
     "catalogue",
+    "tools",
 )
 TASK_STR_FIELDS = ("task_id", "name", "source_url", "evidence_url", "verification", "notes")
 TASK_LIST_FIELDS = TECH_LIST_FIELDS + ("inferred_fields",)
@@ -77,6 +78,7 @@ class Catalogue:
     benchmarks: list[dict] = field(default_factory=list)
     tasks: list[dict] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    leaderboard: dict = field(default_factory=dict)
 
 
 def rel(path: Path) -> str:
@@ -318,10 +320,89 @@ def _check_vocabulary(tasks: list[dict], errors: list[str]) -> None:
                     seen.setdefault(norm, value)
 
 
+def load_leaderboard(path: Path, benchmark_ids: set[str], errors: list[str]) -> dict:
+    """Validate separate engine/tool inventories and their pinned research evidence."""
+    raw = _read_toml(path, errors)
+    if raw is None:
+        return {}
+    where = rel(path)
+    allowed = {"reviewed_on", "scope", "engines", "evidence", "tools", "tool_evidence", "excluded_engines"}
+    for key in raw:
+        if key not in allowed:
+            errors.append(f"{where}: unknown leaderboard key '{key}'")
+    for key in ("scope", "reviewed_on"):
+        if not isinstance(raw.get(key), str) or not raw[key].strip():
+            errors.append(f"{where}: '{key}' is required")
+    _check_date(raw.get("reviewed_on"), where, "reviewed_on", errors)
+    for field in ("engines", "evidence", "tools", "tool_evidence", "excluded_engines"):
+        items = raw.get(field, [])
+        if not isinstance(items, list) or not all(isinstance(x, dict) for x in items):
+            errors.append(f"{where}: '{field}' must be an array of tables")
+            return {}
+    for inventory, evidence_key, subject in (("engines", "evidence", "engine"), ("tools", "tool_evidence", "tool")):
+        names = set()
+        aliases = {}
+        for i, item in enumerate(raw.get(inventory, [])):
+            loc = f"{where} {subject} {i + 1}"
+            keys = {"name", "category", "license", "source_url", "aliases", "license_scope"}
+            for key in item:
+                if key not in keys:
+                    errors.append(f"{loc}: unknown key '{key}'")
+            for key in keys - {"aliases"}:
+                if not isinstance(item.get(key), str) or not item[key].strip():
+                    errors.append(f"{loc}: '{key}' is required")
+            name = item.get("name")
+            if not isinstance(name, str):
+                continue
+            if name in names:
+                errors.append(f"{loc}: duplicate {subject} '{name}'")
+            names.add(name)
+            _check_url(item.get("source_url"), loc, "source_url", errors)
+            values = _as_list(item.get("aliases", []), loc, "aliases", errors)
+            item["aliases"] = values
+            for value in [name, *values]:
+                alias = value.casefold().strip()
+                if alias in aliases and aliases[alias] != name:
+                    errors.append(f"{loc}: alias '{value}' conflicts with '{aliases[alias]}'")
+                aliases[alias] = name
+        seen = set()
+        for i, record in enumerate(raw.get(evidence_key, [])):
+            loc = f"{where} {evidence_key} {i + 1}"
+            keys = {subject, "benchmark_id", "kind", "evidence_url", "reviewed_on", "notes"}
+            for key in record:
+                if key not in keys:
+                    errors.append(f"{loc}: unknown key '{key}'")
+            for key in keys:
+                if not isinstance(record.get(key), str) or not record[key].strip():
+                    errors.append(f"{loc}: '{key}' is required")
+            if not isinstance(record.get(subject), str) or record[subject] not in names:
+                errors.append(f"{loc}: unknown {subject} '{record.get(subject)}'")
+            if not isinstance(record.get("benchmark_id"), str) or record["benchmark_id"] not in benchmark_ids:
+                errors.append(f"{loc}: unknown benchmark_id '{record.get('benchmark_id')}'")
+            if not isinstance(record.get("kind"), str) or record["kind"] not in {"runtime", "documentation", "environment", "planned"}:
+                errors.append(f"{loc}: invalid evidence kind")
+            _check_url(record.get("evidence_url"), loc, "evidence_url", errors)
+            _check_date(record.get("reviewed_on"), loc, "reviewed_on", errors)
+            if isinstance(record.get("evidence_url"), str) and not re.match(
+                r"https://github\.com/[^/]+/[^/]+/blob/[a-f0-9]{40}/", record["evidence_url"]
+            ):
+                errors.append(f"{loc}: research evidence must link to a pinned commit")
+            key = tuple(str(record.get(k)) for k in (subject, "benchmark_id", "kind", "evidence_url"))
+            if key in seen:
+                errors.append(f"{loc}: duplicate evidence record")
+            seen.add(key)
+    for record in raw.get("excluded_engines", []):
+        for key in ("name", "reason"):
+            if not isinstance(record.get(key), str) or not record[key].strip():
+                errors.append(f"{where}: excluded engine '{key}' is required")
+    return raw
+
+
 def load_catalogue(
     benchmarks_dir: Path = ROOT / "data" / "benchmarks",
     tasks_dir: Path = ROOT / "data" / "tasks",
     harbor_dirs: list[Path] | None = None,
+    leaderboard_path: Path | None = None,
 ) -> Catalogue:
     if harbor_dirs is None:
         harbor_dirs = [ROOT / "data" / "harbor"]
@@ -354,6 +435,10 @@ def load_catalogue(
             errors.append(f"{task['source_file']}: duplicate task '{task['benchmark_id']}/{task['task_id']}'")
         seen.add(key)
     _check_vocabulary(cat.tasks, errors)
+    if leaderboard_path is None and benchmarks_dir == ROOT / "data" / "benchmarks":
+        leaderboard_path = ROOT / "data" / "leaderboard.toml"
+    if leaderboard_path is not None:
+        cat.leaderboard = load_leaderboard(leaderboard_path, known, errors)
     return cat
 
 
@@ -377,4 +462,5 @@ def to_json_document(cat: Catalogue) -> dict:
         },
         "benchmarks": sorted(cat.benchmarks, key=lambda b: b["name"].lower()),
         "tasks": tasks,
+        "leaderboard": cat.leaderboard,
     }

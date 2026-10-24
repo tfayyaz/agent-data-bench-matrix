@@ -1,0 +1,18 @@
+id = "dec-bench"
+name = "DEC Bench"
+description = "Data engineering coding-agent benchmark with sequential quality gates and containerized PostgreSQL and ClickHouse scenarios."
+created = ""
+created_source = ""
+updated = "2026-05-06"
+updated_source = "Latest upstream commit reviewed: a6748e5512f82d6f7e4b3688e0ae3d75339c5ce7"
+repo_url = "https://github.com/514-labs/agent-evals"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = ["PostgreSQL", "ClickHouse"]
+evidence_url = "https://github.com/514-labs/agent-evals/blob/a6748e5512f82d6f7e4b3688e0ae3d75339c5ce7/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

@@ -9,3 +9,8 @@ Every engine, format, storage value and catalogue receives an icon, including un
 The original pictograms are dedicated to the public domain under CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
 
 Tabulator retains its MIT license in `vendor/tabulator/LICENSE`.
+
+Observability additions use original SVG flame, log-lines, trace-graph, dashboard,
+collector and wheel pictograms for Prometheus, Loki, Tempo/Jaeger, Grafana,
+OpenTelemetry and Kubernetes/Helm. These follow the same CC0 provenance and are
+not official project logos.

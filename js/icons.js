@@ -2,6 +2,12 @@
 (function (root) {
   "use strict";
   var shapes = {
+    flame: '<path d="M12 2c2 5-2 5-1 9 3-1 4-3 4-5 5 5 7 9 4 13-3 4-11 4-14-1-2-4 0-7 3-10 0 4 1 5 2 5-1-4 2-6 2-11Z"/>',
+    logs: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h1m3 0h6M7 12h1m3 0h6M7 16h1m3 0h4"/>',
+    trace: '<circle cx="5" cy="5" r="2"/><circle cx="19" cy="8" r="2"/><circle cx="8" cy="19" r="2"/><path d="m7 5 10 2M5 7l2 10m3 1 8-8"/>',
+    dashboard: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 9v12m4-5 2-3 3 2"/>',
+    wheel: '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v8m0 4v8M2 12h8m4 0h8M5 5l6 6m2 2 6 6M5 19l6-6m2-2 6-6"/>',
+    collector: '<path d="M3 4h5v5H3ZM3 15h5v5H3ZM16 9h5v6h-5ZM8 6h4v6h4M8 18h4v-6"/>',
     engine: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/>',
     snowflake: '<path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 3 3-3M9 20l3-3 3 3M4 10l4-1-1-4M17 19l-1-4 4-1M4 14l4 1-1 4M17 5l-1 4 4 1"/>',
     search: '<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M7 11V9m3 2V7m3 4V8"/>',
@@ -23,6 +29,13 @@
     else if (/bigquery/.test(v)) { type='search';color='blue'; }
     else if (/duckdb/.test(v)) { type='duck';color='amber'; }
     else if (/pandas/.test(v)) { type='grid';color='violet'; }
+    else if (/prometheus/.test(v)) { type='flame';color='amber'; }
+    else if (/grafana/.test(v)) { type='dashboard';color='amber'; }
+    else if (/loki/.test(v)) { type='logs';color='violet'; }
+    else if (/tempo|jaeger/.test(v)) { type='trace';color='blue'; }
+    else if (/kubernetes|helm/.test(v)) { type='wheel';color='blue'; }
+    else if (/opentelemetry|collector|operator/.test(v)) { type='collector';color='teal'; }
+    else if (/kubectl|ipython|mcp|diagnostic/.test(v) || field==='tools') { type='terminal';color='slate'; }
     else if (/sqlite|postgres|mysql|engine/.test(v) || field==='engine') { type='engine';color='teal'; }
     else if (/iceberg|delta|hudi|ducklake/.test(v) || field==='table_format') { type='layers';color='teal'; }
     else if (/csv|parquet|json|table|excel/.test(v)) { type='grid';color='teal'; }

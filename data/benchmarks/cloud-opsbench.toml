@@ -1,0 +1,18 @@
+id = "cloud-opsbench"
+name = "Cloud-OpsBench"
+description = "Observability / cloud root-cause-analysis benchmark using immutable Kubernetes state snapshots and replayed diagnostic tool calls; no live cluster is required."
+created = ""
+created_source = ""
+updated = "2026-10-16"
+updated_source = "Reviewed upstream commit c84f5ebd448983322b06c24022b126125c632a22"
+repo_url = "https://github.com/LLM4Ops/Cloud-OpsBench"
+paper_url = "https://arxiv.org/abs/2603.00468"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent."
+
+[support]
+engine = []
+evidence_url = "https://github.com/LLM4Ops/Cloud-OpsBench/blob/c84f5ebd448983322b06c24022b126125c632a22/README.md"
+notes = "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."

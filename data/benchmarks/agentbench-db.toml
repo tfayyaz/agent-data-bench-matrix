@@ -1,0 +1,18 @@
+id = "agentbench-db"
+name = "AgentBench · DB"
+description = "Interactive database tasks in the AgentBench function-calling suite, deployed against MySQL."
+created = ""
+created_source = ""
+updated = "2026-02-08"
+updated_source = "Latest upstream commit reviewed: d1e4a10db08c87075c78972e48ecc182be03e2d5"
+repo_url = "https://github.com/THUDM/AgentBench"
+paper_url = "https://arxiv.org/abs/2308.03688"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = ["MySQL"]
+evidence_url = "https://github.com/THUDM/AgentBench/blob/d1e4a10db08c87075c78972e48ecc182be03e2d5/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

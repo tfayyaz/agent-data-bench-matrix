@@ -1,0 +1,18 @@
+id = "fdabench"
+name = "FDABench"
+description = "Data-agent analytical queries over heterogeneous structured and unstructured sources, including SQLite databases."
+created = ""
+created_source = ""
+updated = "2026-08-06"
+updated_source = "Latest upstream commit reviewed: 72e50a2b59798848a06ad30c5d8a39248c1228bf"
+repo_url = "https://github.com/fdabench/FDAbench"
+paper_url = "https://arxiv.org/abs/2509.02473"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = ["SQLite", "BigQuery", "Snowflake"]
+evidence_url = "https://github.com/fdabench/FDAbench/blob/72e50a2b59798848a06ad30c5d8a39248c1228bf/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

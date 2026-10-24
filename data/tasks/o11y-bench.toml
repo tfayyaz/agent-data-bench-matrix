@@ -1,0 +1,43 @@
+benchmark_id = "o11y-bench"
+
+[[tasks]]
+task_id = "check-service-health"
+name = "Check target health and backend 5xx share"
+source_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/prometheus_query/check-service-health.yaml"
+evidence_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/prometheus_query/check-service-health.yaml"
+verification = "verified"
+engine = ["Prometheus"]
+language = ["PromQL"]
+client_application = ["mcp-grafana"]
+interaction_method = ["MCP"]
+tools = ["Grafana", "mcp-grafana", "Harbor"]
+inferred_fields = ["client_application", "interaction_method", "tools"]
+notes = "The task spec explicitly names the query backend/language in grading facts. Default MCP interface and harness tools are inferred from benchmark-wide README and Dockerfile; CLI-only runs are also supported. No agent run was performed."
+
+[[tasks]]
+task_id = "find-slow-requests"
+name = "Find the slowest HTTP route in six hours of logs"
+source_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/loki_query/find-slow-requests.yaml"
+evidence_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/loki_query/find-slow-requests.yaml"
+verification = "verified"
+engine = ["Loki"]
+language = ["LogQL"]
+client_application = ["mcp-grafana"]
+interaction_method = ["MCP"]
+tools = ["Grafana", "mcp-grafana", "Harbor"]
+inferred_fields = ["client_application", "interaction_method", "tools"]
+notes = "The task spec explicitly names the query backend/language in grading facts. Default MCP interface and harness tools are inferred from benchmark-wide README and Dockerfile; CLI-only runs are also supported. No agent run was performed."
+
+[[tasks]]
+task_id = "find-slow-traces"
+name = "Find slow checkout/payment traces and cite a trace ID"
+source_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/tempo_query/find-slow-traces.yaml"
+evidence_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/tempo_query/find-slow-traces.yaml"
+verification = "verified"
+engine = ["Tempo"]
+language = ["TraceQL"]
+client_application = ["mcp-grafana"]
+interaction_method = ["MCP"]
+tools = ["Grafana", "mcp-grafana", "Harbor"]
+inferred_fields = ["client_application", "interaction_method", "tools"]
+notes = "The task spec explicitly names the query backend/language in grading facts. Default MCP interface and harness tools are inferred from benchmark-wide README and Dockerfile; CLI-only runs are also supported. No agent run was performed."

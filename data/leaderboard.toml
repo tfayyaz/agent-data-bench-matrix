@@ -1,0 +1,883 @@
+# Engine coverage research snapshot. Counts are derived, never hand-entered.
+reviewed_on = "2026-10-24"
+scope = "Curated public data-agent, interactive SQL, data-engineering and observability/SRE benchmarks. Coverage reflects reviewed sources, not an exhaustive census or engine performance. No evidence found means no qualifying evidence in this catalogue."
+
+[[engines]]
+name = "DuckDB"
+category = "Embedded SQL"
+license = "MIT"
+source_url = "https://github.com/duckdb/duckdb"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "SQLite"
+category = "Embedded SQL"
+license = "Public domain"
+source_url = "https://github.com/sqlite/sqlite"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "chDB"
+category = "Embedded SQL"
+license = "Apache-2.0"
+source_url = "https://github.com/chdb-io/chdb"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "DataFusion"
+category = "Embedded SQL"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/datafusion"
+aliases = ["Apache DataFusion"]
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Pandas"
+category = "DataFrame"
+license = "BSD-3-Clause"
+source_url = "https://github.com/pandas-dev/pandas"
+aliases = ["pandas"]
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Polars"
+category = "DataFrame"
+license = "MIT"
+source_url = "https://github.com/pola-rs/polars"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Dask"
+category = "DataFrame"
+license = "BSD-3-Clause"
+source_url = "https://github.com/dask/dask"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Modin"
+category = "DataFrame"
+license = "Apache-2.0"
+source_url = "https://github.com/modin-project/modin"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Vaex"
+category = "DataFrame"
+license = "MIT"
+source_url = "https://github.com/vaexio/vaex"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Apache Spark"
+category = "Distributed processing"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/spark"
+aliases = ["Spark", "PySpark"]
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Apache Flink"
+category = "Distributed processing"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/flink"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Ray Data"
+category = "Distributed processing"
+license = "Apache-2.0"
+source_url = "https://github.com/ray-project/ray"
+aliases = ["Ray"]
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Trino"
+category = "Distributed SQL"
+license = "Apache-2.0"
+source_url = "https://github.com/trinodb/trino"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "PrestoDB"
+category = "Distributed SQL"
+license = "Apache-2.0"
+source_url = "https://github.com/prestodb/presto"
+aliases = ["Presto"]
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Apache Drill"
+category = "Distributed SQL"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/drill"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Apache Hive"
+category = "Distributed SQL"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/hive"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Apache Impala"
+category = "Distributed SQL"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/impala"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "ClickHouse"
+category = "Analytical database"
+license = "Apache-2.0"
+source_url = "https://github.com/ClickHouse/ClickHouse"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Apache Doris"
+category = "Analytical database"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/doris"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "StarRocks"
+category = "Analytical database"
+license = "Apache-2.0"
+source_url = "https://github.com/StarRocks/starrocks"
+aliases = []
+license_scope = "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+
+[[engines]]
+name = "Apache Druid"
+category = "Analytical database"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/druid"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Apache Pinot"
+category = "Analytical database"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/pinot"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Greenplum"
+category = "Analytical database"
+license = "Apache-2.0"
+source_url = "https://github.com/greenplum-db/gpdb-archive"
+aliases = []
+license_scope = "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+
+[[engines]]
+name = "PostgreSQL"
+category = "Relational database"
+license = "PostgreSQL"
+source_url = "https://github.com/postgres/postgres"
+aliases = ["Postgres"]
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "MySQL"
+category = "Relational database"
+license = "GPL-2.0"
+source_url = "https://github.com/mysql/mysql-server"
+aliases = []
+license_scope = "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+
+[[engines]]
+name = "MariaDB"
+category = "Relational database"
+license = "GPL-2.0"
+source_url = "https://github.com/MariaDB/server"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Firebird"
+category = "Relational database"
+license = "IPL-1.0 / IDPL-1.0"
+source_url = "https://github.com/FirebirdSQL/firebird"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "OpenSearch"
+category = "Search"
+license = "Apache-2.0"
+source_url = "https://github.com/opensearch-project/OpenSearch"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Apache Solr"
+category = "Search"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/solr"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Neo4j Community"
+category = "Graph"
+license = "GPL-3.0"
+source_url = "https://github.com/neo4j/neo4j"
+aliases = ["Neo4j"]
+license_scope = "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+
+[[engines]]
+name = "Apache AGE"
+category = "Graph"
+license = "Apache-2.0"
+source_url = "https://github.com/apache/age"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Milvus"
+category = "Vector database"
+license = "Apache-2.0"
+source_url = "https://github.com/milvus-io/milvus"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Qdrant"
+category = "Vector database"
+license = "Apache-2.0"
+source_url = "https://github.com/qdrant/qdrant"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "Weaviate"
+category = "Vector database"
+license = "BSD-3-Clause"
+source_url = "https://github.com/weaviate/weaviate"
+aliases = []
+license_scope = "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+
+[[engines]]
+name = "Chroma"
+category = "Vector database"
+license = "Apache-2.0"
+source_url = "https://github.com/chroma-core/chroma"
+aliases = []
+license_scope = "Open-source engine/library; hosted services are outside this entry."
+
+[[engines]]
+name = "LanceDB"
+category = "Vector database"
+license = "Apache-2.0"
+source_url = "https://github.com/lancedb/lancedb"
+aliases = []
+license_scope = "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+
+[[engines]]
+name = "TimescaleDB (Apache core)"
+category = "Time series"
+license = "Apache-2.0"
+source_url = "https://github.com/timescale/timescaledb/blob/dd0330df1e1ba3e8c0235e702996ca3fcbba0853/LICENSE"
+aliases = []
+license_scope = "Only the Apache-licensed code outside tsl/ is in scope. Timescale-licensed modules and hosted services are excluded."
+
+[[engines]]
+name = "QuestDB"
+category = "Time series"
+license = "Apache-2.0"
+source_url = "https://github.com/questdb/questdb/blob/8da4e347f96563dc4e9d13916e00177e2af708f9/LICENSE.txt"
+aliases = []
+license_scope = "Open-source core under Apache-2.0; enterprise and hosted editions are excluded."
+
+[[engines]]
+name = "InfluxDB 3 Core"
+category = "Time series"
+license = "Apache-2.0 / MIT"
+source_url = "https://github.com/influxdata/influxdb/blob/185688a5a813016c0d26ec10abbad2ca770670ed/LICENSE-MIT"
+aliases = []
+license_scope = "The open-source InfluxDB 3 Core code only. This entry does not cover enterprise/cloud products or every historical InfluxDB edition."
+
+[[engines]]
+name = "TDengine Community"
+category = "Time series"
+license = "AGPL-3.0"
+source_url = "https://github.com/taosdata/TDengine/blob/957d6721d141e897bae85cbc0b034bca92c41f58/LICENSE"
+aliases = []
+license_scope = "AGPL-licensed community code only; enterprise and hosted editions are excluded."
+
+[[engines]]
+name = "RisingWave"
+category = "Streaming SQL"
+license = "Apache-2.0"
+source_url = "https://github.com/risingwavelabs/risingwave/blob/1c69fba082ea181ac97ef487f6e341c95bb68493/LICENSE"
+aliases = []
+license_scope = "Apache-licensed engine code only; hosted services and enterprise additions are excluded."
+
+[[engines]]
+name = "Elasticsearch (AGPL core)"
+category = "Search"
+license = "AGPL-3.0-only"
+source_url = "https://github.com/elastic/elasticsearch/blob/1e19422dfa2a39ab19aca5d8146092ec4be4f51f/LICENSE.txt"
+aliases = []
+license_scope = "Only code available under the AGPL option is in scope. Elastic-License-only x-pack components and the default proprietary distribution are excluded."
+
+[[engines]]
+name = "Prometheus"
+category = "Metrics / time series"
+license = "Apache-2.0"
+source_url = "https://github.com/prometheus/prometheus"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a metrics / time series component, not necessarily an agent-facing tool or database."
+
+[[engines]]
+name = "Loki"
+category = "Log query backend"
+license = "AGPL-3.0"
+source_url = "https://github.com/grafana/loki"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a log query backend component, not necessarily an agent-facing tool or database."
+
+[[engines]]
+name = "Tempo"
+category = "Trace query backend"
+license = "AGPL-3.0"
+source_url = "https://github.com/grafana/tempo"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a trace query backend component, not necessarily an agent-facing tool or database."
+
+[[engines]]
+name = "GreptimeDB"
+category = "Telemetry database"
+license = "Apache-2.0"
+source_url = "https://github.com/GreptimeTeam/greptimedb"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a telemetry database component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Grafana"
+category = "Observability interface"
+license = "AGPL-3.0"
+source_url = "https://github.com/grafana/grafana"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a observability interface component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "mcp-grafana"
+category = "Agent interface"
+license = "Apache-2.0"
+source_url = "https://github.com/grafana/mcp-grafana"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a agent interface component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Jaeger"
+category = "Tracing interface"
+license = "Apache-2.0"
+source_url = "https://github.com/jaegertracing/jaeger"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a tracing interface component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "OpenTelemetry Collector"
+category = "Telemetry collection"
+license = "Apache-2.0"
+source_url = "https://github.com/open-telemetry/opentelemetry-collector"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a telemetry collection component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "OpenTelemetry Demo"
+category = "Instrumented workload"
+license = "Apache-2.0"
+source_url = "https://github.com/open-telemetry/opentelemetry-demo"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a instrumented workload component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Kubernetes"
+category = "Orchestration"
+license = "Apache-2.0"
+source_url = "https://github.com/kubernetes/kubernetes"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a orchestration component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "kubectl"
+category = "Operational CLI"
+license = "Apache-2.0"
+source_url = "https://github.com/kubernetes/kubectl"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a operational cli component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Helm"
+category = "Deployment tooling"
+license = "Apache-2.0"
+source_url = "https://github.com/helm/helm"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a deployment tooling component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Chaos Mesh"
+category = "Fault injection"
+license = "Apache-2.0"
+source_url = "https://github.com/chaos-mesh/chaos-mesh"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a fault injection component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Istio"
+category = "Service mesh"
+license = "Apache-2.0"
+source_url = "https://github.com/istio/istio"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a service mesh component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Harbor"
+category = "Evaluation harness"
+license = "Apache-2.0"
+source_url = "https://github.com/harbor-framework/harbor"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a evaluation harness component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "IPython"
+category = "Analysis runtime"
+license = "BSD-3-Clause"
+source_url = "https://github.com/ipython/ipython"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a analysis runtime component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Prometheus Operator"
+category = "Telemetry collection"
+license = "Apache-2.0"
+source_url = "https://github.com/prometheus-operator/prometheus-operator"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a telemetry collection component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "OpenTelemetry Operator"
+category = "Telemetry collection"
+license = "Apache-2.0"
+source_url = "https://github.com/open-telemetry/opentelemetry-operator"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a telemetry collection component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Altinity ClickHouse Operator"
+category = "Storage orchestration"
+license = "Apache-2.0"
+source_url = "https://github.com/Altinity/clickhouse-operator"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a storage orchestration component, not necessarily an agent-facing tool or database."
+
+[[tools]]
+name = "Cloud-OpsBench diagnostic tools"
+category = "Snapshot replay interface"
+license = "MIT"
+source_url = "https://github.com/LLM4Ops/Cloud-OpsBench"
+aliases = []
+license_scope = "Open-source core only; commercial/hosted editions are excluded. This is a snapshot replay interface component, not necessarily an agent-facing tool or database."
+
+[[evidence]]
+engine = "Pandas"
+benchmark_id = "da-code"
+kind = "runtime"
+evidence_url = "https://github.com/yiyihum/da-code/blob/b211daf51fdc9b52d5087c9df28ac50191bcabed/da_agent/configs/sql_template.py"
+reviewed_on = "2026-10-24"
+notes = "SQL execution template uses pandas.read_sql_query and DataFrame.to_csv. This is benchmark runtime support, not an independently verified task."
+
+[[evidence]]
+engine = "SQLite"
+benchmark_id = "da-code"
+kind = "runtime"
+evidence_url = "https://github.com/yiyihum/da-code/blob/b211daf51fdc9b52d5087c9df28ac50191bcabed/da_agent/configs/sql_template.py"
+reviewed_on = "2026-10-24"
+notes = "The SQL tool template calls sqlite3.connect and executes the supplied SQL against the task database."
+
+[[evidence]]
+engine = "Pandas"
+benchmark_id = "blade"
+kind = "runtime"
+evidence_url = "https://github.com/behavioral-data/BLADE/blob/6118fa8d5007b91aa8c91c518182db82446a4547/blade_bench/nb/nb_executor.py"
+reviewed_on = "2026-10-24"
+notes = "Notebook execution initializes a pandas DataFrame with read_csv and wraps agent-generated transforms with a pandas DataFrame signature."
+
+[[evidence]]
+engine = "Pandas"
+benchmark_id = "insightbench"
+kind = "runtime"
+evidence_url = "https://github.com/ServiceNow/insight-bench/blob/33c27c1282cb7ed73267d36fb84e27b6ea8aac2b/insightbench/tools.py"
+reviewed_on = "2026-10-24"
+notes = "Agent analysis tools operate on pandas DataFrames for grouping, visualization and regression."
+
+[[evidence]]
+engine = "Pandas"
+benchmark_id = "kramabench"
+kind = "runtime"
+evidence_url = "https://github.com/mitdbg/Kramabench/blob/b2e0d77540263f8b6119f977fe79a8c4386b5a02/systems/baseline_example.py"
+reviewed_on = "2026-10-24"
+notes = "The example system under test loads CSV inputs as pandas DataFrames. This establishes a supported baseline, not usage by every submitted agent."
+
+[[evidence]]
+engine = "Pandas"
+benchmark_id = "tag-bench"
+kind = "runtime"
+evidence_url = "https://github.com/TAG-Research/TAG-Bench/blob/f97b0b5ca211573837cf3236224ac658b4a959bc/tag/hand_written.py"
+reviewed_on = "2026-10-24"
+notes = "Reference pipelines read CSV inputs with pandas and apply tabular and semantic operations."
+
+[[evidence]]
+engine = "SQLite"
+benchmark_id = "tag-bench"
+kind = "runtime"
+evidence_url = "https://github.com/TAG-Research/TAG-Bench/blob/f97b0b5ca211573837cf3236224ac658b4a959bc/tag/text2sql.py"
+reviewed_on = "2026-10-24"
+notes = "The text-to-SQL baseline connects to BIRD SQLite databases and executes generated SQL."
+
+[[evidence]]
+engine = "Polars"
+benchmark_id = "pipelinebench"
+kind = "environment"
+evidence_url = "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/pyproject.toml"
+reviewed_on = "2026-10-24"
+notes = "Polars is installed, but no active task usage was established. Dependency-only evidence does not contribute to the ranking."
+
+[[evidence]]
+engine = "Apache Spark"
+benchmark_id = "pipelinebench"
+kind = "planned"
+evidence_url = "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/README.md"
+reviewed_on = "2026-10-24"
+notes = "Spark tasks appear on the roadmap, not among the current tasks. Planned support does not contribute to the ranking."
+
+[[evidence]]
+engine = "Pandas"
+benchmark_id = "scienceagentbench"
+kind = "environment"
+evidence_url = "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/c26e151ed601ba109dc4d35e057ff8e73fec469d/docs/20250110_docker/README.md"
+reviewed_on = "2026-10-24"
+notes = "The base execution image installs pandas. This alone does not establish task usage."
+
+[[evidence]]
+engine = "Pandas"
+benchmark_id = "mle-bench"
+kind = "environment"
+evidence_url = "https://github.com/openai/mle-bench/blob/507f92e1138bb6e40dac5c6ee7a6758e6424bf97/mlebench/grade_helpers.py"
+reviewed_on = "2026-10-24"
+notes = "The evaluator imports pandas. Evaluator-only imports do not establish the data engine used by an agent and are excluded."
+
+[[excluded_engines]]
+name = "Apache Beam"
+reason = "Programming model and SDK: record the concrete execution runner, such as Flink or Spark, as the engine."
+
+[[excluded_engines]]
+name = "Memgraph"
+reason = "No reviewed OSS distribution and qualifying benchmark evidence have been established for this snapshot. Excluded from the OSS ranking pending precise edition and license review."
+
+[[excluded_engines]]
+name = "FerretDB"
+reason = "Compatibility layer: distinguish the protocol endpoint from its underlying storage/query engine before assigning coverage."
+
+[[excluded_engines]]
+name = "BigQuery, Snowflake, Amazon Redshift, hosted Databricks"
+reason = "Managed/proprietary services remain in the general matrix, but are outside the open-source engine leaderboard."
+
+[[evidence]]
+engine = "Prometheus"
+benchmark_id = "aiopslab"
+kind = "runtime"
+evidence_url = "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/aiopslab/service/telemetry/prometheus.py"
+reviewed_on = "2026-10-24"
+notes = "The benchmark deploys Prometheus telemetry through its concrete service wrapper."
+
+[[evidence]]
+engine = "Prometheus"
+benchmark_id = "sregym"
+kind = "runtime"
+evidence_url = "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/mcp_server/prometheus_server.py"
+reviewed_on = "2026-10-24"
+notes = "Agent MCP tools call the dedicated Prometheus query and alert APIs."
+
+[[evidence]]
+engine = "Prometheus"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "Prometheus is part of the live SRE observability stack; scenario modes determine which other components are installed."
+
+[[evidence]]
+engine = "ClickHouse"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "Altinity ClickHouse is listed as logs/traces storage for ITBench SRE. This is benchmark-level stack support, not a claim that every agent queries it."
+
+[[evidence]]
+engine = "OpenSearch"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "Jaeger/OpenSearch traces can be disabled per scenario. Counted as supported benchmark coverage, not universal task usage."
+
+[[evidence]]
+engine = "Pandas"
+benchmark_id = "openrca"
+kind = "runtime"
+evidence_url = "https://github.com/microsoft/OpenRCA/blob/2a481ae63cb045c3eadbeca9eddaa10ec1151979/rca/baseline/rca_agent/sandbox/worker.py"
+reviewed_on = "2026-10-24"
+notes = "The execution worker initializes pandas in the IPython user namespace; the agent executor explicitly instructs pandas DataFrame analysis."
+
+[[evidence]]
+engine = "OpenSearch"
+benchmark_id = "sregym"
+kind = "environment"
+evidence_url = "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md"
+reviewed_on = "2026-10-24"
+notes = "README says the astronomy-shop bundled OpenSearch/Grafana are not queried by the benchmark. The bundled Jaeger is replaced by a dedicated observer. No OpenSearch coverage credit from this bundle."
+
+[[tool_evidence]]
+tool = "Grafana"
+benchmark_id = "o11y-bench"
+kind = "runtime"
+evidence_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/docker/Dockerfile"
+reviewed_on = "2026-10-24"
+notes = "The observability sidecar installs and runs Grafana and the mcp-grafana agent interface. This does not assert every task uses every tool."
+
+[[tool_evidence]]
+tool = "mcp-grafana"
+benchmark_id = "o11y-bench"
+kind = "runtime"
+evidence_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/docker/Dockerfile"
+reviewed_on = "2026-10-24"
+notes = "The observability sidecar installs and runs Grafana and the mcp-grafana agent interface. This does not assert every task uses every tool."
+
+[[tool_evidence]]
+tool = "Harbor"
+benchmark_id = "o11y-bench"
+kind = "runtime"
+evidence_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/README.md"
+reviewed_on = "2026-10-24"
+notes = "Harbor materializes tasks, starts the observability sidecar and executes/grades agents."
+
+[[tool_evidence]]
+tool = "Grafana"
+benchmark_id = "orca-bench"
+kind = "runtime"
+evidence_url = "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md"
+reviewed_on = "2026-10-24"
+notes = "The documented OpenTelemetry Demo snapshot workflow uses Grafana for inspection and Jaeger over OpenSearch for tracing."
+
+[[tool_evidence]]
+tool = "Jaeger"
+benchmark_id = "orca-bench"
+kind = "runtime"
+evidence_url = "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md"
+reviewed_on = "2026-10-24"
+notes = "The documented OpenTelemetry Demo snapshot workflow uses Grafana for inspection and Jaeger over OpenSearch for tracing."
+
+[[tool_evidence]]
+tool = "OpenTelemetry Demo"
+benchmark_id = "orca-bench"
+kind = "runtime"
+evidence_url = "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md"
+reviewed_on = "2026-10-24"
+notes = "The documented OpenTelemetry Demo snapshot workflow uses Grafana for inspection and Jaeger over OpenSearch for tracing."
+
+[[tool_evidence]]
+tool = "OpenTelemetry Collector"
+benchmark_id = "orca-bench"
+kind = "runtime"
+evidence_url = "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/patches/docker-compose.yml"
+reviewed_on = "2026-10-24"
+notes = "Instrumented demo services export telemetry to the configured otel-collector service."
+
+[[tool_evidence]]
+tool = "Harbor"
+benchmark_id = "orca-bench"
+kind = "runtime"
+evidence_url = "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md"
+reviewed_on = "2026-10-24"
+notes = "ORCA distributes Harbor tasks and documents the Harbor snapshot-based evaluation workflow."
+
+[[tool_evidence]]
+tool = "Kubernetes"
+benchmark_id = "aiopslab"
+kind = "runtime"
+evidence_url = "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/README.md"
+reviewed_on = "2026-10-24"
+notes = "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+
+[[tool_evidence]]
+tool = "kubectl"
+benchmark_id = "aiopslab"
+kind = "runtime"
+evidence_url = "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/README.md"
+reviewed_on = "2026-10-24"
+notes = "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+
+[[tool_evidence]]
+tool = "Helm"
+benchmark_id = "aiopslab"
+kind = "runtime"
+evidence_url = "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/README.md"
+reviewed_on = "2026-10-24"
+notes = "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+
+[[tool_evidence]]
+tool = "Kubernetes"
+benchmark_id = "sregym"
+kind = "runtime"
+evidence_url = "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md"
+reviewed_on = "2026-10-24"
+notes = "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+
+[[tool_evidence]]
+tool = "kubectl"
+benchmark_id = "sregym"
+kind = "runtime"
+evidence_url = "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md"
+reviewed_on = "2026-10-24"
+notes = "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+
+[[tool_evidence]]
+tool = "Helm"
+benchmark_id = "sregym"
+kind = "runtime"
+evidence_url = "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md"
+reviewed_on = "2026-10-24"
+notes = "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+
+[[tool_evidence]]
+tool = "Jaeger"
+benchmark_id = "aiopslab"
+kind = "runtime"
+evidence_url = "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/aiopslab/observer/trace_api.py"
+reviewed_on = "2026-10-24"
+notes = "TraceAPI directly queries Jaeger service/trace APIs; kubectl is used to forward the service."
+
+[[tool_evidence]]
+tool = "Jaeger"
+benchmark_id = "sregym"
+kind = "runtime"
+evidence_url = "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/mcp_server/jaeger_server.py"
+reviewed_on = "2026-10-24"
+notes = "Dedicated Jaeger MCP tools retrieve services, operations and traces from jaeger-out in the observe namespace. This is not the unused bundled Jaeger."
+
+[[tool_evidence]]
+tool = "Grafana"
+benchmark_id = "sregym"
+kind = "environment"
+evidence_url = "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md"
+reviewed_on = "2026-10-24"
+notes = "The bundled Grafana is explicitly not queried by the benchmark. No coverage credit."
+
+[[tool_evidence]]
+tool = "Jaeger"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+
+[[tool_evidence]]
+tool = "OpenTelemetry Collector"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+
+[[tool_evidence]]
+tool = "Prometheus Operator"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+
+[[tool_evidence]]
+tool = "OpenTelemetry Operator"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+
+[[tool_evidence]]
+tool = "Altinity ClickHouse Operator"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+
+[[tool_evidence]]
+tool = "Istio"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+reviewed_on = "2026-10-24"
+notes = "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+
+[[tool_evidence]]
+tool = "Chaos Mesh"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/roles/faults/tasks/inject_chaos_mesh.yaml"
+reviewed_on = "2026-10-24"
+notes = "Fault injection creates and waits for Chaos Mesh Schedule resources. Installed only for configured chaos faults or explicit enablement."
+
+[[tool_evidence]]
+tool = "Kubernetes"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench/blob/e35270629b336ea3170c912edf3c4632eba877eb/README.md"
+reviewed_on = "2026-10-24"
+notes = "SRE incidents run in Kubernetes-based environments."
+
+[[tool_evidence]]
+tool = "Helm"
+benchmark_id = "itbench-sre"
+kind = "runtime"
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/roles/tools/defaults/main/helm_releases.yaml"
+reviewed_on = "2026-10-24"
+notes = "Tool deployment defines Helm releases for the observability stack."
+
+[[tool_evidence]]
+tool = "IPython"
+benchmark_id = "openrca"
+kind = "runtime"
+evidence_url = "https://github.com/microsoft/OpenRCA/blob/2a481ae63cb045c3eadbeca9eddaa10ec1151979/rca/baseline/rca_agent/sandbox/worker.py"
+reviewed_on = "2026-10-24"
+notes = "Container worker constructs IPython InteractiveShell and executes generated analysis cells with pandas available."
+
+[[tool_evidence]]
+tool = "Cloud-OpsBench diagnostic tools"
+benchmark_id = "cloud-opsbench"
+kind = "runtime"
+evidence_url = "https://github.com/LLM4Ops/Cloud-OpsBench/blob/c84f5ebd448983322b06c24022b126125c632a22/README.md"
+reviewed_on = "2026-10-24"
+notes = "The released diagnostic tools replay cached resource/log/configuration responses from immutable snapshots. This is not evidence that a live Kubernetes/Prometheus backend runs at evaluation time."

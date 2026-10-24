@@ -1,0 +1,18 @@
+id = "aiopslab"
+name = "AIOpsLab"
+description = "Observability / AIOps agent benchmark deploying live Kubernetes applications, injecting faults and exposing telemetry and operational tools."
+created = ""
+created_source = ""
+updated = "2026-10-20"
+updated_source = "Reviewed upstream commit 576c3f080c7ae2459a972afd4a2f8d5f01828430"
+repo_url = "https://github.com/microsoft/AIOpsLab"
+paper_url = "https://arxiv.org/abs/2501.06706"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent."
+
+[support]
+engine = ["Prometheus"]
+evidence_url = "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/aiopslab/service/telemetry/prometheus.py"
+notes = "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."

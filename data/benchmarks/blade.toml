@@ -1,0 +1,18 @@
+id = "blade"
+name = "BLADE"
+description = "Language-model agent benchmark for justifiable scientific data analysis with executable pandas transformations."
+created = ""
+created_source = ""
+updated = "2024-10-25"
+updated_source = "Latest upstream commit reviewed: 6118fa8d5007b91aa8c91c518182db82446a4547"
+repo_url = "https://github.com/behavioral-data/BLADE"
+paper_url = "https://arxiv.org/abs/2408.09667"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = []
+evidence_url = "https://github.com/behavioral-data/BLADE/blob/6118fa8d5007b91aa8c91c518182db82446a4547/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

@@ -13,7 +13,7 @@
   <div class="app-shell">
   <nav class="topbar" aria-label="Main navigation">
     <a class="brand" href="#view=engine"><span class="brand-mark">▦</span> DATA / AGENTS <span class="brand-sub">BENCHMARK ATLAS</span></a>
-    <div class="top-links"><a href="#view=benchmarks">Benchmark directory</a><a href="https://github.com/tfayyaz/agent-data-bench-matrix" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="top-links"><a href="#view=leaderboard">Engine leaderboard</a><a href="#view=benchmarks">Benchmark directory</a><a href="https://github.com/tfayyaz/agent-data-bench-matrix" target="_blank" rel="noopener">GitHub ↗</a></div>
   </nav>
   <header class="site-header">
     <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> THE DATA AGENT LANDSCAPE</p>
@@ -26,6 +26,8 @@
   <section class="metric-grid" id="metrics" aria-label="Catalogue overview"></section>
   <section class="workspace-head"><div><p class="eyebrow">EXPLORE THE LANDSCAPE</p><h2 id="section-title">Benchmark matrix</h2></div><p class="stats" id="stats" aria-live="polite">Loading catalogue…</p></section>
   <nav class="view-tabs" aria-label="Catalogue views">
+    <button data-view="leaderboard">▥ <span>Engine leaderboard</span></button>
+    <button data-view="tools">⌘ <span>OSS tools</span></button>
     <button data-view="engine" class="active">▦ <span>Execution engines</span></button>
     <button data-view="client">⌘ <span>Client applications</span></button>
     <button data-view="table_format">▤ <span>Table formats</span></button>
@@ -36,6 +38,8 @@
     <label class="control view-control">
       <span>View</span>
       <select id="view-select">
+        <option value="leaderboard">OSS engine leaderboard</option>
+        <option value="tools">OSS tools leaderboard</option>
         <option value="engine">A · Benchmark × Engine</option>
         <option value="client">B · Benchmark × Client</option>
         <option value="table_format">C · Benchmark × Table format</option>
@@ -58,6 +62,10 @@
       <summary>Status <span class="count"></span></summary>
       <div class="dropdown-body"></div>
     </details>
+    <div id="leaderboard-controls" hidden>
+      <label class="control"><span>Evidence</span><select id="leaderboard-evidence"><option value="all">All documented coverage</option><option value="verified">Verified tasks only</option></select></label>
+      <label class="control"><span id="leaderboard-category-label">Engine category</span><select id="leaderboard-category"><option value="">All categories</option></select></label>
+    </div>
     <button type="button" id="download-csv">↓ Export CSV</button>
   </section>
 
@@ -65,7 +73,16 @@
   <p class="view-help" id="view-help"></p>
 
   <main class="layout">
-    <div class="results-area"><div id="benchmark-grid" class="benchmark-grid" hidden></div><div id="table" class="table-wrap"></div></div>
+    <div class="results-area">
+      <section id="leaderboard-view" hidden aria-label="Open-source engine leaderboard">
+        <div class="leaderboard-hero"><div><p class="eyebrow" id="leaderboard-date"></p><h2 id="leaderboard-hero-title">The engines behind<br>the <em>agents.</em></h2><p id="leaderboard-hero-description">Which open-source data engines do agent benchmarks actually cover?<br class="desktop-break"> Follow the evidence, from benchmark support to individual tasks.</p></div><div class="leaderboard-emblem" aria-hidden="true">▥<span>OPEN SOURCE<br>MEASURABLE COVERAGE</span></div></div>
+        <div id="leaderboard-summary" class="leaderboard-summary"></div>
+        <div class="leaderboard-caption"><h3>Ranked by benchmark coverage</h3><p id="leaderboard-results" aria-live="polite"></p></div>
+        <div class="leader-header" aria-hidden="true"><span>Rank</span><span id="leaderboard-component-label">Engine / license</span><span>Benchmarks</span><span>Evidence breakdown</span><span>Benchmarks & sources</span></div>
+        <div id="leaderboard-list" role="list" aria-label="Ranked engines"></div>
+        <section id="watchlist-section" class="watchlist-section"><div class="leaderboard-caption"><h3>Coverage gaps <span id="watchlist-count"></span></h3></div><p class="watchlist-note">These components have no qualifying evidence in this catalogue selection. This is a research gap, not proof that no benchmark uses them. Dependency-only and roadmap mentions are excluded from ranks.</p><div id="engine-watchlist" class="engine-watchlist"></div></section>
+        <details class="leader-methodology"><summary>How to read this leaderboard & scope exclusions</summary><p>One component–benchmark pair counts once, even with several task configurations or citations. Task-backed benchmarks have a verified or inferred task annotation. Support-only benchmarks have an upstream runtime implementation or documented engine support, without a sampled task annotation. Verified task counts require a verified configuration whose relevant engine/tools field is not marked inferred. Verified here means inspected source, not an observed agent run.</p><p>Coverage ranks are recomputed for the selected benchmarks and evidence mode. Search and category filters retain those ranks. Counts measure representation in this curated catalogue, not speed, quality, total benchmark size or worldwide adoption. Benchmark variants count together; related named benchmarks can share datasets. Only the stated open-source distribution is in scope. Tools coverage includes clearly documented roles such as agent interface, telemetry collection, orchestration or evaluation harness; it does not mean every tool is directly called by an agent.</p><div id="leaderboard-exclusions"></div><p><a href="docs/leaderboard-research.md">Read the research notes and source policy</a></p></details>
+      </section><div id="benchmark-grid" class="benchmark-grid" hidden></div><div id="table" class="table-wrap"></div></div>
     <aside id="detail" class="detail" hidden aria-label="Details">
       <div class="detail-head">
         <h2 id="detail-title"></h2>
@@ -91,6 +108,7 @@
   <script src="vendor/tabulator/tabulator.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/matrix.js"></script>
+  <script src="js/leaderboard.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

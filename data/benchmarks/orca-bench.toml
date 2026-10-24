@@ -1,0 +1,18 @@
+id = "orca-bench"
+name = "ORCA-bench"
+description = "Observability / oncall benchmark with snapshot-replayed OpenTelemetry Demo telemetry, Prometheus metrics and Jaeger traces stored in OpenSearch."
+created = ""
+created_source = ""
+updated = "2026-09-20"
+updated_source = "Reviewed upstream commit a6ea32046af3009b7ca4ed829cb121fd5a73794d"
+repo_url = "https://github.com/ORCA-bench/ORCA-bench"
+paper_url = "https://arxiv.org/abs/2607.28545"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent."
+
+[support]
+engine = ["Prometheus", "OpenSearch"]
+evidence_url = "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md"
+notes = "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."

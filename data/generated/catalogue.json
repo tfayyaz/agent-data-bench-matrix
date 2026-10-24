@@ -11,7 +11,8 @@
    "source_formats",
    "output_formats",
    "storage_format",
-   "catalogue"
+   "catalogue",
+   "tools"
   ],
   "verification": [
    "verified",
@@ -31,11 +32,11 @@
   ]
  },
  "stats": {
-  "benchmarks": 16,
-  "tasks": 16,
-  "configurations": 20,
+  "benchmarks": 37,
+  "tasks": 23,
+  "configurations": 27,
   "by_verification": {
-   "verified": 14,
+   "verified": 21,
    "inferred": 2,
    "illustrative": 0,
    "unknown": 0
@@ -68,10 +69,95 @@
     "language": [
      "SQL"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/dbt-labs/ade-bench/blob/c305600ebf17e7e7c4550bd401b6ddb530beb7c8/README.md",
     "notes": null
    },
    "source_file": "data/benchmarks/ade-bench.toml"
+  },
+  {
+   "id": "agent-rca-bench",
+   "name": "Agent RCA Bench",
+   "description": "Observability interface comparison for RCA agents: native Prometheus/Loki/Tempo APIs versus GreptimeDB SQL/PromQL and semantic graph interfaces.",
+   "created_source": null,
+   "updated_source": "Reviewed upstream commit fdfbca65c87c36c6b06bddfa6d611544f13bfa34",
+   "notes": "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent.",
+   "created": null,
+   "updated": "2026-09-11",
+   "last_verified": null,
+   "repo_url": "https://github.com/GreptimeTeam/agent-rca-bench",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Prometheus",
+     "Loki",
+     "Tempo",
+     "GreptimeDB"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/GreptimeTeam/agent-rca-bench/blob/fdfbca65c87c36c6b06bddfa6d611544f13bfa34/README.md",
+    "notes": "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."
+   },
+   "source_file": "data/benchmarks/agent-rca-bench.toml"
+  },
+  {
+   "id": "agentbench-db",
+   "name": "AgentBench · DB",
+   "description": "Interactive database tasks in the AgentBench function-calling suite, deployed against MySQL.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: d1e4a10db08c87075c78972e48ecc182be03e2d5",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-02-08",
+   "last_verified": null,
+   "repo_url": "https://github.com/THUDM/AgentBench",
+   "paper_url": "https://arxiv.org/abs/2308.03688",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "MySQL"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/THUDM/AgentBench/blob/d1e4a10db08c87075c78972e48ecc182be03e2d5/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/agentbench-db.toml"
+  },
+  {
+   "id": "aiopslab",
+   "name": "AIOpsLab",
+   "description": "Observability / AIOps agent benchmark deploying live Kubernetes applications, injecting faults and exposing telemetry and operational tools.",
+   "created_source": null,
+   "updated_source": "Reviewed upstream commit 576c3f080c7ae2459a972afd4a2f8d5f01828430",
+   "notes": "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent.",
+   "created": null,
+   "updated": "2026-10-20",
+   "last_verified": null,
+   "repo_url": "https://github.com/microsoft/AIOpsLab",
+   "paper_url": "https://arxiv.org/abs/2501.06706",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Prometheus"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/aiopslab/service/telemetry/prometheus.py",
+    "notes": "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."
+   },
+   "source_file": "data/benchmarks/aiopslab.toml"
   },
   {
    "id": "bird",
@@ -98,10 +184,40 @@
     "language": [
      "SQL"
     ],
+    "tools": [],
     "evidence_url": "https://huggingface.co/datasets/birdsql/bird_mini_dev",
     "notes": "Mini-Dev splits: mini_dev_sqlite, mini_dev_mysql, mini_dev_pg."
    },
    "source_file": "data/benchmarks/bird.toml"
+  },
+  {
+   "id": "bird-critic",
+   "name": "BIRD-Critic",
+   "description": "SQL issue diagnosis and repair across PostgreSQL, MySQL and other dialects, with an additional SQLite release.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: f408d6c9db9f16e75b44a1e23f22c04579d1f390",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-03-23",
+   "last_verified": null,
+   "repo_url": "https://github.com/bird-bench/BIRD-CRITIC-1",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "PostgreSQL",
+     "MySQL",
+     "SQLite"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/bird-bench/BIRD-CRITIC-1/blob/f408d6c9db9f16e75b44a1e23f22c04579d1f390/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/bird-critic.toml"
   },
   {
    "id": "bird-interact",
@@ -126,10 +242,61 @@
     "language": [
      "SQL"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/bird-bench/BIRD-Interact/blob/451fe2c3518ee1cf908d8139e2913483bd519381/README.md",
     "notes": null
    },
    "source_file": "data/benchmarks/bird-interact.toml"
+  },
+  {
+   "id": "blade",
+   "name": "BLADE",
+   "description": "Language-model agent benchmark for justifiable scientific data analysis with executable pandas transformations.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: 6118fa8d5007b91aa8c91c518182db82446a4547",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2024-10-25",
+   "last_verified": null,
+   "repo_url": "https://github.com/behavioral-data/BLADE",
+   "paper_url": "https://arxiv.org/abs/2408.09667",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/behavioral-data/BLADE/blob/6118fa8d5007b91aa8c91c518182db82446a4547/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/blade.toml"
+  },
+  {
+   "id": "cloud-opsbench",
+   "name": "Cloud-OpsBench",
+   "description": "Observability / cloud root-cause-analysis benchmark using immutable Kubernetes state snapshots and replayed diagnostic tool calls; no live cluster is required.",
+   "created_source": null,
+   "updated_source": "Reviewed upstream commit c84f5ebd448983322b06c24022b126125c632a22",
+   "notes": "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent.",
+   "created": null,
+   "updated": "2026-10-16",
+   "last_verified": null,
+   "repo_url": "https://github.com/LLM4Ops/Cloud-OpsBench",
+   "paper_url": "https://arxiv.org/abs/2603.00468",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/LLM4Ops/Cloud-OpsBench/blob/c84f5ebd448983322b06c24022b126125c632a22/README.md",
+    "notes": "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."
+   },
+   "source_file": "data/benchmarks/cloud-opsbench.toml"
   },
   {
    "id": "da-code",
@@ -152,10 +319,40 @@
     "language": [
      "Python"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/yiyihum/da-code/blob/main/README.md",
     "notes": "Support is based on the upstream README, not verified task-level usage."
    },
    "source_file": "data/benchmarks/da-code.toml"
+  },
+  {
+   "id": "dataagentbench",
+   "name": "DAB · Data Agent Benchmark",
+   "description": "Enterprise data-agent workloads requiring integration across DuckDB, PostgreSQL, SQLite and other databases.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: ead8cc6702f9420b21f8deec84fbf465c78d1d87",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-10-21",
+   "last_verified": null,
+   "repo_url": "https://github.com/ucbepic/DataAgentBench",
+   "paper_url": "https://arxiv.org/abs/2603.20576",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "DuckDB",
+     "PostgreSQL",
+     "SQLite"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/ucbepic/DataAgentBench/blob/ead8cc6702f9420b21f8deec84fbf465c78d1d87/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/dataagentbench.toml"
   },
   {
    "id": "dabstep",
@@ -176,6 +373,7 @@
     "client_application": [],
     "table_format": [],
     "language": [],
+    "tools": [],
     "evidence_url": "https://huggingface.co/datasets/adyen/DABstep",
     "notes": null
    },
@@ -208,6 +406,7 @@
      "SQL",
      "Python"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/Snowflake-Labs/data-eng-bench/blob/a3278ad102829a6084dde086244a0ef665a8011c/README.md",
     "notes": "Backend chosen per run with DB_TYPE=duckdb|snowflake."
    },
@@ -236,10 +435,39 @@
     "language": [
      "Python"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/THUDM/DataSciBench/blob/main/README.md",
     "notes": "Support is based on the upstream README, not verified task-level usage."
    },
    "source_file": "data/benchmarks/datascibench.toml"
+  },
+  {
+   "id": "dec-bench",
+   "name": "DEC Bench",
+   "description": "Data engineering coding-agent benchmark with sequential quality gates and containerized PostgreSQL and ClickHouse scenarios.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: a6748e5512f82d6f7e4b3688e0ae3d75339c5ce7",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-05-06",
+   "last_verified": null,
+   "repo_url": "https://github.com/514-labs/agent-evals",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "PostgreSQL",
+     "ClickHouse"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/514-labs/agent-evals/blob/a6748e5512f82d6f7e4b3688e0ae3d75339c5ce7/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/dec-bench.toml"
   },
   {
    "id": "dsagentbench",
@@ -265,6 +493,7 @@
     "language": [
      "Python"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/vis-nlp/DSAgentBench/blob/6e7b47195db8297671fa2c5827bfb9603c721dc8/README.md",
     "notes": null
    },
@@ -291,6 +520,7 @@
     "language": [
      "Python"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/LiqiangJing/DSBench/blob/ba786096137a5108af11c016ad3f09cdb97beefd/README.md",
     "notes": null
    },
@@ -321,10 +551,40 @@
     ],
     "table_format": [],
     "language": [],
+    "tools": [],
     "evidence_url": "https://github.com/uiuc-kang-lab/ELT-Bench/blob/elt_bench%2B%2B/README.md",
     "notes": "README lists Snowflake, Databricks and Redshift versions."
    },
    "source_file": "data/benchmarks/elt-bench-plus-plus.toml"
+  },
+  {
+   "id": "fdabench",
+   "name": "FDABench",
+   "description": "Data-agent analytical queries over heterogeneous structured and unstructured sources, including SQLite databases.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: 72e50a2b59798848a06ad30c5d8a39248c1228bf",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-08-06",
+   "last_verified": null,
+   "repo_url": "https://github.com/fdabench/FDAbench",
+   "paper_url": "https://arxiv.org/abs/2509.02473",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "SQLite",
+     "BigQuery",
+     "Snowflake"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/fdabench/FDAbench/blob/72e50a2b59798848a06ad30c5d8a39248c1228bf/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/fdabench.toml"
   },
   {
    "id": "infiagent-dabench",
@@ -347,10 +607,36 @@
     "language": [
      "Python"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/InfiAgent/InfiAgent/blob/main/README.md",
     "notes": "Support is based on the upstream README, not verified task-level usage."
    },
    "source_file": "data/benchmarks/infiagent-dabench.toml"
+  },
+  {
+   "id": "insightbench",
+   "name": "InsightBench",
+   "description": "Business analytics agent benchmark for multi-step insight discovery, question generation and summarization.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: 33c27c1282cb7ed73267d36fb84e27b6ea8aac2b",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2025-10-06",
+   "last_verified": null,
+   "repo_url": "https://github.com/ServiceNow/insight-bench",
+   "paper_url": "https://arxiv.org/abs/2407.06423",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/ServiceNow/insight-bench/blob/33c27c1282cb7ed73267d36fb84e27b6ea8aac2b/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/insightbench.toml"
   },
   {
    "id": "intercode-sql",
@@ -367,16 +653,262 @@
    "website_url": null,
    "dataset_url": null,
    "support": {
-    "engine": [],
+    "engine": [
+     "MySQL"
+    ],
     "client_application": [],
     "table_format": [],
     "language": [
      "SQL"
     ],
-    "evidence_url": "https://github.com/princeton-nlp/intercode/blob/master/README.md",
+    "tools": [],
+    "evidence_url": "https://github.com/princeton-nlp/intercode/blob/c3e46d827cfc9d4c704ec078f7abf9f41e3191d8/intercode/envs/sql/sql_env.py",
     "notes": "Support is based on the upstream README, not verified task-level usage."
    },
    "source_file": "data/benchmarks/intercode-sql.toml"
+  },
+  {
+   "id": "itbench-sre",
+   "name": "ITBench · SRE",
+   "description": "Observability / enterprise SRE agent benchmark with live Kubernetes incidents, telemetry collectors, query stores and conditional fault injection.",
+   "created_source": null,
+   "updated_source": "Reviewed upstream commit e35270629b336ea3170c912edf3c4632eba877eb",
+   "notes": "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent.",
+   "created": null,
+   "updated": "2026-10-20",
+   "last_verified": null,
+   "repo_url": "https://github.com/itbench-hub/ITBench",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Prometheus",
+     "ClickHouse",
+     "OpenSearch"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "notes": "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."
+   },
+   "source_file": "data/benchmarks/itbench-sre.toml"
+  },
+  {
+   "id": "kramabench",
+   "name": "KramaBench",
+   "description": "End-to-end data-science agent benchmark requiring pipelines that load, clean and transform real data.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: b2e0d77540263f8b6119f977fe79a8c4386b5a02",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-07-24",
+   "last_verified": null,
+   "repo_url": "https://github.com/mitdbg/Kramabench",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/mitdbg/Kramabench/blob/b2e0d77540263f8b6119f977fe79a8c4386b5a02/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/kramabench.toml"
+  },
+  {
+   "id": "livesqlbench",
+   "name": "LiveSQLBench",
+   "description": "Evolving text-to-SQL benchmark with PostgreSQL environments, SQLite variants, and dedicated CLI and agent harnesses.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: e15cd221267e06fabfaf6a3d4a69308280ce9a7c",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-05-27",
+   "last_verified": null,
+   "repo_url": "https://github.com/bird-bench/livesqlbench",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "PostgreSQL",
+     "SQLite"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/bird-bench/livesqlbench/blob/e15cd221267e06fabfaf6a3d4a69308280ce9a7c/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/livesqlbench.toml"
+  },
+  {
+   "id": "mlagentbench",
+   "name": "MLAgentBench",
+   "description": "End-to-end machine learning experimentation tasks where agents edit and execute training programs.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: 5d71205cc20a8e95d43aa7cb7120e89ca3323e31",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2024-04-28",
+   "last_verified": null,
+   "repo_url": "https://github.com/snap-stanford/MLAgentBench",
+   "paper_url": "https://arxiv.org/abs/2310.03302",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/snap-stanford/MLAgentBench/blob/5d71205cc20a8e95d43aa7cb7120e89ca3323e31/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/mlagentbench.toml"
+  },
+  {
+   "id": "mle-bench",
+   "name": "MLE-bench",
+   "description": "Machine learning engineering agent benchmark built around Kaggle competitions. Its grading dependencies alone do not establish an agent execution engine.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: 507f92e1138bb6e40dac5c6ee7a6758e6424bf97",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-04-24",
+   "last_verified": null,
+   "repo_url": "https://github.com/openai/mle-bench",
+   "paper_url": "https://arxiv.org/abs/2410.07095",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/openai/mle-bench/blob/507f92e1138bb6e40dac5c6ee7a6758e6424bf97/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/mle-bench.toml"
+  },
+  {
+   "id": "o11y-bench",
+   "name": "o11y-bench",
+   "description": "Observability and SRE agent tasks over a real Grafana stack with Prometheus, Loki and Tempo query backends.",
+   "created_source": null,
+   "updated_source": "Reviewed upstream commit 4a2c3ac56846ca128a1c70878ddac54f9fa7ade1",
+   "notes": "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent.",
+   "created": null,
+   "updated": "2026-10-23",
+   "last_verified": null,
+   "repo_url": "https://github.com/grafana/o11y-bench",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Prometheus",
+     "Loki",
+     "Tempo"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/README.md",
+    "notes": "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."
+   },
+   "source_file": "data/benchmarks/o11y-bench.toml"
+  },
+  {
+   "id": "openrca",
+   "name": "OpenRCA",
+   "description": "Observability / telemetry root-cause-analysis benchmark whose RCA-agent baseline executes Python and pandas analysis inside a sandboxed IPython environment.",
+   "created_source": null,
+   "updated_source": "Reviewed upstream commit 2a481ae63cb045c3eadbeca9eddaa10ec1151979",
+   "notes": "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent.",
+   "created": null,
+   "updated": "2026-10-22",
+   "last_verified": null,
+   "repo_url": "https://github.com/microsoft/OpenRCA",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Pandas"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/microsoft/OpenRCA/blob/2a481ae63cb045c3eadbeca9eddaa10ec1151979/rca/baseline/rca_agent/sandbox/worker.py",
+    "notes": "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."
+   },
+   "source_file": "data/benchmarks/openrca.toml"
+  },
+  {
+   "id": "orca-bench",
+   "name": "ORCA-bench",
+   "description": "Observability / oncall benchmark with snapshot-replayed OpenTelemetry Demo telemetry, Prometheus metrics and Jaeger traces stored in OpenSearch.",
+   "created_source": null,
+   "updated_source": "Reviewed upstream commit a6ea32046af3009b7ca4ed829cb121fd5a73794d",
+   "notes": "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent.",
+   "created": null,
+   "updated": "2026-09-20",
+   "last_verified": null,
+   "repo_url": "https://github.com/ORCA-bench/ORCA-bench",
+   "paper_url": "https://arxiv.org/abs/2607.28545",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Prometheus",
+     "OpenSearch"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md",
+    "notes": "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."
+   },
+   "source_file": "data/benchmarks/orca-bench.toml"
+  },
+  {
+   "id": "pipelinebench",
+   "name": "PipelineBench",
+   "description": "Reproducible agent benchmark for repairing broken ingestion, data quality and DuckDB analytical pipelines.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: bf8107c1583317b9375fda18779a92105e1a8675",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-09-12",
+   "last_verified": null,
+   "repo_url": "https://github.com/joakimarvidsson/pipelinebench",
+   "paper_url": null,
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "DuckDB"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/pipelinebench.toml"
   },
   {
    "id": "scienceagentbench",
@@ -399,6 +931,7 @@
     "language": [
      "Python"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/main/README.md",
     "notes": "Support is based on the upstream README, not verified task-level usage."
    },
@@ -427,6 +960,7 @@
     "language": [
      "SQL"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/taoyds/spider/blob/master/README.md",
     "notes": "Support is based on the upstream README, not verified task-level usage."
    },
@@ -461,6 +995,7 @@
      "SQL",
      "Python"
     ],
+    "tools": [],
     "evidence_url": "https://github.com/xlang-ai/Spider2/blob/cafb867313aab4e674652054198f383cf4018943/README.md",
     "notes": "Lite mixes BigQuery, Snowflake and local SQLite databases; Snow is Snowflake-only; DBT uses local DuckDB files."
    },
@@ -500,10 +1035,63 @@
     ],
     "table_format": [],
     "language": [],
+    "tools": [],
     "evidence_url": "https://github.com/xlang-ai/Spider2-V/tree/c2a3a6c2f5d7604464f162c6550b60db3eee04e8/evaluation_examples/examples",
     "notes": "App folders in the repository: airbyte, airflow, bigquery, dagster, dbt, excel, jupyter, metabase, servicenow, snowflake, superset. Client names are mapped from those folders."
    },
    "source_file": "data/benchmarks/spider2-v.toml"
+  },
+  {
+   "id": "sregym",
+   "name": "SREGym",
+   "description": "Observability / live SRE agent benchmark with Kubernetes incidents, dedicated Prometheus and Jaeger MCP interfaces, and operational tools.",
+   "created_source": null,
+   "updated_source": "Reviewed upstream commit 0d8e7b73214c44e99c97ca1af2934290aa3b826b",
+   "notes": "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent.",
+   "created": null,
+   "updated": "2026-10-21",
+   "last_verified": null,
+   "repo_url": "https://github.com/SREGym/SREGym",
+   "paper_url": "https://arxiv.org/abs/2605.07161",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Prometheus"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/mcp_server/prometheus_server.py",
+    "notes": "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."
+   },
+   "source_file": "data/benchmarks/sregym.toml"
+  },
+  {
+   "id": "tag-bench",
+   "name": "TAG-Bench",
+   "description": "Table-Augmented Generation benchmark combining database queries, semantic reasoning and language-model operations.",
+   "created_source": null,
+   "updated_source": "Latest upstream commit reviewed: f97b0b5ca211573837cf3236224ac658b4a959bc",
+   "notes": "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine.",
+   "created": null,
+   "updated": "2026-07-25",
+   "last_verified": null,
+   "repo_url": "https://github.com/TAG-Research/TAG-Bench",
+   "paper_url": "https://arxiv.org/abs/2408.14717",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [],
+    "tools": [],
+    "evidence_url": "https://github.com/TAG-Research/TAG-Bench/blob/f97b0b5ca211573837cf3236224ac658b4a959bc/README.md",
+    "notes": "Documented benchmark support; this does not assert that every task uses these engines."
+   },
+   "source_file": "data/benchmarks/tag-bench.toml"
   }
  ],
  "tasks": [
@@ -537,6 +1125,7 @@
    ],
    "storage_format": [],
    "catalogue": [],
+   "tools": [],
    "inferred_fields": [],
    "configurations": [
     {
@@ -572,6 +1161,7 @@
      "catalogue": [
       "DuckDB native"
      ],
+     "tools": [],
      "inferred_fields": [
       "storage_format",
       "catalogue"
@@ -612,6 +1202,7 @@
      "catalogue": [
       "DuckDB native"
      ],
+     "tools": [],
      "inferred_fields": [
       "storage_format",
       "catalogue"
@@ -650,6 +1241,7 @@
      "catalogue": [
       "Snowflake native"
      ],
+     "tools": [],
      "inferred_fields": [
       "catalogue"
      ],
@@ -687,6 +1279,7 @@
      "catalogue": [
       "Snowflake native"
      ],
+     "tools": [],
      "inferred_fields": [
       "catalogue"
      ],
@@ -729,6 +1322,7 @@
    "catalogue": [
     "SQLite native"
    ],
+   "tools": [],
    "inferred_fields": [
     "storage_format",
     "catalogue"
@@ -761,6 +1355,7 @@
      "catalogue": [
       "SQLite native"
      ],
+     "tools": [],
      "inferred_fields": [
       "storage_format",
       "catalogue"
@@ -806,6 +1401,7 @@
    "catalogue": [
     "PostgreSQL native"
    ],
+   "tools": [],
    "inferred_fields": [
     "interaction_method",
     "storage_format",
@@ -841,6 +1437,7 @@
      "catalogue": [
       "PostgreSQL native"
      ],
+     "tools": [],
      "inferred_fields": [
       "interaction_method",
       "storage_format",
@@ -887,6 +1484,7 @@
    "catalogue": [
     "PostgreSQL native"
    ],
+   "tools": [],
    "inferred_fields": [
     "interaction_method",
     "storage_format",
@@ -922,6 +1520,7 @@
      "catalogue": [
       "PostgreSQL native"
      ],
+     "tools": [],
      "inferred_fields": [
       "interaction_method",
       "storage_format",
@@ -967,6 +1566,7 @@
    "catalogue": [
     "none"
    ],
+   "tools": [],
    "inferred_fields": [
     "source_formats",
     "storage_format"
@@ -1000,6 +1600,7 @@
      "catalogue": [
       "none"
      ],
+     "tools": [],
      "inferred_fields": [
       "source_formats",
       "storage_format"
@@ -1039,6 +1640,7 @@
    ],
    "storage_format": [],
    "catalogue": [],
+   "tools": [],
    "inferred_fields": [],
    "configurations": [
     {
@@ -1072,6 +1674,7 @@
      "catalogue": [
       "DuckDB native"
      ],
+     "tools": [],
      "inferred_fields": [
       "catalogue"
      ],
@@ -1107,6 +1710,7 @@
      "catalogue": [
       "Snowflake native"
      ],
+     "tools": [],
      "inferred_fields": [
       "catalogue"
      ],
@@ -1156,6 +1760,7 @@
    "catalogue": [
     "none"
    ],
+   "tools": [],
    "inferred_fields": [],
    "configurations": [
     {
@@ -1192,6 +1797,7 @@
      "catalogue": [
       "none"
      ],
+     "tools": [],
      "inferred_fields": [],
      "verification": "verified",
      "evidence_url": null
@@ -1220,6 +1826,7 @@
    "output_formats": [],
    "storage_format": [],
    "catalogue": [],
+   "tools": [],
    "inferred_fields": [
     "language"
    ],
@@ -1239,6 +1846,7 @@
      "output_formats": [],
      "storage_format": [],
      "catalogue": [],
+     "tools": [],
      "inferred_fields": [
       "language"
      ],
@@ -1269,6 +1877,7 @@
    "output_formats": [],
    "storage_format": [],
    "catalogue": [],
+   "tools": [],
    "inferred_fields": [
     "language"
    ],
@@ -1288,6 +1897,7 @@
      "output_formats": [],
      "storage_format": [],
      "catalogue": [],
+     "tools": [],
      "inferred_fields": [
       "language"
      ],
@@ -1336,6 +1946,7 @@
    "catalogue": [
     "Snowflake native"
    ],
+   "tools": [],
    "inferred_fields": [
     "table_format",
     "catalogue"
@@ -1374,12 +1985,472 @@
      "catalogue": [
       "Snowflake native"
      ],
+     "tools": [],
      "inferred_fields": [
       "table_format",
       "catalogue"
      ],
      "verification": "verified",
      "evidence_url": "https://github.com/uiuc-kang-lab/ELT-Bench/blob/fcf3129df49ce5ce63ff46b2bbbbba1eaf9ec055/elt-bench/snowflake/address/config.yaml"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "infiagent-dabench",
+   "origin": "standalone",
+   "source_file": "data/tasks/infiagent-dabench.toml",
+   "task_id": "64",
+   "name": "Calculate wage mean and standard deviation",
+   "source_url": "https://github.com/InfiAgent/InfiAgent/blob/3d6c4a70198e0a41fadf539f5b43c88b8c1a2d9c/examples/DA-Agent/data/da-dev-questions.jsonl",
+   "evidence_url": "https://github.com/InfiAgent/InfiAgent/blob/3d6c4a70198e0a41fadf539f5b43c88b8c1a2d9c/examples/DA-Agent/data/da-dev-questions.jsonl",
+   "verification": "verified",
+   "notes": "Task 64 explicitly requires pandas mean() and std() on beauty and the labor market.csv. This is a task requirement, not a measured agent execution trace.",
+   "client_application": [],
+   "interaction_method": [],
+   "language": [
+    "Python"
+   ],
+   "engine": [
+    "Pandas"
+   ],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [
+    "CSV"
+   ],
+   "output_formats": [],
+   "storage_format": [],
+   "catalogue": [],
+   "tools": [],
+   "inferred_fields": [],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [],
+     "language": [
+      "Python"
+     ],
+     "engine": [
+      "Pandas"
+     ],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [
+      "CSV"
+     ],
+     "output_formats": [],
+     "storage_format": [],
+     "catalogue": [],
+     "tools": [],
+     "inferred_fields": [],
+     "verification": "verified",
+     "evidence_url": "https://github.com/InfiAgent/InfiAgent/blob/3d6c4a70198e0a41fadf539f5b43c88b8c1a2d9c/examples/DA-Agent/data/da-dev-questions.jsonl"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "mlagentbench",
+   "origin": "standalone",
+   "source_file": "data/tasks/mlagentbench.toml",
+   "task_id": "house-price",
+   "name": "Train a house price regression model",
+   "source_url": "https://github.com/snap-stanford/MLAgentBench/blob/5d71205cc20a8e95d43aa7cb7120e89ca3323e31/MLAgentBench/benchmarks/house-price/env/train.py",
+   "evidence_url": "https://github.com/snap-stanford/MLAgentBench/blob/5d71205cc20a8e95d43aa7cb7120e89ca3323e31/MLAgentBench/benchmarks/house-price/env/train.py",
+   "verification": "verified",
+   "notes": "Task starter uses pandas.read_csv and DataFrame operations, and writes submission.csv. Other ML libraries are outside this data-engine classification.",
+   "client_application": [],
+   "interaction_method": [],
+   "language": [
+    "Python"
+   ],
+   "engine": [
+    "Pandas"
+   ],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [
+    "CSV"
+   ],
+   "output_formats": [
+    "CSV"
+   ],
+   "storage_format": [],
+   "catalogue": [],
+   "tools": [],
+   "inferred_fields": [],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [],
+     "language": [
+      "Python"
+     ],
+     "engine": [
+      "Pandas"
+     ],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [
+      "CSV"
+     ],
+     "output_formats": [
+      "CSV"
+     ],
+     "storage_format": [],
+     "catalogue": [],
+     "tools": [],
+     "inferred_fields": [],
+     "verification": "verified",
+     "evidence_url": "https://github.com/snap-stanford/MLAgentBench/blob/5d71205cc20a8e95d43aa7cb7120e89ca3323e31/MLAgentBench/benchmarks/house-price/env/train.py"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "o11y-bench",
+   "origin": "standalone",
+   "source_file": "data/tasks/o11y-bench.toml",
+   "task_id": "check-service-health",
+   "name": "Check target health and backend 5xx share",
+   "source_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/prometheus_query/check-service-health.yaml",
+   "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/prometheus_query/check-service-health.yaml",
+   "verification": "verified",
+   "notes": "The task spec explicitly names the query backend/language in grading facts. Default MCP interface and harness tools are inferred from benchmark-wide README and Dockerfile; CLI-only runs are also supported. No agent run was performed.",
+   "client_application": [
+    "mcp-grafana"
+   ],
+   "interaction_method": [
+    "MCP"
+   ],
+   "language": [
+    "PromQL"
+   ],
+   "engine": [
+    "Prometheus"
+   ],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [],
+   "output_formats": [],
+   "storage_format": [],
+   "catalogue": [],
+   "tools": [
+    "Grafana",
+    "mcp-grafana",
+    "Harbor"
+   ],
+   "inferred_fields": [
+    "client_application",
+    "interaction_method",
+    "tools"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "mcp-grafana"
+     ],
+     "interaction_method": [
+      "MCP"
+     ],
+     "language": [
+      "PromQL"
+     ],
+     "engine": [
+      "Prometheus"
+     ],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [],
+     "output_formats": [],
+     "storage_format": [],
+     "catalogue": [],
+     "tools": [
+      "Grafana",
+      "mcp-grafana",
+      "Harbor"
+     ],
+     "inferred_fields": [
+      "client_application",
+      "interaction_method",
+      "tools"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/prometheus_query/check-service-health.yaml"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "o11y-bench",
+   "origin": "standalone",
+   "source_file": "data/tasks/o11y-bench.toml",
+   "task_id": "find-slow-requests",
+   "name": "Find the slowest HTTP route in six hours of logs",
+   "source_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/loki_query/find-slow-requests.yaml",
+   "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/loki_query/find-slow-requests.yaml",
+   "verification": "verified",
+   "notes": "The task spec explicitly names the query backend/language in grading facts. Default MCP interface and harness tools are inferred from benchmark-wide README and Dockerfile; CLI-only runs are also supported. No agent run was performed.",
+   "client_application": [
+    "mcp-grafana"
+   ],
+   "interaction_method": [
+    "MCP"
+   ],
+   "language": [
+    "LogQL"
+   ],
+   "engine": [
+    "Loki"
+   ],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [],
+   "output_formats": [],
+   "storage_format": [],
+   "catalogue": [],
+   "tools": [
+    "Grafana",
+    "mcp-grafana",
+    "Harbor"
+   ],
+   "inferred_fields": [
+    "client_application",
+    "interaction_method",
+    "tools"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "mcp-grafana"
+     ],
+     "interaction_method": [
+      "MCP"
+     ],
+     "language": [
+      "LogQL"
+     ],
+     "engine": [
+      "Loki"
+     ],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [],
+     "output_formats": [],
+     "storage_format": [],
+     "catalogue": [],
+     "tools": [
+      "Grafana",
+      "mcp-grafana",
+      "Harbor"
+     ],
+     "inferred_fields": [
+      "client_application",
+      "interaction_method",
+      "tools"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/loki_query/find-slow-requests.yaml"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "o11y-bench",
+   "origin": "standalone",
+   "source_file": "data/tasks/o11y-bench.toml",
+   "task_id": "find-slow-traces",
+   "name": "Find slow checkout/payment traces and cite a trace ID",
+   "source_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/tempo_query/find-slow-traces.yaml",
+   "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/tempo_query/find-slow-traces.yaml",
+   "verification": "verified",
+   "notes": "The task spec explicitly names the query backend/language in grading facts. Default MCP interface and harness tools are inferred from benchmark-wide README and Dockerfile; CLI-only runs are also supported. No agent run was performed.",
+   "client_application": [
+    "mcp-grafana"
+   ],
+   "interaction_method": [
+    "MCP"
+   ],
+   "language": [
+    "TraceQL"
+   ],
+   "engine": [
+    "Tempo"
+   ],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [],
+   "output_formats": [],
+   "storage_format": [],
+   "catalogue": [],
+   "tools": [
+    "Grafana",
+    "mcp-grafana",
+    "Harbor"
+   ],
+   "inferred_fields": [
+    "client_application",
+    "interaction_method",
+    "tools"
+   ],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [
+      "mcp-grafana"
+     ],
+     "interaction_method": [
+      "MCP"
+     ],
+     "language": [
+      "TraceQL"
+     ],
+     "engine": [
+      "Tempo"
+     ],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [],
+     "output_formats": [],
+     "storage_format": [],
+     "catalogue": [],
+     "tools": [
+      "Grafana",
+      "mcp-grafana",
+      "Harbor"
+     ],
+     "inferred_fields": [
+      "client_application",
+      "interaction_method",
+      "tools"
+     ],
+     "verification": "verified",
+     "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/tasks-spec/tempo_query/find-slow-traces.yaml"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "pipelinebench",
+   "origin": "standalone",
+   "source_file": "data/tasks/pipelinebench.toml",
+   "task_id": "duckdb_sql_regression",
+   "name": "Repair DuckDB join cardinality and revenue reconciliation",
+   "source_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/duckdb_sql_regression/starter/pipeline.py",
+   "evidence_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/duckdb_sql_regression/starter/pipeline.py",
+   "verification": "verified",
+   "notes": "Starter imports duckdb and executes a join over two CSV files, writing a Parquet output. Verified from source, not a recorded agent run.",
+   "client_application": [],
+   "interaction_method": [],
+   "language": [
+    "Python",
+    "SQL"
+   ],
+   "engine": [
+    "DuckDB"
+   ],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [
+    "CSV"
+   ],
+   "output_formats": [
+    "Parquet"
+   ],
+   "storage_format": [],
+   "catalogue": [],
+   "tools": [],
+   "inferred_fields": [],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [],
+     "language": [
+      "Python",
+      "SQL"
+     ],
+     "engine": [
+      "DuckDB"
+     ],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [
+      "CSV"
+     ],
+     "output_formats": [
+      "Parquet"
+     ],
+     "storage_format": [],
+     "catalogue": [],
+     "tools": [],
+     "inferred_fields": [],
+     "verification": "verified",
+     "evidence_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/duckdb_sql_regression/starter/pipeline.py"
+    }
+   ]
+  },
+  {
+   "benchmark_id": "pipelinebench",
+   "origin": "standalone",
+   "source_file": "data/tasks/pipelinebench.toml",
+   "task_id": "schema_drift_parquet",
+   "name": "Handle schema drift in account ingestion",
+   "source_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/schema_drift_parquet/starter/pipeline.py",
+   "evidence_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/schema_drift_parquet/starter/pipeline.py",
+   "verification": "verified",
+   "notes": "Starter calls pandas.read_parquet and DataFrame.to_parquet. Verification describes the task starter, not an observed agent trajectory.",
+   "client_application": [],
+   "interaction_method": [],
+   "language": [
+    "Python"
+   ],
+   "engine": [
+    "Pandas"
+   ],
+   "managed_service": [],
+   "table_format": [],
+   "source_formats": [
+    "Parquet"
+   ],
+   "output_formats": [
+    "Parquet"
+   ],
+   "storage_format": [],
+   "catalogue": [],
+   "tools": [],
+   "inferred_fields": [],
+   "configurations": [
+    {
+     "label": null,
+     "notes": null,
+     "client_application": [],
+     "interaction_method": [],
+     "language": [
+      "Python"
+     ],
+     "engine": [
+      "Pandas"
+     ],
+     "managed_service": [],
+     "table_format": [],
+     "source_formats": [
+      "Parquet"
+     ],
+     "output_formats": [
+      "Parquet"
+     ],
+     "storage_format": [],
+     "catalogue": [],
+     "tools": [],
+     "inferred_fields": [],
+     "verification": "verified",
+     "evidence_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/schema_drift_parquet/starter/pipeline.py"
     }
    ]
   },
@@ -1417,6 +2488,7 @@
    "catalogue": [
     "BigQuery native"
    ],
+   "tools": [],
    "inferred_fields": [
     "client_application",
     "interaction_method",
@@ -1451,6 +2523,7 @@
      "catalogue": [
       "BigQuery native"
      ],
+     "tools": [],
      "inferred_fields": [
       "client_application",
       "interaction_method",
@@ -1498,6 +2571,7 @@
    "catalogue": [
     "SQLite native"
    ],
+   "tools": [],
    "inferred_fields": [
     "client_application",
     "interaction_method",
@@ -1533,6 +2607,7 @@
      "catalogue": [
       "SQLite native"
      ],
+     "tools": [],
      "inferred_fields": [
       "client_application",
       "interaction_method",
@@ -1581,6 +2656,7 @@
    "catalogue": [
     "DuckDB native"
    ],
+   "tools": [],
    "inferred_fields": [
     "catalogue"
    ],
@@ -1616,6 +2692,7 @@
      "catalogue": [
       "DuckDB native"
      ],
+     "tools": [],
      "inferred_fields": [
       "catalogue"
      ],
@@ -1658,6 +2735,7 @@
    "catalogue": [
     "Snowflake native"
    ],
+   "tools": [],
    "inferred_fields": [
     "client_application",
     "interaction_method",
@@ -1692,6 +2770,7 @@
      "catalogue": [
       "Snowflake native"
      ],
+     "tools": [],
      "inferred_fields": [
       "client_application",
       "interaction_method",
@@ -1743,6 +2822,7 @@
    "catalogue": [
     "BigQuery native"
    ],
+   "tools": [],
    "inferred_fields": [
     "table_format",
     "catalogue"
@@ -1781,6 +2861,7 @@
      "catalogue": [
       "BigQuery native"
      ],
+     "tools": [],
      "inferred_fields": [
       "table_format",
       "catalogue"
@@ -1826,6 +2907,7 @@
    "catalogue": [
     "none"
    ],
+   "tools": [],
    "inferred_fields": [],
    "configurations": [
     {
@@ -1857,11 +2939,921 @@
      "catalogue": [
       "none"
      ],
+     "tools": [],
      "inferred_fields": [],
      "verification": "verified",
      "evidence_url": null
     }
    ]
   }
- ]
+ ],
+ "leaderboard": {
+  "reviewed_on": "2026-10-24",
+  "scope": "Curated public data-agent, interactive SQL, data-engineering and observability/SRE benchmarks. Coverage reflects reviewed sources, not an exhaustive census or engine performance. No evidence found means no qualifying evidence in this catalogue.",
+  "engines": [
+   {
+    "name": "DuckDB",
+    "category": "Embedded SQL",
+    "license": "MIT",
+    "source_url": "https://github.com/duckdb/duckdb",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "SQLite",
+    "category": "Embedded SQL",
+    "license": "Public domain",
+    "source_url": "https://github.com/sqlite/sqlite",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "chDB",
+    "category": "Embedded SQL",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/chdb-io/chdb",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "DataFusion",
+    "category": "Embedded SQL",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/datafusion",
+    "aliases": [
+     "Apache DataFusion"
+    ],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Pandas",
+    "category": "DataFrame",
+    "license": "BSD-3-Clause",
+    "source_url": "https://github.com/pandas-dev/pandas",
+    "aliases": [
+     "pandas"
+    ],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Polars",
+    "category": "DataFrame",
+    "license": "MIT",
+    "source_url": "https://github.com/pola-rs/polars",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Dask",
+    "category": "DataFrame",
+    "license": "BSD-3-Clause",
+    "source_url": "https://github.com/dask/dask",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Modin",
+    "category": "DataFrame",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/modin-project/modin",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Vaex",
+    "category": "DataFrame",
+    "license": "MIT",
+    "source_url": "https://github.com/vaexio/vaex",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Apache Spark",
+    "category": "Distributed processing",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/spark",
+    "aliases": [
+     "Spark",
+     "PySpark"
+    ],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Apache Flink",
+    "category": "Distributed processing",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/flink",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Ray Data",
+    "category": "Distributed processing",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/ray-project/ray",
+    "aliases": [
+     "Ray"
+    ],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Trino",
+    "category": "Distributed SQL",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/trinodb/trino",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "PrestoDB",
+    "category": "Distributed SQL",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/prestodb/presto",
+    "aliases": [
+     "Presto"
+    ],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Apache Drill",
+    "category": "Distributed SQL",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/drill",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Apache Hive",
+    "category": "Distributed SQL",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/hive",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Apache Impala",
+    "category": "Distributed SQL",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/impala",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "ClickHouse",
+    "category": "Analytical database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/ClickHouse/ClickHouse",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Apache Doris",
+    "category": "Analytical database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/doris",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "StarRocks",
+    "category": "Analytical database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/StarRocks/starrocks",
+    "aliases": [],
+    "license_scope": "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+   },
+   {
+    "name": "Apache Druid",
+    "category": "Analytical database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/druid",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Apache Pinot",
+    "category": "Analytical database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/pinot",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Greenplum",
+    "category": "Analytical database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/greenplum-db/gpdb-archive",
+    "aliases": [],
+    "license_scope": "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+   },
+   {
+    "name": "PostgreSQL",
+    "category": "Relational database",
+    "license": "PostgreSQL",
+    "source_url": "https://github.com/postgres/postgres",
+    "aliases": [
+     "Postgres"
+    ],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "MySQL",
+    "category": "Relational database",
+    "license": "GPL-2.0",
+    "source_url": "https://github.com/mysql/mysql-server",
+    "aliases": [],
+    "license_scope": "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+   },
+   {
+    "name": "MariaDB",
+    "category": "Relational database",
+    "license": "GPL-2.0",
+    "source_url": "https://github.com/MariaDB/server",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Firebird",
+    "category": "Relational database",
+    "license": "IPL-1.0 / IDPL-1.0",
+    "source_url": "https://github.com/FirebirdSQL/firebird",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "OpenSearch",
+    "category": "Search",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/opensearch-project/OpenSearch",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Apache Solr",
+    "category": "Search",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/solr",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Neo4j Community",
+    "category": "Graph",
+    "license": "GPL-3.0",
+    "source_url": "https://github.com/neo4j/neo4j",
+    "aliases": [
+     "Neo4j"
+    ],
+    "license_scope": "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+   },
+   {
+    "name": "Apache AGE",
+    "category": "Graph",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/apache/age",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Milvus",
+    "category": "Vector database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/milvus-io/milvus",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Qdrant",
+    "category": "Vector database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/qdrant/qdrant",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "Weaviate",
+    "category": "Vector database",
+    "license": "BSD-3-Clause",
+    "source_url": "https://github.com/weaviate/weaviate",
+    "aliases": [],
+    "license_scope": "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+   },
+   {
+    "name": "Chroma",
+    "category": "Vector database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/chroma-core/chroma",
+    "aliases": [],
+    "license_scope": "Open-source engine/library; hosted services are outside this entry."
+   },
+   {
+    "name": "LanceDB",
+    "category": "Vector database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/lancedb/lancedb",
+    "aliases": [],
+    "license_scope": "Open-source core/community distribution only; hosted and enterprise editions are excluded."
+   },
+   {
+    "name": "TimescaleDB (Apache core)",
+    "category": "Time series",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/timescale/timescaledb/blob/dd0330df1e1ba3e8c0235e702996ca3fcbba0853/LICENSE",
+    "aliases": [],
+    "license_scope": "Only the Apache-licensed code outside tsl/ is in scope. Timescale-licensed modules and hosted services are excluded."
+   },
+   {
+    "name": "QuestDB",
+    "category": "Time series",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/questdb/questdb/blob/8da4e347f96563dc4e9d13916e00177e2af708f9/LICENSE.txt",
+    "aliases": [],
+    "license_scope": "Open-source core under Apache-2.0; enterprise and hosted editions are excluded."
+   },
+   {
+    "name": "InfluxDB 3 Core",
+    "category": "Time series",
+    "license": "Apache-2.0 / MIT",
+    "source_url": "https://github.com/influxdata/influxdb/blob/185688a5a813016c0d26ec10abbad2ca770670ed/LICENSE-MIT",
+    "aliases": [],
+    "license_scope": "The open-source InfluxDB 3 Core code only. This entry does not cover enterprise/cloud products or every historical InfluxDB edition."
+   },
+   {
+    "name": "TDengine Community",
+    "category": "Time series",
+    "license": "AGPL-3.0",
+    "source_url": "https://github.com/taosdata/TDengine/blob/957d6721d141e897bae85cbc0b034bca92c41f58/LICENSE",
+    "aliases": [],
+    "license_scope": "AGPL-licensed community code only; enterprise and hosted editions are excluded."
+   },
+   {
+    "name": "RisingWave",
+    "category": "Streaming SQL",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/risingwavelabs/risingwave/blob/1c69fba082ea181ac97ef487f6e341c95bb68493/LICENSE",
+    "aliases": [],
+    "license_scope": "Apache-licensed engine code only; hosted services and enterprise additions are excluded."
+   },
+   {
+    "name": "Elasticsearch (AGPL core)",
+    "category": "Search",
+    "license": "AGPL-3.0-only",
+    "source_url": "https://github.com/elastic/elasticsearch/blob/1e19422dfa2a39ab19aca5d8146092ec4be4f51f/LICENSE.txt",
+    "aliases": [],
+    "license_scope": "Only code available under the AGPL option is in scope. Elastic-License-only x-pack components and the default proprietary distribution are excluded."
+   },
+   {
+    "name": "Prometheus",
+    "category": "Metrics / time series",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/prometheus/prometheus",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a metrics / time series component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Loki",
+    "category": "Log query backend",
+    "license": "AGPL-3.0",
+    "source_url": "https://github.com/grafana/loki",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a log query backend component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Tempo",
+    "category": "Trace query backend",
+    "license": "AGPL-3.0",
+    "source_url": "https://github.com/grafana/tempo",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a trace query backend component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "GreptimeDB",
+    "category": "Telemetry database",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/GreptimeTeam/greptimedb",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a telemetry database component, not necessarily an agent-facing tool or database."
+   }
+  ],
+  "tools": [
+   {
+    "name": "Grafana",
+    "category": "Observability interface",
+    "license": "AGPL-3.0",
+    "source_url": "https://github.com/grafana/grafana",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a observability interface component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "mcp-grafana",
+    "category": "Agent interface",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/grafana/mcp-grafana",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a agent interface component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Jaeger",
+    "category": "Tracing interface",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/jaegertracing/jaeger",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a tracing interface component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "OpenTelemetry Collector",
+    "category": "Telemetry collection",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/open-telemetry/opentelemetry-collector",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a telemetry collection component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "OpenTelemetry Demo",
+    "category": "Instrumented workload",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/open-telemetry/opentelemetry-demo",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a instrumented workload component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Kubernetes",
+    "category": "Orchestration",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/kubernetes/kubernetes",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a orchestration component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "kubectl",
+    "category": "Operational CLI",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/kubernetes/kubectl",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a operational cli component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Helm",
+    "category": "Deployment tooling",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/helm/helm",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a deployment tooling component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Chaos Mesh",
+    "category": "Fault injection",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/chaos-mesh/chaos-mesh",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a fault injection component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Istio",
+    "category": "Service mesh",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/istio/istio",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a service mesh component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Harbor",
+    "category": "Evaluation harness",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/harbor-framework/harbor",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a evaluation harness component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "IPython",
+    "category": "Analysis runtime",
+    "license": "BSD-3-Clause",
+    "source_url": "https://github.com/ipython/ipython",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a analysis runtime component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Prometheus Operator",
+    "category": "Telemetry collection",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/prometheus-operator/prometheus-operator",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a telemetry collection component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "OpenTelemetry Operator",
+    "category": "Telemetry collection",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/open-telemetry/opentelemetry-operator",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a telemetry collection component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Altinity ClickHouse Operator",
+    "category": "Storage orchestration",
+    "license": "Apache-2.0",
+    "source_url": "https://github.com/Altinity/clickhouse-operator",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a storage orchestration component, not necessarily an agent-facing tool or database."
+   },
+   {
+    "name": "Cloud-OpsBench diagnostic tools",
+    "category": "Snapshot replay interface",
+    "license": "MIT",
+    "source_url": "https://github.com/LLM4Ops/Cloud-OpsBench",
+    "aliases": [],
+    "license_scope": "Open-source core only; commercial/hosted editions are excluded. This is a snapshot replay interface component, not necessarily an agent-facing tool or database."
+   }
+  ],
+  "evidence": [
+   {
+    "engine": "Pandas",
+    "benchmark_id": "da-code",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/yiyihum/da-code/blob/b211daf51fdc9b52d5087c9df28ac50191bcabed/da_agent/configs/sql_template.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "SQL execution template uses pandas.read_sql_query and DataFrame.to_csv. This is benchmark runtime support, not an independently verified task."
+   },
+   {
+    "engine": "SQLite",
+    "benchmark_id": "da-code",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/yiyihum/da-code/blob/b211daf51fdc9b52d5087c9df28ac50191bcabed/da_agent/configs/sql_template.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "The SQL tool template calls sqlite3.connect and executes the supplied SQL against the task database."
+   },
+   {
+    "engine": "Pandas",
+    "benchmark_id": "blade",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/behavioral-data/BLADE/blob/6118fa8d5007b91aa8c91c518182db82446a4547/blade_bench/nb/nb_executor.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "Notebook execution initializes a pandas DataFrame with read_csv and wraps agent-generated transforms with a pandas DataFrame signature."
+   },
+   {
+    "engine": "Pandas",
+    "benchmark_id": "insightbench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/ServiceNow/insight-bench/blob/33c27c1282cb7ed73267d36fb84e27b6ea8aac2b/insightbench/tools.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "Agent analysis tools operate on pandas DataFrames for grouping, visualization and regression."
+   },
+   {
+    "engine": "Pandas",
+    "benchmark_id": "kramabench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/mitdbg/Kramabench/blob/b2e0d77540263f8b6119f977fe79a8c4386b5a02/systems/baseline_example.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "The example system under test loads CSV inputs as pandas DataFrames. This establishes a supported baseline, not usage by every submitted agent."
+   },
+   {
+    "engine": "Pandas",
+    "benchmark_id": "tag-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/TAG-Research/TAG-Bench/blob/f97b0b5ca211573837cf3236224ac658b4a959bc/tag/hand_written.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "Reference pipelines read CSV inputs with pandas and apply tabular and semantic operations."
+   },
+   {
+    "engine": "SQLite",
+    "benchmark_id": "tag-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/TAG-Research/TAG-Bench/blob/f97b0b5ca211573837cf3236224ac658b4a959bc/tag/text2sql.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "The text-to-SQL baseline connects to BIRD SQLite databases and executes generated SQL."
+   },
+   {
+    "engine": "Polars",
+    "benchmark_id": "pipelinebench",
+    "kind": "environment",
+    "evidence_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/pyproject.toml",
+    "reviewed_on": "2026-10-24",
+    "notes": "Polars is installed, but no active task usage was established. Dependency-only evidence does not contribute to the ranking."
+   },
+   {
+    "engine": "Apache Spark",
+    "benchmark_id": "pipelinebench",
+    "kind": "planned",
+    "evidence_url": "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "Spark tasks appear on the roadmap, not among the current tasks. Planned support does not contribute to the ranking."
+   },
+   {
+    "engine": "Pandas",
+    "benchmark_id": "scienceagentbench",
+    "kind": "environment",
+    "evidence_url": "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/c26e151ed601ba109dc4d35e057ff8e73fec469d/docs/20250110_docker/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The base execution image installs pandas. This alone does not establish task usage."
+   },
+   {
+    "engine": "Pandas",
+    "benchmark_id": "mle-bench",
+    "kind": "environment",
+    "evidence_url": "https://github.com/openai/mle-bench/blob/507f92e1138bb6e40dac5c6ee7a6758e6424bf97/mlebench/grade_helpers.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "The evaluator imports pandas. Evaluator-only imports do not establish the data engine used by an agent and are excluded."
+   },
+   {
+    "engine": "Prometheus",
+    "benchmark_id": "aiopslab",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/aiopslab/service/telemetry/prometheus.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "The benchmark deploys Prometheus telemetry through its concrete service wrapper."
+   },
+   {
+    "engine": "Prometheus",
+    "benchmark_id": "sregym",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/mcp_server/prometheus_server.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "Agent MCP tools call the dedicated Prometheus query and alert APIs."
+   },
+   {
+    "engine": "Prometheus",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "Prometheus is part of the live SRE observability stack; scenario modes determine which other components are installed."
+   },
+   {
+    "engine": "ClickHouse",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "Altinity ClickHouse is listed as logs/traces storage for ITBench SRE. This is benchmark-level stack support, not a claim that every agent queries it."
+   },
+   {
+    "engine": "OpenSearch",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "Jaeger/OpenSearch traces can be disabled per scenario. Counted as supported benchmark coverage, not universal task usage."
+   },
+   {
+    "engine": "Pandas",
+    "benchmark_id": "openrca",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/microsoft/OpenRCA/blob/2a481ae63cb045c3eadbeca9eddaa10ec1151979/rca/baseline/rca_agent/sandbox/worker.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "The execution worker initializes pandas in the IPython user namespace; the agent executor explicitly instructs pandas DataFrame analysis."
+   },
+   {
+    "engine": "OpenSearch",
+    "benchmark_id": "sregym",
+    "kind": "environment",
+    "evidence_url": "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "README says the astronomy-shop bundled OpenSearch/Grafana are not queried by the benchmark. The bundled Jaeger is replaced by a dedicated observer. No OpenSearch coverage credit from this bundle."
+   }
+  ],
+  "excluded_engines": [
+   {
+    "name": "Apache Beam",
+    "reason": "Programming model and SDK: record the concrete execution runner, such as Flink or Spark, as the engine."
+   },
+   {
+    "name": "Memgraph",
+    "reason": "No reviewed OSS distribution and qualifying benchmark evidence have been established for this snapshot. Excluded from the OSS ranking pending precise edition and license review."
+   },
+   {
+    "name": "FerretDB",
+    "reason": "Compatibility layer: distinguish the protocol endpoint from its underlying storage/query engine before assigning coverage."
+   },
+   {
+    "name": "BigQuery, Snowflake, Amazon Redshift, hosted Databricks",
+    "reason": "Managed/proprietary services remain in the general matrix, but are outside the open-source engine leaderboard."
+   }
+  ],
+  "tool_evidence": [
+   {
+    "tool": "Grafana",
+    "benchmark_id": "o11y-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/docker/Dockerfile",
+    "reviewed_on": "2026-10-24",
+    "notes": "The observability sidecar installs and runs Grafana and the mcp-grafana agent interface. This does not assert every task uses every tool."
+   },
+   {
+    "tool": "mcp-grafana",
+    "benchmark_id": "o11y-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/docker/Dockerfile",
+    "reviewed_on": "2026-10-24",
+    "notes": "The observability sidecar installs and runs Grafana and the mcp-grafana agent interface. This does not assert every task uses every tool."
+   },
+   {
+    "tool": "Harbor",
+    "benchmark_id": "o11y-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "Harbor materializes tasks, starts the observability sidecar and executes/grades agents."
+   },
+   {
+    "tool": "Grafana",
+    "benchmark_id": "orca-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The documented OpenTelemetry Demo snapshot workflow uses Grafana for inspection and Jaeger over OpenSearch for tracing."
+   },
+   {
+    "tool": "Jaeger",
+    "benchmark_id": "orca-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The documented OpenTelemetry Demo snapshot workflow uses Grafana for inspection and Jaeger over OpenSearch for tracing."
+   },
+   {
+    "tool": "OpenTelemetry Demo",
+    "benchmark_id": "orca-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The documented OpenTelemetry Demo snapshot workflow uses Grafana for inspection and Jaeger over OpenSearch for tracing."
+   },
+   {
+    "tool": "OpenTelemetry Collector",
+    "benchmark_id": "orca-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/patches/docker-compose.yml",
+    "reviewed_on": "2026-10-24",
+    "notes": "Instrumented demo services export telemetry to the configured otel-collector service."
+   },
+   {
+    "tool": "Harbor",
+    "benchmark_id": "orca-bench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/ORCA-bench/ORCA-bench/blob/a6ea32046af3009b7ca4ed829cb121fd5a73794d/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "ORCA distributes Harbor tasks and documents the Harbor snapshot-based evaluation workflow."
+   },
+   {
+    "tool": "Kubernetes",
+    "benchmark_id": "aiopslab",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+   },
+   {
+    "tool": "kubectl",
+    "benchmark_id": "aiopslab",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+   },
+   {
+    "tool": "Helm",
+    "benchmark_id": "aiopslab",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+   },
+   {
+    "tool": "Kubernetes",
+    "benchmark_id": "sregym",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+   },
+   {
+    "tool": "kubectl",
+    "benchmark_id": "sregym",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+   },
+   {
+    "tool": "Helm",
+    "benchmark_id": "sregym",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The benchmark requires and operates a live Kubernetes cluster, uses kubectl context and deploys applications with Helm. Role: infrastructure/operational tooling, not a query engine."
+   },
+   {
+    "tool": "Jaeger",
+    "benchmark_id": "aiopslab",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/microsoft/AIOpsLab/blob/576c3f080c7ae2459a972afd4a2f8d5f01828430/aiopslab/observer/trace_api.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "TraceAPI directly queries Jaeger service/trace APIs; kubectl is used to forward the service."
+   },
+   {
+    "tool": "Jaeger",
+    "benchmark_id": "sregym",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/mcp_server/jaeger_server.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "Dedicated Jaeger MCP tools retrieve services, operations and traces from jaeger-out in the observe namespace. This is not the unused bundled Jaeger."
+   },
+   {
+    "tool": "Grafana",
+    "benchmark_id": "sregym",
+    "kind": "environment",
+    "evidence_url": "https://github.com/SREGym/SREGym/blob/0d8e7b73214c44e99c97ca1af2934290aa3b826b/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The bundled Grafana is explicitly not queried by the benchmark. No coverage credit."
+   },
+   {
+    "tool": "Jaeger",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+   },
+   {
+    "tool": "OpenTelemetry Collector",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+   },
+   {
+    "tool": "Prometheus Operator",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+   },
+   {
+    "tool": "OpenTelemetry Operator",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+   },
+   {
+    "tool": "Altinity ClickHouse Operator",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+   },
+   {
+    "tool": "Istio",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "ITBench documents this component and its role. Jaeger/traces can be disabled per scenario; Istio is installed in the documented live SRE/FinOps setup."
+   },
+   {
+    "tool": "Chaos Mesh",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/roles/faults/tasks/inject_chaos_mesh.yaml",
+    "reviewed_on": "2026-10-24",
+    "notes": "Fault injection creates and waits for Chaos Mesh Schedule resources. Installed only for configured chaos faults or explicit enablement."
+   },
+   {
+    "tool": "Kubernetes",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench/blob/e35270629b336ea3170c912edf3c4632eba877eb/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "SRE incidents run in Kubernetes-based environments."
+   },
+   {
+    "tool": "Helm",
+    "benchmark_id": "itbench-sre",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/roles/tools/defaults/main/helm_releases.yaml",
+    "reviewed_on": "2026-10-24",
+    "notes": "Tool deployment defines Helm releases for the observability stack."
+   },
+   {
+    "tool": "IPython",
+    "benchmark_id": "openrca",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/microsoft/OpenRCA/blob/2a481ae63cb045c3eadbeca9eddaa10ec1151979/rca/baseline/rca_agent/sandbox/worker.py",
+    "reviewed_on": "2026-10-24",
+    "notes": "Container worker constructs IPython InteractiveShell and executes generated analysis cells with pandas available."
+   },
+   {
+    "tool": "Cloud-OpsBench diagnostic tools",
+    "benchmark_id": "cloud-opsbench",
+    "kind": "runtime",
+    "evidence_url": "https://github.com/LLM4Ops/Cloud-OpsBench/blob/c84f5ebd448983322b06c24022b126125c632a22/README.md",
+    "reviewed_on": "2026-10-24",
+    "notes": "The released diagnostic tools replay cached resource/log/configuration responses from immutable snapshots. This is not evidence that a live Kubernetes/Prometheus backend runs at evaluation time."
+   }
+  ]
+ }
 }

@@ -349,7 +349,7 @@
       dl.appendChild(el("dd", {}, [r[1] || el("span", { className: "empty", text: "unknown" }), r[2] ? el("span", { className: "muted", text: " — " + r[2] }) : null]));
     });
     var support = el("dl", { className: "fields" });
-    ["engine", "client_application", "table_format", "language"].forEach(function (f) {
+    ["engine", "client_application", "table_format", "language", "tools"].forEach(function (f) {
       if (!b.support[f].length) return;
       support.appendChild(el("dt", { text: D.FIELD_LABELS[f] }));
       support.appendChild(el("dd", {}, [techNode(b.support[f], f)]));
@@ -372,10 +372,27 @@
       el("p", { text: tasks.length ? STATUSES.filter(function (s) { return counts[s]; }).map(function (s) { return counts[s] + " " + s; }).join(", ") : "No task-level records yet." }),
       b.notes ? el("p", { className: "note", text: b.notes }) : null,
     ];
+    var research = state.doc.leaderboard;
+    var citations = (research.evidence || []).concat(research.tool_evidence || []).filter(function(record){return record.benchmark_id === id;});
+    if(citations.length) nodes.push(el("h3",{text:"OSS stack evidence & roles"}));
+    citations.forEach(function(record){nodes.push(el("p",{},[link(record.evidence_url,(record.tool || record.engine)+" · "+record.kind)]));nodes.push(el("p",{className:"muted",text:record.notes}));});
     openPanel(b.name, nodes);
   }
 
   // ---------- top level ----------
+
+  function benchmarkStack(benchmark, field) {
+    var values = new Set((benchmark.support && benchmark.support[field]) || []);
+    var research = state.doc.leaderboard;
+    var records = field === "tools" ? research.tool_evidence : research.evidence;
+    (records || []).forEach(function(record) {
+      if(record.benchmark_id === benchmark.id && (record.kind === "runtime" || record.kind === "documentation")) values.add(record[field === "tools" ? "tool" : "engine"]);
+    });
+    state.doc.tasks.filter(function(task){return task.benchmark_id === benchmark.id;}).forEach(function(task) {
+      task.configurations.filter(function(cfg){return cfg.verification === "verified" || cfg.verification === "inferred";}).forEach(function(cfg){(cfg[field] || []).forEach(function(value){values.add(value);});});
+    });
+    return Array.from(values).sort();
+  }
 
   function renderDirectory() {
     if (table) { table.destroy(); table = null; }
@@ -384,12 +401,15 @@
     $("download-csv").hidden = true;
     $("view-help").textContent = "The complete catalogue, including benchmarks awaiting task-level annotations. Open an entry to inspect its sources and documented support.";
     var grid = $("benchmark-grid"); grid.innerHTML = "";
-    state.doc.benchmarks.filter(function(b){return state.benchmarks.has(b.id) && M.matches(b.name+" "+b.description+" "+Object.keys(b.support).map(function(k){return b.support[k];}).join(" "), state.query);}).forEach(function(b){
+    state.doc.benchmarks.filter(function(b){return state.benchmarks.has(b.id) && M.matches(b.name+" "+b.description+" "+Object.keys(b.support).map(function(k){return b.support[k];}).join(" ")+" "+benchmarkStack(b,"engine").join(" ")+" "+benchmarkStack(b,"tools").join(" "), state.query);}).forEach(function(b){
       var n = state.doc.tasks.filter(function(t){return t.benchmark_id===b.id;}).length;
       var button = el("button", {type:"button", text:"View evidence ↗"});
       button.addEventListener("click", function(){showBenchmark(b.id);});
       var technologies = el("div", {className:"card-technologies"});
-      technologies.innerHTML = (b.support.engine.length ? techValues(b.support.engine, "engine") : "") + (b.support.language.length ? " " + techValues(b.support.language, "language") : "");
+      var engines = benchmarkStack(b, "engine"), tools = benchmarkStack(b, "tools");
+      if(engines.length) technologies.appendChild(el("div", {className:"card-stack-group"}, [el("span",{className:"stack-caption",text:"Query / compute backends"}),techNode(engines,"engine")]));
+      if(tools.length) technologies.appendChild(el("div", {className:"card-stack-group"}, [el("span",{className:"stack-caption",text:"OSS tools & infrastructure"}),techNode(tools,"tools")]));
+      if(!engines.length && !tools.length && b.support.language.length) technologies.appendChild(techNode(b.support.language,"language"));
       grid.appendChild(el("article", {className:"benchmark-card"}, [
         el("span", {className:"badge "+(n ? "verified" : "unknown"), text:n ? "TASKS ANNOTATED" : "BENCHMARK-LEVEL"}),
         el("h3", {text:b.name}), el("p", {text:b.description}), technologies,
@@ -399,23 +419,131 @@
     if (!grid.children.length) grid.appendChild(el("p", {className:"muted", text:"No benchmarks match the current filters."}));
   }
 
+  var leaderboardRows = [];
+  function showEngine(row) {
+    var engine = row.engine;
+    var nodes = [
+      el("p", {text: engine.category + " · " + engine.license}),
+      el("p", {className: "note", text: engine.license_scope}),
+      el("p", {}, [link(engine.source_url, "Component source and license")]),
+      el("p", {text: row.coverage + " distinct benchmarks · " + row.verifiedTasks + " verified task annotations · " + row.inferredTasks + " inferred task annotations"}),
+      el("p", {className: "muted", text: "Verified means inspected task metadata/source, not a measured agent trajectory. Runtime and documentation citations establish benchmark-level support only."})
+    ];
+    row.benchmarks.forEach(function(pair) {
+      nodes.push(el("h3", {text: pair.benchmark.name}));
+      pair.sources.forEach(function(source) {
+        nodes.push(el("p", {}, [el("span", {className: "badge " + (source.kind === "verified-task" ? "verified" : "inferred"), text: source.kind}), " ", link(source.url, source.taskId ? "Task " + source.taskId + " source" : "Upstream evidence")]));
+        nodes.push(el("p", {className:"muted", text:source.notes}));
+      });
+    });
+    if (row.leads.length) nodes.push(el("h3", {text:"Excluded from coverage"}));
+    row.leads.forEach(function(lead) {
+      nodes.push(el("p", {}, [link(lead.evidence_url, state.benchById[lead.benchmark_id].name + " · " + lead.kind)]));
+      nodes.push(el("p", {className:"muted", text:lead.notes}));
+    });
+    openPanel(engine.name + " · evidence", nodes);
+  }
+
+  function renderLeaderboard() {
+    if (table) { table.destroy(); table = null; }
+    $("column-filter").hidden = true;
+    $("status-filter").hidden = true;
+    var research = state.doc.leaderboard;
+    var toolMode = state.view === "tools";
+    var noun = toolMode ? "tools" : "engines";
+    var inventory = research[toolMode ? "tools" : "engines"] || [];
+    var categorySelect = $("leaderboard-category");
+    if(categorySelect.dataset.subject !== noun) {
+      categorySelect.innerHTML = "";
+      categorySelect.appendChild(el("option",{value:"",text:"All categories"}));
+      Array.from(new Set(inventory.map(function(item){return item.category;}))).sort().forEach(function(category){categorySelect.appendChild(el("option",{value:category,text:category}));});
+      categorySelect.dataset.subject = noun;
+    }
+    $("leaderboard-category-label").textContent = toolMode ? "Tool category" : "Engine category";
+    $("leaderboard-hero-title").innerHTML = toolMode ? "The OSS stack behind<br>the <em>agents.</em>" : "The engines behind<br>the <em>agents.</em>";
+    $("leaderboard-hero-description").textContent = toolMode ? "Explore the interfaces, telemetry collectors and infrastructure behind observability and SRE benchmarks. Follow each source to see the tool’s role." : "Which open-source data engines do agent benchmarks actually cover? Follow the evidence, from benchmark support to individual tasks.";
+    $("leaderboard-component-label").textContent = toolMode ? "OSS tool / license" : "Engine / license";
+    $("leaderboard-list").setAttribute("aria-label", "Ranked OSS " + noun);
+    $("leaderboard-view").setAttribute("aria-label", "Open-source " + noun + " leaderboard");
+    $("leaderboard-exclusions").hidden = toolMode;
+    var allRows = window.Leaderboard.build(state.doc, {
+      benchmarkIds: Array.from(state.benchmarks), mode: $("leaderboard-evidence").value, subject: toolMode ? "tools" : "engines"
+    });
+    var category = $("leaderboard-category").value;
+    var filtered = allRows.filter(function(row) {
+      var text = [row.engine.name, row.engine.category, row.engine.license].concat(row.benchmarks.map(function(p){return p.benchmark.name;})).join(" ");
+      return (!category || row.engine.category === category) && M.matches(text, state.query);
+    });
+    leaderboardRows = filtered;
+    var covered = filtered.filter(function(r){return r.coverage > 0;});
+    var uncovered = filtered.filter(function(r){return !r.coverage;});
+    var totalPairs = allRows.reduce(function(sum,r){return sum+r.coverage;},0);
+    var coveredIds = new Set(); allRows.forEach(function(r){r.benchmarks.forEach(function(p){coveredIds.add(p.benchmark.id);});});
+    $("leaderboard-summary").innerHTML = [
+      [allRows.filter(function(r){return r.coverage;}).length, noun + " with evidence"],
+      [coveredIds.size, "benchmarks with OSS coverage"],
+      [totalPairs, (toolMode ? "tool" : "engine") + " × benchmark links"],
+      [inventory.length, "OSS " + noun + " tracked"]
+    ].map(function(m){return '<div><strong>'+m[0]+'</strong><span>'+m[1]+'</span></div>';}).join("");
+    $("leaderboard-date").textContent = "RESEARCH SNAPSHOT · " + research.reviewed_on;
+    $("view-help").textContent = "Coverage counts distinct " + (toolMode ? "tool" : "engine") + "–benchmark pairs. Task-backed evidence and support-only claims are shown separately. This is a coverage ranking, not a performance score.";
+    var list = $("leaderboard-list"); list.innerHTML = "";
+    var max = allRows.length ? allRows[0].coverage : 1;
+    covered.forEach(function(row) {
+      var engineName = el("button", {type:"button", className:"engine-title"}, [techNode([row.engine.name],toolMode ? "tools" : "engine")]);
+      engineName.addEventListener("click",function(){showEngine(row);});
+      var sources = el("div", {className:"leader-sources"});
+      row.benchmarks.forEach(function(pair) {
+        sources.appendChild(el("a", {href:pair.sources[0].url, target:"_blank", rel:"noopener", className:"benchmark-source "+(pair.taskBacked ? "task-backed" : "support-backed"), title:pair.benchmark.name+" · "+pair.sources[0].kind}, [pair.benchmark.name]));
+      });
+      var inspect = el("button", {type:"button",className:"source-inspect",text:"Inspect all evidence →"});
+      inspect.addEventListener("click",function(){showEngine(row);}); sources.appendChild(inspect);
+      var bar = el("div", {className:"coverage-bar", "aria-hidden":"true"});
+      var fill = el("i"); fill.style.width = (100*row.coverage/Math.max(1,max))+"%"; bar.appendChild(fill);
+      list.appendChild(el("article", {className:"leader-row", "aria-label":row.engine.name+", rank "+row.rank, role:"listitem"}, [
+        el("div", {className:"leader-rank"}, [el("span", {className:"mobile-field",text:"Rank"}), el("strong",{text:String(row.rank).padStart(2,"0")})]),
+        el("div", {className:"leader-engine"}, [engineName, el("p", {text:row.engine.category}), el("a", {href:row.engine.source_url,target:"_blank",rel:"noopener",className:"engine-license",text:row.engine.license})]),
+        el("div", {className:"leader-coverage"}, [el("span",{className:"mobile-field",text:"Benchmark coverage"}),el("strong", {text:String(row.coverage)}),el("span",{className:"coverage-unit",text:" benchmarks"}),bar]),
+        el("div", {className:"leader-evidence"}, [el("span",{className:"mobile-field",text:"Evidence breakdown"}),el("span",{className:"evidence-task",text:row.taskBenchmarks+" task-backed benchmarks"}),el("span",{text:row.supportOnly+" support-only benchmarks"}),el("span",{text:row.verifiedTasks+" verified tasks · "+row.inferredTasks+" inferred"})]),
+        el("div", {className:"leader-benchmarks"}, [el("span",{className:"mobile-field",text:"Benchmarks & sources"}),sources])
+      ]));
+    });
+    if(!covered.length) list.appendChild(el("p", {className:"leader-empty",text:"No qualifying " + (toolMode ? "tool" : "engine") + " coverage matches these filters. Try documented coverage or clear the search."}));
+    $("leaderboard-results").textContent = covered.length + " " + noun + " ranked · " + uncovered.length + " without qualifying evidence in this selection";
+    var watchlist=$("engine-watchlist"); watchlist.innerHTML="";
+    uncovered.forEach(function(row){
+      var button=el("button",{type:"button",className:"watch-engine"},[techNode([row.engine.name],toolMode ? "tools" : "engine"),el("span",{className:"watch-meta",text:row.engine.category+" · "+row.engine.license}),el("span",{className:"watch-status",text:row.leads.length ? "Uncounted research lead" : "No qualifying evidence"})]);
+      button.addEventListener("click",function(){showEngine(row);});watchlist.appendChild(button);
+    });
+    $("watchlist-section").hidden=!uncovered.length;
+    $("watchlist-count").textContent=String(uncovered.length);
+    var exclusions=$("leaderboard-exclusions");exclusions.innerHTML="";
+    (research.excluded_engines || []).forEach(function(e){exclusions.appendChild(el("p",{},[el("strong",{text:e.name+": "}),e.reason]));});
+  }
+
   function render() {
     var directory = state.view === "benchmarks";
+    var leaderboard = state.view === "leaderboard" || state.view === "tools";
+    document.body.classList.toggle("tools-mode", state.view === "tools");
+    document.body.classList.toggle("leaderboard-mode", leaderboard);
+    $("leaderboard-view").hidden = !leaderboard;
+    $("leaderboard-controls").hidden = !leaderboard;
     $("benchmark-grid").hidden = !directory;
-    $("table").hidden = directory;
+    $("table").hidden = directory || leaderboard;
     ["column-filter", "status-filter", "download-csv"].forEach(function(id){$(id).hidden=false;});
-    $("section-title").textContent = directory ? "Benchmark directory" : state.view === "tasks" ? "Task explorer" : "Benchmark matrix";
+    $("section-title").textContent = leaderboard ? (state.view === "tools" ? "OSS tools leaderboard" : "Engine leaderboard") : directory ? "Benchmark directory" : state.view === "tasks" ? "Task explorer" : "Benchmark matrix";
     document.querySelectorAll("[data-view]").forEach(function(button){var active=button.dataset.view===state.view;button.classList.toggle("active", active);button.setAttribute("aria-current", active ? "page" : "false");});
     renderBenchmarkFilter();
     renderStatusFilter();
-    if (directory) renderDirectory();
+    if (leaderboard) renderLeaderboard();
+    else if (directory) renderDirectory();
     else if (state.view === "tasks") renderExplorer();
     else renderMatrix(M.VIEWS[state.view]);
   }
 
   function readHash() {
     var m = /view=([a-z_]+)/.exec(location.hash);
-    if (m && (M.VIEWS[m[1]] || m[1] === "tasks" || m[1] === "benchmarks")) state.view = m[1];
+    if (m && (M.VIEWS[m[1]] || m[1] === "tasks" || m[1] === "benchmarks" || m[1] === "leaderboard" || m[1] === "tools")) state.view = m[1];
     $("view-select").value = state.view;
   }
 
@@ -433,6 +561,7 @@
     $("metrics").innerHTML = [[s.benchmarks, "Benchmarks in the catalogue", "CATALOGUE"], [s.tasks, "Annotated tasks", "EVIDENCE"], [engines.size, "Execution engines in tasks", "DATA STACK"], [s.configurations, "Technology configurations", "TASK LEVEL"]].map(function(m){return '<div class="metric"><div class="metric-value">'+m[0]+'</div><div class="metric-label">'+m[1]+'</div><span class="metric-note">'+m[2]+'</span></div>';}).join("");
     $("hero-engines").innerHTML = ["Snowflake", "DuckDB", "BigQuery", "Pandas"].map(function(v){return I.icon(v);}).join("");
     document.querySelectorAll("[data-view]").forEach(function(button){button.addEventListener("click", function(){location.hash="view="+button.dataset.view;});});
+    ["leaderboard-evidence", "leaderboard-category"].forEach(function(id){$(id).addEventListener("change", render);});
     readHash();
     window.addEventListener("hashchange", function () { readHash(); closePanel(); render(); });
     $("view-select").addEventListener("change", function (e) {
@@ -447,6 +576,14 @@
       timer = setTimeout(function () { state.query = e.target.value.trim(); render(); }, 150);
     });
     $("download-csv").addEventListener("click", function () {
+      if (state.view === "leaderboard" || state.view === "tools") {
+        var blob = new Blob([window.Leaderboard.csv(leaderboardRows, state.view === "tools" ? "tools" : "engines")], {type:"text/csv;charset=utf-8;"});
+        var objectUrl = URL.createObjectURL(blob);
+        var a = el("a",{href:objectUrl,download:state.view === "tools" ? "oss-tools-leaderboard.csv" : "oss-engine-leaderboard.csv"});
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function(){URL.revokeObjectURL(objectUrl);},1000);
+        return;
+      }
       if (table) table.download("csv", "agent-data-bench-" + state.view + ".csv");
     });
     $("detail-close").addEventListener("click", closePanel);

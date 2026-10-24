@@ -223,3 +223,38 @@ apply to task configurations; the directory displays benchmark metadata.
 Technology pictograms are original, bundled inline SVGs in `js/icons.js`, with
 fallbacks for all engines, formats and catalogues. See [icon credits](docs/icons.md)
 for provenance and licensing. No third-party icon service is used.
+
+## OSS engine leaderboard
+
+Open **Engine leaderboard** (`#view=leaderboard`) to rank engines by the number
+of distinct benchmarks with source-backed coverage. The view tracks 46 scoped
+open-source engine distributions across 37 catalogued benchmarks and separates
+task annotations from benchmark-level support. Installed dependencies, evaluator
+imports and planned support do not earn coverage credit. Engines without evidence
+remain visible as research gaps, without a rank.
+
+Use the evidence selector for verified task coverage only, filter by benchmark or
+engine category, and export all displayed counts and citations as CSV. Mobile
+cards retain every field and source link without horizontal scrolling.
+
+Research metadata and license scopes live in `data/leaderboard.toml`; the ordinary
+build includes them in `data/generated/catalogue.json`. Ranking functions are in
+`js/leaderboard.js`. See [research and counting policy](docs/leaderboard-research.md)
+for sources, exclusions and limitations. Thirteen more benchmark records and four
+pinned task annotations were added for this view; InterCode's MySQL environment
+was also documented.
+
+## Observability benchmarks and OSS tools
+
+The catalogue includes **o11y-bench, ORCA-bench, Agent RCA Bench, AIOpsLab,
+SREGym, ITBench SRE, Cloud-OpsBench and OpenRCA**. Three o11y task specifications
+provide pinned Prometheus, Loki and Tempo evidence. GreptimeDB and observability
+query backends appear in the engine leaderboard.
+
+Open **OSS tools** (`#view=tools`) for a separate source-backed ranking of the
+interfaces, collectors, deployment tools and evaluation harnesses behind these
+benchmarks. Tool roles, license scopes, conditional services and snapshot replay
+are documented per citation. Benchmark cards show the backend and OSS tool stacks;
+search `observability` in **All benchmarks** to browse these eight additions.
+
+Current totals: 37 benchmarks, 23 sampled tasks, 46 engine entries and 16 OSS tools.

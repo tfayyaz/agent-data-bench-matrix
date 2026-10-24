@@ -1,0 +1,18 @@
+id = "itbench-sre"
+name = "ITBench · SRE"
+description = "Observability / enterprise SRE agent benchmark with live Kubernetes incidents, telemetry collectors, query stores and conditional fault injection."
+created = ""
+created_source = ""
+updated = "2026-10-20"
+updated_source = "Reviewed upstream commit e35270629b336ea3170c912edf3c4632eba877eb"
+repo_url = "https://github.com/itbench-hub/ITBench"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent."
+
+[support]
+engine = ["Prometheus", "ClickHouse", "OpenSearch"]
+evidence_url = "https://github.com/itbench-hub/ITBench-Scenarios/blob/3cdaa5df94983a8a9ca2ee0d5572189c3806c98b/sre/docs/tools.md"
+notes = "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."

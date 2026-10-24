@@ -13,7 +13,7 @@ last_verified = ""
 notes = "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated."
 
 [support]
-engine = []
+engine = ["MySQL"]
 language = ["SQL"]
-evidence_url = "https://github.com/princeton-nlp/intercode/blob/master/README.md"
+evidence_url = "https://github.com/princeton-nlp/intercode/blob/c3e46d827cfc9d4c704ec078f7abf9f41e3191d8/intercode/envs/sql/sql_env.py"
 notes = "Support is based on the upstream README, not verified task-level usage."
