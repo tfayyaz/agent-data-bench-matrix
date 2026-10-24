@@ -1,0 +1,18 @@
+id = "agent-rca-bench"
+name = "Agent RCA Bench"
+description = "Observability interface comparison for RCA agents: native Prometheus/Loki/Tempo APIs versus GreptimeDB SQL/PromQL and semantic graph interfaces."
+created = ""
+created_source = ""
+updated = "2026-09-11"
+updated_source = "Reviewed upstream commit fdfbca65c87c36c6b06bddfa6d611544f13bfa34"
+repo_url = "https://github.com/GreptimeTeam/agent-rca-bench"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent."
+
+[support]
+engine = ["Prometheus", "Loki", "Tempo", "GreptimeDB"]
+evidence_url = "https://github.com/GreptimeTeam/agent-rca-bench/blob/fdfbca65c87c36c6b06bddfa6d611544f13bfa34/README.md"
+notes = "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."

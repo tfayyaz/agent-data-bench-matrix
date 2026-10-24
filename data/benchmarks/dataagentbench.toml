@@ -1,0 +1,18 @@
+id = "dataagentbench"
+name = "DAB · Data Agent Benchmark"
+description = "Enterprise data-agent workloads requiring integration across DuckDB, PostgreSQL, SQLite and other databases."
+created = ""
+created_source = ""
+updated = "2026-10-21"
+updated_source = "Latest upstream commit reviewed: ead8cc6702f9420b21f8deec84fbf465c78d1d87"
+repo_url = "https://github.com/ucbepic/DataAgentBench"
+paper_url = "https://arxiv.org/abs/2603.20576"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = ["DuckDB", "PostgreSQL", "SQLite"]
+evidence_url = "https://github.com/ucbepic/DataAgentBench/blob/ead8cc6702f9420b21f8deec84fbf465c78d1d87/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

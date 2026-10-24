@@ -1,0 +1,13 @@
+benchmark_id = "infiagent-dabench"
+
+[[tasks]]
+task_id = "64"
+name = "Calculate wage mean and standard deviation"
+source_url = "https://github.com/InfiAgent/InfiAgent/blob/3d6c4a70198e0a41fadf539f5b43c88b8c1a2d9c/examples/DA-Agent/data/da-dev-questions.jsonl"
+evidence_url = "https://github.com/InfiAgent/InfiAgent/blob/3d6c4a70198e0a41fadf539f5b43c88b8c1a2d9c/examples/DA-Agent/data/da-dev-questions.jsonl"
+verification = "verified"
+engine = ["Pandas"]
+language = ["Python"]
+source_formats = ["CSV"]
+output_formats = []
+notes = "Task 64 explicitly requires pandas mean() and std() on beauty and the labor market.csv. This is a task requirement, not a measured agent execution trace."

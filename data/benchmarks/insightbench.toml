@@ -1,0 +1,18 @@
+id = "insightbench"
+name = "InsightBench"
+description = "Business analytics agent benchmark for multi-step insight discovery, question generation and summarization."
+created = ""
+created_source = ""
+updated = "2025-10-06"
+updated_source = "Latest upstream commit reviewed: 33c27c1282cb7ed73267d36fb84e27b6ea8aac2b"
+repo_url = "https://github.com/ServiceNow/insight-bench"
+paper_url = "https://arxiv.org/abs/2407.06423"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = []
+evidence_url = "https://github.com/ServiceNow/insight-bench/blob/33c27c1282cb7ed73267d36fb84e27b6ea8aac2b/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

@@ -1,0 +1,18 @@
+id = "mlagentbench"
+name = "MLAgentBench"
+description = "End-to-end machine learning experimentation tasks where agents edit and execute training programs."
+created = ""
+created_source = ""
+updated = "2024-04-28"
+updated_source = "Latest upstream commit reviewed: 5d71205cc20a8e95d43aa7cb7120e89ca3323e31"
+repo_url = "https://github.com/snap-stanford/MLAgentBench"
+paper_url = "https://arxiv.org/abs/2310.03302"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = []
+evidence_url = "https://github.com/snap-stanford/MLAgentBench/blob/5d71205cc20a8e95d43aa7cb7120e89ca3323e31/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

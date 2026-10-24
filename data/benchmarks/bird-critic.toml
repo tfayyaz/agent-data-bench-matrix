@@ -1,0 +1,18 @@
+id = "bird-critic"
+name = "BIRD-Critic"
+description = "SQL issue diagnosis and repair across PostgreSQL, MySQL and other dialects, with an additional SQLite release."
+created = ""
+created_source = ""
+updated = "2026-03-23"
+updated_source = "Latest upstream commit reviewed: f408d6c9db9f16e75b44a1e23f22c04579d1f390"
+repo_url = "https://github.com/bird-bench/BIRD-CRITIC-1"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = ["PostgreSQL", "MySQL", "SQLite"]
+evidence_url = "https://github.com/bird-bench/BIRD-CRITIC-1/blob/f408d6c9db9f16e75b44a1e23f22c04579d1f390/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

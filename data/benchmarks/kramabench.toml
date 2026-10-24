@@ -1,0 +1,18 @@
+id = "kramabench"
+name = "KramaBench"
+description = "End-to-end data-science agent benchmark requiring pipelines that load, clean and transform real data."
+created = ""
+created_source = ""
+updated = "2026-07-24"
+updated_source = "Latest upstream commit reviewed: b2e0d77540263f8b6119f977fe79a8c4386b5a02"
+repo_url = "https://github.com/mitdbg/Kramabench"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = []
+evidence_url = "https://github.com/mitdbg/Kramabench/blob/b2e0d77540263f8b6119f977fe79a8c4386b5a02/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

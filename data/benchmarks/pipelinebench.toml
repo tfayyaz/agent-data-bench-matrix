@@ -1,0 +1,18 @@
+id = "pipelinebench"
+name = "PipelineBench"
+description = "Reproducible agent benchmark for repairing broken ingestion, data quality and DuckDB analytical pipelines."
+created = ""
+created_source = ""
+updated = "2026-09-12"
+updated_source = "Latest upstream commit reviewed: bf8107c1583317b9375fda18779a92105e1a8675"
+repo_url = "https://github.com/joakimarvidsson/pipelinebench"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = ["DuckDB"]
+evidence_url = "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

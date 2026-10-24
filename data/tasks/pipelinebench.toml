@@ -1,0 +1,25 @@
+benchmark_id = "pipelinebench"
+
+[[tasks]]
+task_id = "duckdb_sql_regression"
+name = "Repair DuckDB join cardinality and revenue reconciliation"
+source_url = "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/duckdb_sql_regression/starter/pipeline.py"
+evidence_url = "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/duckdb_sql_regression/starter/pipeline.py"
+verification = "verified"
+engine = ["DuckDB"]
+language = ["Python", "SQL"]
+source_formats = ["CSV"]
+output_formats = ["Parquet"]
+notes = "Starter imports duckdb and executes a join over two CSV files, writing a Parquet output. Verified from source, not a recorded agent run."
+
+[[tasks]]
+task_id = "schema_drift_parquet"
+name = "Handle schema drift in account ingestion"
+source_url = "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/schema_drift_parquet/starter/pipeline.py"
+evidence_url = "https://github.com/joakimarvidsson/pipelinebench/blob/bf8107c1583317b9375fda18779a92105e1a8675/benchmark/tasks/schema_drift_parquet/starter/pipeline.py"
+verification = "verified"
+engine = ["Pandas"]
+language = ["Python"]
+source_formats = ["Parquet"]
+output_formats = ["Parquet"]
+notes = "Starter calls pandas.read_parquet and DataFrame.to_parquet. Verification describes the task starter, not an observed agent trajectory."

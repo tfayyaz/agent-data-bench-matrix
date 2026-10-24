@@ -1,0 +1,18 @@
+id = "livesqlbench"
+name = "LiveSQLBench"
+description = "Evolving text-to-SQL benchmark with PostgreSQL environments, SQLite variants, and dedicated CLI and agent harnesses."
+created = ""
+created_source = ""
+updated = "2026-05-27"
+updated_source = "Latest upstream commit reviewed: e15cd221267e06fabfaf6a3d4a69308280ce9a7c"
+repo_url = "https://github.com/bird-bench/livesqlbench"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = ["PostgreSQL", "SQLite"]
+evidence_url = "https://github.com/bird-bench/livesqlbench/blob/e15cd221267e06fabfaf6a3d4a69308280ce9a7c/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

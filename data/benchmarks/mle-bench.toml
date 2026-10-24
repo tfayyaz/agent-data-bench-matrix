@@ -1,0 +1,18 @@
+id = "mle-bench"
+name = "MLE-bench"
+description = "Machine learning engineering agent benchmark built around Kaggle competitions. Its grading dependencies alone do not establish an agent execution engine."
+created = ""
+created_source = ""
+updated = "2026-04-24"
+updated_source = "Latest upstream commit reviewed: 507f92e1138bb6e40dac5c6ee7a6758e6424bf97"
+repo_url = "https://github.com/openai/mle-bench"
+paper_url = "https://arxiv.org/abs/2410.07095"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = []
+evidence_url = "https://github.com/openai/mle-bench/blob/507f92e1138bb6e40dac5c6ee7a6758e6424bf97/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."

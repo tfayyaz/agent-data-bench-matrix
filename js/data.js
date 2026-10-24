@@ -16,6 +16,7 @@
     output_formats: "Output data formats",
     storage_format: "Underlying storage",
     catalogue: "Catalogue",
+    tools: "OSS tools",
   };
 
   function load() {

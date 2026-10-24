@@ -1,0 +1,18 @@
+id = "openrca"
+name = "OpenRCA"
+description = "Observability / telemetry root-cause-analysis benchmark whose RCA-agent baseline executes Python and pandas analysis inside a sandboxed IPython environment."
+created = ""
+created_source = ""
+updated = "2026-10-22"
+updated_source = "Reviewed upstream commit 2a481ae63cb045c3eadbeca9eddaa10ec1151979"
+repo_url = "https://github.com/microsoft/OpenRCA"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent."
+
+[support]
+engine = ["Pandas"]
+evidence_url = "https://github.com/microsoft/OpenRCA/blob/2a481ae63cb045c3eadbeca9eddaa10ec1151979/rca/baseline/rca_agent/sandbox/worker.py"
+notes = "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."

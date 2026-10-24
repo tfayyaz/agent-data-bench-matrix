@@ -1,0 +1,18 @@
+id = "o11y-bench"
+name = "o11y-bench"
+description = "Observability and SRE agent tasks over a real Grafana stack with Prometheus, Loki and Tempo query backends."
+created = ""
+created_source = ""
+updated = "2026-10-23"
+updated_source = "Reviewed upstream commit 4a2c3ac56846ca128a1c70878ddac54f9fa7ade1"
+repo_url = "https://github.com/grafana/o11y-bench"
+paper_url = ""
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Sources reviewed on 2026-10-24. Backend, interface, orchestration and evaluation-harness roles are distinguished in the evidence. Benchmark-level records do not assert usage by every task or agent."
+
+[support]
+engine = ["Prometheus", "Loki", "Tempo"]
+evidence_url = "https://github.com/grafana/o11y-bench/blob/4a2c3ac56846ca128a1c70878ddac54f9fa7ade1/README.md"
+notes = "Documented stack support. Individual source citations and conditional/replayed components are explained in the leaderboard evidence."

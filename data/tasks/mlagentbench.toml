@@ -1,0 +1,13 @@
+benchmark_id = "mlagentbench"
+
+[[tasks]]
+task_id = "house-price"
+name = "Train a house price regression model"
+source_url = "https://github.com/snap-stanford/MLAgentBench/blob/5d71205cc20a8e95d43aa7cb7120e89ca3323e31/MLAgentBench/benchmarks/house-price/env/train.py"
+evidence_url = "https://github.com/snap-stanford/MLAgentBench/blob/5d71205cc20a8e95d43aa7cb7120e89ca3323e31/MLAgentBench/benchmarks/house-price/env/train.py"
+verification = "verified"
+engine = ["Pandas"]
+language = ["Python"]
+source_formats = ["CSV"]
+output_formats = ["CSV"]
+notes = "Task starter uses pandas.read_csv and DataFrame operations, and writes submission.csv. Other ML libraries are outside this data-engine classification."

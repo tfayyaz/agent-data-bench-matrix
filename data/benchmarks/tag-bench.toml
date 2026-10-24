@@ -1,0 +1,18 @@
+id = "tag-bench"
+name = "TAG-Bench"
+description = "Table-Augmented Generation benchmark combining database queries, semantic reasoning and language-model operations."
+created = ""
+created_source = ""
+updated = "2026-07-25"
+updated_source = "Latest upstream commit reviewed: f97b0b5ca211573837cf3236224ac658b4a959bc"
+repo_url = "https://github.com/TAG-Research/TAG-Bench"
+paper_url = "https://arxiv.org/abs/2408.14717"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Benchmark sources reviewed on 2026-10-24. Benchmark-level documentation is separate from sampled task verification. Variants of this benchmark count once per engine."
+
+[support]
+engine = []
+evidence_url = "https://github.com/TAG-Research/TAG-Bench/blob/f97b0b5ca211573837cf3236224ac658b4a959bc/README.md"
+notes = "Documented benchmark support; this does not assert that every task uses these engines."
