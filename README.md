@@ -206,3 +206,20 @@ scripts/catalogue.py           loading, validation and normalization
 scripts/validate.py, build.py  CLIs
 tests/                         pytest + node:test
 ```
+
+## Expanded catalogue and interface
+
+The catalogue also includes **DA-Code, DataSciBench, InfiAgent-DABench,
+ScienceAgentBench, InterCode (SQL), and Spider 1.0**. These six entries are based
+on their upstream READMEs, linked in each TOML record. They are benchmark-level
+entries awaiting representative task annotations; they do not increase verified
+task counts. Unknown dates and task technologies remain unfilled.
+
+The interface includes a responsive overview, view tabs, and an **All benchmarks**
+directory with source/evidence details. Existing matrix filters, task exploration,
+URL view selection, and CSV export remain available. Verification status filters
+apply to task configurations; the directory displays benchmark metadata.
+
+Technology pictograms are original, bundled inline SVGs in `js/icons.js`, with
+fallbacks for all engines, formats and catalogues. See [icon credits](docs/icons.md)
+for provenance and licensing. No third-party icon service is used.

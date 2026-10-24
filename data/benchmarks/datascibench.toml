@@ -1,0 +1,19 @@
+id = "datascibench"
+name = "DataSciBench"
+description = "Data science agent benchmark spanning data exploration, predictive modeling, visualization and scientific computing."
+created = ""
+created_source = ""
+updated = ""
+updated_source = ""
+repo_url = "https://github.com/THUDM/DataSciBench"
+paper_url = "https://arxiv.org/abs/2502.13897"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated."
+
+[support]
+engine = ["Pandas"]
+language = ["Python"]
+evidence_url = "https://github.com/THUDM/DataSciBench/blob/main/README.md"
+notes = "Support is based on the upstream README, not verified task-level usage."

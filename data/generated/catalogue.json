@@ -31,7 +31,7 @@
   ]
  },
  "stats": {
-  "benchmarks": 10,
+  "benchmarks": 16,
   "tasks": 16,
   "configurations": 20,
   "by_verification": {
@@ -132,6 +132,32 @@
    "source_file": "data/benchmarks/bird-interact.toml"
   },
   {
+   "id": "da-code",
+   "name": "DA-Code",
+   "description": "Agent data science code generation benchmark with sandboxed execution and file-based workflows.",
+   "created_source": null,
+   "updated_source": null,
+   "notes": "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated.",
+   "created": null,
+   "updated": null,
+   "last_verified": null,
+   "repo_url": "https://github.com/yiyihum/da-code",
+   "paper_url": "https://arxiv.org/abs/2410.07331",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "Python"
+    ],
+    "evidence_url": "https://github.com/yiyihum/da-code/blob/main/README.md",
+    "notes": "Support is based on the upstream README, not verified task-level usage."
+   },
+   "source_file": "data/benchmarks/da-code.toml"
+  },
+  {
    "id": "dabstep",
    "name": "DABStep",
    "description": "Adyen and Hugging Face benchmark of multi-step data-analysis questions over payments data (transactions, fees, merchant metadata) supplied as CSV, JSON and Markdown files.",
@@ -186,6 +212,34 @@
     "notes": "Backend chosen per run with DB_TYPE=duckdb|snowflake."
    },
    "source_file": "data/benchmarks/data-eng-bench.toml"
+  },
+  {
+   "id": "datascibench",
+   "name": "DataSciBench",
+   "description": "Data science agent benchmark spanning data exploration, predictive modeling, visualization and scientific computing.",
+   "created_source": null,
+   "updated_source": null,
+   "notes": "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated.",
+   "created": null,
+   "updated": null,
+   "last_verified": null,
+   "repo_url": "https://github.com/THUDM/DataSciBench",
+   "paper_url": "https://arxiv.org/abs/2502.13897",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "Pandas"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "Python"
+    ],
+    "evidence_url": "https://github.com/THUDM/DataSciBench/blob/main/README.md",
+    "notes": "Support is based on the upstream README, not verified task-level usage."
+   },
+   "source_file": "data/benchmarks/datascibench.toml"
   },
   {
    "id": "dsagentbench",
@@ -271,6 +325,112 @@
     "notes": "README lists Snowflake, Databricks and Redshift versions."
    },
    "source_file": "data/benchmarks/elt-bench-plus-plus.toml"
+  },
+  {
+   "id": "infiagent-dabench",
+   "name": "InfiAgent-DABench",
+   "description": "Data analysis benchmark accompanying the InfiAgent framework and its executable Python analysis agent.",
+   "created_source": null,
+   "updated_source": null,
+   "notes": "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated.",
+   "created": null,
+   "updated": null,
+   "last_verified": null,
+   "repo_url": "https://github.com/InfiAgent/InfiAgent",
+   "paper_url": "https://arxiv.org/abs/2401.05507",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "Python"
+    ],
+    "evidence_url": "https://github.com/InfiAgent/InfiAgent/blob/main/README.md",
+    "notes": "Support is based on the upstream README, not verified task-level usage."
+   },
+   "source_file": "data/benchmarks/infiagent-dabench.toml"
+  },
+  {
+   "id": "intercode-sql",
+   "name": "InterCode · SQL",
+   "description": "SQL subset of InterCode: interactive coding environments with execution feedback for language agents.",
+   "created_source": null,
+   "updated_source": null,
+   "notes": "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated.",
+   "created": null,
+   "updated": null,
+   "last_verified": null,
+   "repo_url": "https://github.com/princeton-nlp/intercode",
+   "paper_url": "https://arxiv.org/abs/2306.14898",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "SQL"
+    ],
+    "evidence_url": "https://github.com/princeton-nlp/intercode/blob/master/README.md",
+    "notes": "Support is based on the upstream README, not verified task-level usage."
+   },
+   "source_file": "data/benchmarks/intercode-sql.toml"
+  },
+  {
+   "id": "scienceagentbench",
+   "name": "ScienceAgentBench",
+   "description": "Scientific discovery benchmark adapted from research publications, with self-contained Python programs as task outputs.",
+   "created_source": null,
+   "updated_source": null,
+   "notes": "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated.",
+   "created": null,
+   "updated": null,
+   "last_verified": null,
+   "repo_url": "https://github.com/OSU-NLP-Group/ScienceAgentBench",
+   "paper_url": "https://arxiv.org/abs/2410.05080",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "Python"
+    ],
+    "evidence_url": "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/main/README.md",
+    "notes": "Support is based on the upstream README, not verified task-level usage."
+   },
+   "source_file": "data/benchmarks/scienceagentbench.toml"
+  },
+  {
+   "id": "spider",
+   "name": "Spider 1.0",
+   "description": "Foundational cross-domain text-to-SQL benchmark with relational databases distributed as SQLite3 files.",
+   "created_source": null,
+   "updated_source": null,
+   "notes": "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated.",
+   "created": null,
+   "updated": null,
+   "last_verified": null,
+   "repo_url": "https://github.com/taoyds/spider",
+   "paper_url": "https://arxiv.org/abs/1809.08887",
+   "website_url": null,
+   "dataset_url": null,
+   "support": {
+    "engine": [
+     "SQLite"
+    ],
+    "client_application": [],
+    "table_format": [],
+    "language": [
+     "SQL"
+    ],
+    "evidence_url": "https://github.com/taoyds/spider/blob/master/README.md",
+    "notes": "Support is based on the upstream README, not verified task-level usage."
+   },
+   "source_file": "data/benchmarks/spider.toml"
   },
   {
    "id": "spider2",

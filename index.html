@@ -10,27 +10,41 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="app-shell">
+  <nav class="topbar" aria-label="Main navigation">
+    <a class="brand" href="#view=engine"><span class="brand-mark">▦</span> DATA / AGENTS <span class="brand-sub">BENCHMARK ATLAS</span></a>
+    <div class="top-links"><a href="#view=benchmarks">Benchmark directory</a><a href="https://github.com/tfayyaz/agent-data-bench-matrix" target="_blank" rel="noopener">GitHub ↗</a></div>
+  </nav>
   <header class="site-header">
-    <div>
-      <h1>Agent Data Benchmark Matrix</h1>
-      <p class="tagline">Which data technologies do agent benchmarks actually exercise? Values are aggregated from task-level metadata; click a cell to see the tasks and their evidence.</p>
+    <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span> THE DATA AGENT LANDSCAPE</p>
+      <h1>Know what your<br>benchmark <em>actually tests.</em></h1>
+      <p class="tagline">Explore the engines, tools and data infrastructure behind AI agent benchmarks. Trace every task-level claim back to its evidence.</p>
+      <div class="hero-tags"><span>Task-level evidence</span><span>Open metadata</span><span>No black boxes</span></div>
     </div>
-    <p class="stats" id="stats" aria-live="polite">Loading…</p>
+    <div class="hero-map" aria-hidden="true"><div class="map-label">CONNECTING THE DATA STACK</div><div class="map-row"><span>BENCHMARKS</span><i>→</i><span>AGENT TASKS</span></div><div class="map-line"></div><div class="map-engines" id="hero-engines"></div><div class="map-caption">Engines · Formats · Catalogues</div></div>
   </header>
-
+  <section class="metric-grid" id="metrics" aria-label="Catalogue overview"></section>
+  <section class="workspace-head"><div><p class="eyebrow">EXPLORE THE LANDSCAPE</p><h2 id="section-title">Benchmark matrix</h2></div><p class="stats" id="stats" aria-live="polite">Loading catalogue…</p></section>
+  <nav class="view-tabs" aria-label="Catalogue views">
+    <button data-view="engine" class="active">▦ <span>Execution engines</span></button>
+    <button data-view="client">⌘ <span>Client applications</span></button>
+    <button data-view="table_format">▤ <span>Table formats</span></button>
+    <button data-view="tasks">≡ <span>Task explorer</span></button>
+    <button data-view="benchmarks">◫ <span>All benchmarks</span></button>
+  </nav>
   <section class="toolbar" aria-label="Controls">
-    <label class="control">
+    <label class="control view-control">
       <span>View</span>
       <select id="view-select">
         <option value="engine">A · Benchmark × Engine</option>
         <option value="client">B · Benchmark × Client</option>
         <option value="table_format">C · Benchmark × Table format</option>
-        <option value="tasks">D · Task explorer</option>
+        <option value="tasks">D · Task explorer</option><option value="benchmarks">All benchmarks</option>
       </select>
     </label>
     <label class="control grow">
       <span>Search</span>
-      <input id="search" type="search" placeholder="e.g. snowflake dbt, bq011, sqlite">
+      <input id="search" type="search" placeholder="Search benchmarks, engines, tasks…">
     </label>
     <details class="control dropdown" id="benchmark-filter">
       <summary>Benchmarks <span class="count"></span></summary>
@@ -44,13 +58,14 @@
       <summary>Status <span class="count"></span></summary>
       <div class="dropdown-body"></div>
     </details>
-    <button type="button" id="download-csv">Download CSV</button>
+    <button type="button" id="download-csv">↓ Export CSV</button>
   </section>
 
+  <div class="matrix-intro"><span class="evidence-key"><i></i> Task evidence <span class="support-mark">◦</span> Benchmark claim</span></div>
   <p class="view-help" id="view-help"></p>
 
   <main class="layout">
-    <div id="table" class="table-wrap"></div>
+    <div class="results-area"><div id="benchmark-grid" class="benchmark-grid" hidden></div><div id="table" class="table-wrap"></div></div>
     <aside id="detail" class="detail" hidden aria-label="Details">
       <div class="detail-head">
         <h2 id="detail-title"></h2>
@@ -68,9 +83,11 @@
       <span class="badge unknown">unknown</span> not yet checked.
       <span class="support-mark">◦</span> = technology claimed at benchmark level without task-level records.
     </p>
-    <p>Source metadata lives in TOML in <a href="https://github.com/tfayyaz/agent-data-bench-matrix">tfayyaz/agent-data-bench-matrix</a>. Corrections welcome.</p>
+    <p>Source metadata lives in TOML in <a href="https://github.com/tfayyaz/agent-data-bench-matrix">tfayyaz/agent-data-bench-matrix</a>. Corrections welcome. <a href="docs/icons.md">Icon credits</a>.</p>
   </footer>
 
+  </div>
+  <script src="js/icons.js"></script>
   <script src="vendor/tabulator/tabulator.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/matrix.js"></script>

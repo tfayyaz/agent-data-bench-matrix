@@ -1,0 +1,19 @@
+id = "intercode-sql"
+name = "InterCode \u00b7 SQL"
+description = "SQL subset of InterCode: interactive coding environments with execution feedback for language agents."
+created = ""
+created_source = ""
+updated = ""
+updated_source = ""
+repo_url = "https://github.com/princeton-nlp/intercode"
+paper_url = "https://arxiv.org/abs/2306.14898"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated."
+
+[support]
+engine = []
+language = ["SQL"]
+evidence_url = "https://github.com/princeton-nlp/intercode/blob/master/README.md"
+notes = "Support is based on the upstream README, not verified task-level usage."

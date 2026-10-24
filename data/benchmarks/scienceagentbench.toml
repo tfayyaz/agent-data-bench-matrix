@@ -1,0 +1,19 @@
+id = "scienceagentbench"
+name = "ScienceAgentBench"
+description = "Scientific discovery benchmark adapted from research publications, with self-contained Python programs as task outputs."
+created = ""
+created_source = ""
+updated = ""
+updated_source = ""
+repo_url = "https://github.com/OSU-NLP-Group/ScienceAgentBench"
+paper_url = "https://arxiv.org/abs/2410.05080"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated."
+
+[support]
+engine = []
+language = ["Python"]
+evidence_url = "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/main/README.md"
+notes = "Support is based on the upstream README, not verified task-level usage."

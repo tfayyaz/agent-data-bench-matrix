@@ -4,6 +4,9 @@
 
   var M = window.Matrix;
   var D = window.Data;
+  var I = window.Icons;
+  function techValues(values, field) { return (values.length ? values : ["Unknown"]).map(function(v){return I.label(v, field);}).join(" "); }
+  function techNode(values, field) { var node = el("span"); node.innerHTML = techValues(values, field); return node; }
   var TECH = Object.keys(D.FIELD_LABELS);
   var STATUSES = ["verified", "inferred", "illustrative", "unknown"];
 
@@ -128,7 +131,7 @@
         : '<span class="empty">—</span>';
     }
     var html = data.values.map(function (v) {
-      return '<div class="val"><span>' + escapeHtml(v.label) + '</span> <span class="n">' + v.count + "</span></div>";
+      return '<div class="val"><span>' + v.label.split(" / ").map(function(part){return part.split(" + ").map(function(value){return I.label(value);}).join('<span class="cell-separator">+</span>');}).join('<span class="cell-separator">/</span>') + '</span> <span class="n">' + v.count + "</span></div>";
     }).join("");
     var flags = data.statuses.filter(function (s) { return s !== "verified"; });
     if (flags.length) html += '<div class="flags">' + flags.map(function (s) { return '<span class="dot ' + s + '" title="' + s + ' task(s) in this cell"></span>'; }).join("") + "</div>";
@@ -163,15 +166,15 @@
     }).filter(function (r) { return M.matches(r._search, state.query); });
 
     var cols = [
-      { title: "Benchmark", field: "name", frozen: freeze(), minWidth: 150, cssClass: "bench-cell",
-        formatter: function (c) { return '<button type="button" class="linklike">' + escapeHtml(c.getValue()) + "</button>"; },
+      { title: "Benchmark", field: "name", frozen: freeze(), width: 205, cssClass: "bench-cell",
+        formatter: function (c) { var b = c.getRow().getData(); var n = state.doc.tasks.filter(function(t){return t.benchmark_id === b.id;}).length; return '<button type="button" class="linklike bench-name"><span class="bench-monogram">'+escapeHtml(c.getValue().replace(/[^A-Za-z]/g, '').slice(0,2).toUpperCase())+'</span><span>'+escapeHtml(c.getValue())+'<span class="bench-sub">'+(n ? n+' annotated task'+(n===1?'':'s') : 'Awaiting task annotations')+'</span></span></button>'; },
         cellClick: function (e, c) { showBenchmark(c.getRow().getData().id); } },
-      { title: "Created", field: "created", frozen: freeze(), width: 98, formatter: dateFormatter },
-      { title: "Updated", field: "updated", frozen: freeze(), width: 98, formatter: dateFormatter },
+      { title: "Created", field: "created", width: 98, formatter: dateFormatter },
+      { title: "Updated", field: "updated", width: 98, formatter: dateFormatter },
     ];
     columns.forEach(function (col, i) {
       cols.push({
-        title: col, field: "c" + i, minWidth: 140, maxWidth: 280, cssClass: "wrap matrix-cell", headerHozAlign: "left",
+        title: col, titleFormatter: function(){return I.label(col, view.columnField);}, field: "c" + i, minWidth: 185, maxWidth: 300, cssClass: "wrap matrix-cell", headerHozAlign: "left",
         formatter: cellFormatter,
         sorter: function (a, b, ar, br) { return ar.getData()["n" + i] - br.getData()["n" + i]; },
         headerSortStartingDir: "desc",
@@ -226,7 +229,7 @@
     TECH.forEach(function (f) {
       if (hide.has(f)) return;
       cols.push({ title: D.FIELD_LABELS[f], field: f, minWidth: 120, maxWidth: 240, cssClass: "wrap", headerFilter: "input",
-        formatter: function (c) { return c.getValue() ? escapeHtml(c.getValue()) : '<span class="empty">—</span>'; } });
+        formatter: function (c) { return techValues(c.getValue() ? c.getValue().split("; ") : [], f); } });
     });
     cols.push(
       { title: "Task source", field: "source_url", width: 90, formatter: linkFmt, headerSort: false },
@@ -318,7 +321,7 @@
         var inferred = cfg.inferred_fields.indexOf(f) !== -1;
         dl.appendChild(el("dt", { text: D.FIELD_LABELS[f] }));
         dl.appendChild(el("dd", {}, [
-          cfg[f].length ? cfg[f].join(", ") : el("span", { className: "empty", text: "unknown" }),
+          techNode(cfg[f], f),
           inferred ? el("span", { className: "badge inferred small", text: "inferred" }) : null,
         ]));
       });
@@ -349,7 +352,7 @@
     ["engine", "client_application", "table_format", "language"].forEach(function (f) {
       if (!b.support[f].length) return;
       support.appendChild(el("dt", { text: D.FIELD_LABELS[f] }));
-      support.appendChild(el("dd", { text: b.support[f].join(", ") }));
+      support.appendChild(el("dd", {}, [techNode(b.support[f], f)]));
     });
     var nodes = [
       el("p", { text: b.description }),
@@ -374,16 +377,45 @@
 
   // ---------- top level ----------
 
+  function renderDirectory() {
+    if (table) { table.destroy(); table = null; }
+    $("column-filter").hidden = true;
+    $("status-filter").hidden = true;
+    $("download-csv").hidden = true;
+    $("view-help").textContent = "The complete catalogue, including benchmarks awaiting task-level annotations. Open an entry to inspect its sources and documented support.";
+    var grid = $("benchmark-grid"); grid.innerHTML = "";
+    state.doc.benchmarks.filter(function(b){return state.benchmarks.has(b.id) && M.matches(b.name+" "+b.description+" "+Object.keys(b.support).map(function(k){return b.support[k];}).join(" "), state.query);}).forEach(function(b){
+      var n = state.doc.tasks.filter(function(t){return t.benchmark_id===b.id;}).length;
+      var button = el("button", {type:"button", text:"View evidence ↗"});
+      button.addEventListener("click", function(){showBenchmark(b.id);});
+      var technologies = el("div", {className:"card-technologies"});
+      technologies.innerHTML = (b.support.engine.length ? techValues(b.support.engine, "engine") : "") + (b.support.language.length ? " " + techValues(b.support.language, "language") : "");
+      grid.appendChild(el("article", {className:"benchmark-card"}, [
+        el("span", {className:"badge "+(n ? "verified" : "unknown"), text:n ? "TASKS ANNOTATED" : "BENCHMARK-LEVEL"}),
+        el("h3", {text:b.name}), el("p", {text:b.description}), technologies,
+        el("div", {className:"card-meta"}, [el("span", {text:n ? n+" annotated tasks" : "Task annotations pending"}), button])
+      ]));
+    });
+    if (!grid.children.length) grid.appendChild(el("p", {className:"muted", text:"No benchmarks match the current filters."}));
+  }
+
   function render() {
+    var directory = state.view === "benchmarks";
+    $("benchmark-grid").hidden = !directory;
+    $("table").hidden = directory;
+    ["column-filter", "status-filter", "download-csv"].forEach(function(id){$(id).hidden=false;});
+    $("section-title").textContent = directory ? "Benchmark directory" : state.view === "tasks" ? "Task explorer" : "Benchmark matrix";
+    document.querySelectorAll("[data-view]").forEach(function(button){var active=button.dataset.view===state.view;button.classList.toggle("active", active);button.setAttribute("aria-current", active ? "page" : "false");});
     renderBenchmarkFilter();
     renderStatusFilter();
-    if (state.view === "tasks") renderExplorer();
+    if (directory) renderDirectory();
+    else if (state.view === "tasks") renderExplorer();
     else renderMatrix(M.VIEWS[state.view]);
   }
 
   function readHash() {
     var m = /view=([a-z_]+)/.exec(location.hash);
-    if (m && (M.VIEWS[m[1]] || m[1] === "tasks")) state.view = m[1];
+    if (m && (M.VIEWS[m[1]] || m[1] === "tasks" || m[1] === "benchmarks")) state.view = m[1];
     $("view-select").value = state.view;
   }
 
@@ -397,6 +429,10 @@
     $("stats").textContent = s.benchmarks + " benchmarks · " + s.by_verification.verified + " verified tasks · " +
       s.by_verification.inferred + " inferred · " + s.by_verification.illustrative + " illustrative";
 
+    var engines = new Set(); state.configs.forEach(function(c){c.cfg.engine.forEach(function(v){engines.add(v);});});
+    $("metrics").innerHTML = [[s.benchmarks, "Benchmarks in the catalogue", "CATALOGUE"], [s.tasks, "Annotated tasks", "EVIDENCE"], [engines.size, "Execution engines in tasks", "DATA STACK"], [s.configurations, "Technology configurations", "TASK LEVEL"]].map(function(m){return '<div class="metric"><div class="metric-value">'+m[0]+'</div><div class="metric-label">'+m[1]+'</div><span class="metric-note">'+m[2]+'</span></div>';}).join("");
+    $("hero-engines").innerHTML = ["Snowflake", "DuckDB", "BigQuery", "Pandas"].map(function(v){return I.icon(v);}).join("");
+    document.querySelectorAll("[data-view]").forEach(function(button){button.addEventListener("click", function(){location.hash="view="+button.dataset.view;});});
     readHash();
     window.addEventListener("hashchange", function () { readHash(); closePanel(); render(); });
     $("view-select").addEventListener("change", function (e) {

@@ -39,7 +39,8 @@ def make(tmp_path, tasks="", harbor=None, bench=BENCH):
 def test_repository_data_is_valid():
     cat = load_catalogue()
     assert cat.errors == []
-    assert len(cat.benchmarks) == 10
+    assert len(cat.benchmarks) == len(list((ROOT / "data" / "benchmarks").glob("*.toml")))
+    assert {"da-code", "datascibench", "infiagent-dabench", "scienceagentbench", "intercode-sql", "spider"} <= {b["id"] for b in cat.benchmarks}
     assert all(t["verification"] != "illustrative" for t in cat.tasks if t["verification"] == "verified")
 
 

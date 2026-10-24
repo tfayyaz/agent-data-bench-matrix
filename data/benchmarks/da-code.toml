@@ -1,0 +1,19 @@
+id = "da-code"
+name = "DA-Code"
+description = "Agent data science code generation benchmark with sandboxed execution and file-based workflows."
+created = ""
+created_source = ""
+updated = ""
+updated_source = ""
+repo_url = "https://github.com/yiyihum/da-code"
+paper_url = "https://arxiv.org/abs/2410.07331"
+website_url = ""
+dataset_url = ""
+last_verified = ""
+notes = "Upstream README reviewed on 2026-10-23. Benchmark-level entry only; representative task annotations and pinned task evidence have not yet been added. Dates are left unknown rather than estimated."
+
+[support]
+engine = []
+language = ["Python"]
+evidence_url = "https://github.com/yiyihum/da-code/blob/main/README.md"
+notes = "Support is based on the upstream README, not verified task-level usage."
